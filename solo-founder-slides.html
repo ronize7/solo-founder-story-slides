@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solo Founder Playbook in the AI Era — Ron Z</title>
+
+    <!-- === FONTS === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- === REVEAL.JS CORE CSS === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+
+    <style>
+        /* =====================================================
+           CSS CUSTOM PROPERTIES
+           ===================================================== */
+        :root {
+            --bg:            #07070d;
+            --bg-2:          #0d0d16;
+            --bg-card:       #11111c;
+            --text:          #e6e3f4;
+            --text-muted:    #56536e;
+            --accent:        #6872f5;
+            --accent-glow:   rgba(104, 114, 245, 0.12);
+            --accent-border: rgba(104, 114, 245, 0.28);
+            --teal:          #2dd4bf;
+            --teal-glow:     rgba(45, 212, 191, 0.1);
+            --teal-border:   rgba(45, 212, 191, 0.28);
+            --border:        rgba(255, 255, 255, 0.055);
+
+            --font-display: 'Syne', sans-serif;
+            --font-body:    'Figtree', sans-serif;
+            --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+
+            --title-size:    clamp(1.8rem, 5.5vw, 4.5rem);
+            --h2-size:       clamp(1.25rem, 3.2vw, 2.4rem);
+            --body-size:     clamp(0.78rem, 1.4vw, 1.1rem);
+            --small-size:    clamp(0.62rem, 0.95vw, 0.82rem);
+            --slide-padding: clamp(1.25rem, 4vw, 4.5rem);
+            --content-gap:   clamp(0.6rem, 2vw, 2rem);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* =====================================================
+           REVEAL.JS OVERRIDES
+           ===================================================== */
+        html, body { height: 100%; background: var(--bg); }
+
+        .reveal {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+        }
+        .reveal h1, .reveal h2, .reveal h3,
+        .reveal h4, .reveal h5, .reveal h6 {
+            text-transform: none;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            line-height: inherit;
+            color: inherit;
+            margin: 0;
+        }
+        .reveal .slides { text-align: left; }
+        .reveal .slides section {
+            padding: 0;
+            height: 100vh;
+            height: 100dvh;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: var(--bg);
+            text-align: left;
+            top: 0 !important;
+        }
+        .reveal .slides section.present,
+        .reveal .slides section.past,
+        .reveal .slides section.future {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        /* =====================================================
+           SLIDE CHROME
+           ===================================================== */
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(0.75rem, 1.5vw, 1.2rem) var(--slide-padding);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .slide-num  { font-size: var(--small-size); color: var(--text-muted); letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
+        .slide-tag  { font-size: var(--small-size); color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
+
+        .slide-footer {
+            padding: clamp(0.5rem, 1.2vw, 0.9rem) var(--slide-padding);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .slide-footer span { font-size: var(--small-size); color: var(--text-muted); }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding: var(--slide-padding);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =====================================================
+           TYPOGRAPHY
+           ===================================================== */
+        h1 {
+            font-family: var(--font-display);
+            font-size: var(--title-size);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+        }
+        .slide-title {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 600;
+            line-height: 1.14;
+            letter-spacing: -0.01em;
+            margin-bottom: clamp(0.6rem, 1.5vw, 1.4rem);
+        }
+        .slide-title::after {
+            content: '';
+            display: block;
+            width: 1.8rem;
+            height: 2px;
+            background: var(--accent);
+            margin-top: 0.5em;
+            border-radius: 1px;
+            opacity: 0.8;
+        }
+        .slide-title.center { text-align: center; }
+        .slide-title.center::after { margin: 0.5em auto 0; }
+
+        .accent { color: var(--accent); }
+        .teal   { color: var(--teal); }
+
+        p.lead {
+            font-size: clamp(0.88rem, 1.7vw, 1.2rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap:   clamp(0.4rem, 1.5vw, 1rem);
+                --title-size:    clamp(1.25rem, 4.5vw, 2.5rem);
+                --h2-size:       clamp(1rem, 3vw, 1.75rem);
+            }
+        }
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap:   clamp(0.3rem, 1vw, 0.75rem);
+                --body-size:     clamp(0.7rem, 1.2vw, 0.95rem);
+            }
+        }
+        @media (max-width: 600px) {
+            :root { --title-size: clamp(1.4rem, 7vw, 2.5rem); }
+            .split-columns, .two-col { grid-template-columns: 1fr !important; }
+            .stack-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+        }
+
+        /* =====================================================
+           ANIMATIONS (.anim triggered by section.visible)
+           ===================================================== */
+        .anim {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
+        }
+        section.visible .anim { opacity: 1; transform: translateY(0); }
+        section.visible .anim:nth-child(1) { transition-delay: 0.05s; }
+        section.visible .anim:nth-child(2) { transition-delay: 0.15s; }
+        section.visible .anim:nth-child(3) { transition-delay: 0.25s; }
+        section.visible .anim:nth-child(4) { transition-delay: 0.35s; }
+        section.visible .anim:nth-child(5) { transition-delay: 0.45s; }
+        section.visible .anim:nth-child(6) { transition-delay: 0.55s; }
+        section.visible .anim:nth-child(7) { transition-delay: 0.65s; }
+
+        /* =====================================================
+           TITLE SLIDE
+           ===================================================== */
+        .title-slide .slide-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: var(--content-gap);
+        }
+        .title-slide h1 { max-width: min(90vw, 900px); }
+
+        .accent-tag {
+            display: inline-block;
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+            font-size: var(--small-size);
+            padding: 0.3em 0.9em;
+            border-radius: 4px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .subtitle { font-size: clamp(0.95rem, 2vw, 1.45rem); color: var(--text-muted); font-weight: 300; }
+
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+        .orb-warm { width: 40vw; height: 40vw; background: rgba(104,114,245,0.07); top: -10%; right: -8%; }
+        .orb-cool { width: 30vw; height: 30vw; background: rgba(45,212,191,0.05); bottom: 3%; left: 2%; }
+
+        /* =====================================================
+           BULLETS
+           ===================================================== */
+        .bullets { list-style: none; display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.9rem); }
+        .bullets li { font-size: var(--body-size); color: var(--text); display: flex; align-items: flex-start; gap: 0.55em; line-height: 1.5; }
+        .bullets li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: 0.05em; }
+        .bullets li.no-arrow::before { display: none; }
+
+        /* =====================================================
+           HIGHLIGHT BOX
+           ===================================================== */
+        .highlight-box {
+            border-left: 2px solid var(--accent);
+            padding: clamp(0.5rem, 1.2vw, 0.9rem) clamp(0.75rem, 1.8vw, 1.4rem);
+            font-family: var(--font-display);
+            font-size: clamp(0.95rem, 2vw, 1.45rem);
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.35;
+        }
+        .highlight-box.teal { border-color: var(--teal); color: var(--teal); }
+
+        /* =====================================================
+           ABOUT ME — VERTICAL TIMELINE
+           ===================================================== */
+        .v-timeline { display: flex; flex-direction: column; gap: 0; }
+        .v-tl-item { display: flex; gap: clamp(0.75rem, 1.5vw, 1.25rem); align-items: stretch; }
+        .v-tl-track { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: clamp(10px, 1.2vw, 14px); }
+        .v-tl-dot {
+            width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px);
+            border-radius: 50%; background: var(--bg-card);
+            border: 2px solid var(--accent); flex-shrink: 0; z-index: 1;
+            margin-top: clamp(0.22rem, 0.45vw, 0.38rem);
+        }
+        .v-tl-dot.final { background: var(--teal); border-color: var(--teal); }
+        .v-tl-line { flex: 1; width: 1px; background: linear-gradient(180deg, rgba(104,114,245,0.35), rgba(104,114,245,0.06)); margin: 3px 0; }
+        .v-tl-item:last-child .v-tl-line { display: none; }
+        .v-tl-body { display: flex; align-items: center; gap: 0.55em; font-size: var(--body-size); color: var(--text); padding: clamp(0.05rem,0.2vw,0.15rem) 0 clamp(0.55rem,1.1vw,0.9rem); line-height: 1.4; }
+        .v-tl-item:last-child .v-tl-body { padding-bottom: 0; color: var(--teal); font-weight: 500; }
+
+        /* =====================================================
+           BEFORE / AFTER TWO-COLUMN
+           ===================================================== */
+        .split-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 2rem); }
+        .split-col { padding: clamp(0.7rem, 1.8vw, 1.4rem); border-radius: 6px; border: 1px solid var(--border); }
+        .split-col.before { background: transparent; }
+        .split-col.after  { background: transparent; border-color: var(--teal-border); }
+        .split-col-label { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); margin-bottom: 0.7em; }
+        .split-col.after .split-col-label { color: var(--teal); }
+
+        /* =====================================================
+           HORIZONTAL TIMELINE (journey slide)
+           ===================================================== */
+        .timeline { display: flex; align-items: flex-start; gap: 0; overflow: hidden; }
+        .timeline-item { flex: 1; text-align: center; position: relative; padding: 0 clamp(0.2rem, 0.4vw, 0.5rem); }
+        .timeline-item:not(:last-child)::after {
+            content: '→'; position: absolute;
+            right: calc(-1 * clamp(0.5rem, 1vw, 0.8rem));
+            top: clamp(0.25rem, 0.5vw, 0.45rem);
+            color: var(--accent); font-size: clamp(0.65rem, 1.1vw, 0.95rem); opacity: 0.7;
+        }
+        .timeline-dot { width: clamp(7px, 1.3vw, 11px); height: clamp(7px, 1.3vw, 11px); border-radius: 50%; background: var(--accent); margin: 0 auto clamp(0.28rem, 0.6vw, 0.5rem); flex-shrink: 0; opacity: 0.85; }
+        .timeline-dot.teal-dot { background: var(--teal); }
+        .timeline-label { font-family: var(--font-display); font-size: clamp(0.6rem, 1.05vw, 0.85rem); font-weight: 700; color: var(--text); margin-bottom: 0.18em; line-height: 1.2; }
+        .timeline-sub { font-size: clamp(0.55rem, 0.9vw, 0.75rem); color: var(--text-muted); line-height: 1.3; }
+
+        /* =====================================================
+           TOOL STACK GRID
+           ===================================================== */
+        .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
+        .stack-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: clamp(0.6rem, 1.4vw, 1.2rem); transition: border-color 0.25s ease; }
+        .stack-card:hover { border-color: var(--accent-border); }
+        .stack-cat { font-size: var(--small-size); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.35em; }
+        .stack-tool { font-family: var(--font-display); font-size: clamp(0.9rem, 1.7vw, 1.35rem); font-weight: 700; color: var(--accent); }
+        @media (max-width: 600px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* =====================================================
+           TERMINAL BLOCK
+           ===================================================== */
+        .terminal { background: #0d1117; border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: clamp(0.7rem, 1.4vw, 1.2rem) clamp(0.9rem, 1.8vw, 1.5rem); font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: clamp(0.65rem, 1.1vw, 0.9rem); line-height: 1.7; }
+        .term-bar { display: flex; gap: 6px; margin-bottom: 0.7em; padding-bottom: 0.7em; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .term-btn { width: 10px; height: 10px; border-radius: 50%; }
+        .term-btn:nth-child(1) { background: #ff5f57; }
+        .term-btn:nth-child(2) { background: #febc2e; }
+        .term-btn:nth-child(3) { background: #28c840; }
+        .term-prompt  { color: var(--teal); }
+        .term-cmd     { color: #e6e3f4; }
+        .term-comment { color: #4d5566; }
+        .term-out     { color: var(--teal); }
+
+        /* =====================================================
+           UTILITIES
+           ===================================================== */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.2rem, 2.5vw, 2.5rem); align-items: start; }
+        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+        .mt-1 { margin-top: clamp(0.4rem, 0.8vw, 0.65rem); }
+        .mt-2 { margin-top: clamp(0.65rem, 1.4vw, 1.15rem); }
+        .mt-3 { margin-top: clamp(1rem, 2vw, 1.75rem); }
+
+        .vision-quote { border-left: 2px solid var(--teal); padding: clamp(0.4rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem); font-family: var(--font-display); font-size: clamp(0.9rem, 1.7vw, 1.25rem); font-weight: 600; color: var(--teal); opacity: 0.9; }
+        .closing-hero { font-family: var(--font-display); font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; }
+
+        /* =====================================================
+           REVEAL.JS UI OVERRIDES
+           ===================================================== */
+        .reveal .progress { color: var(--accent); height: 2px; }
+        .reveal .controls { color: var(--accent); }
+        .reveal .controls button { opacity: 0.4; }
+        .reveal .controls button.enabled { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ══════════════════════════════════
+         01 / 13 — TITLE
+         ══════════════════════════════════ -->
+    <section class="title-slide">
+        <div class="orb orb-warm"></div>
+        <div class="orb orb-cool"></div>
+        <div class="slide-header" style="position:relative;z-index:1;">
+            <span class="slide-num">01 / 13</span>
+            <span class="slide-tag">AI Israel Club</span>
+        </div>
+        <div class="slide-content" style="position:relative;z-index:1;">
+            <span class="accent-tag anim">Solo Founder Series</span>
+            <h1 class="anim" style="margin-top:clamp(0.5rem,1.5vw,1rem);">
+                The Solo Founder<br><span class="accent">Playbook</span> in the AI Era
+            </h1>
+            <p class="subtitle anim">Lessons from building dopamine.chat</p>
+            <p class="anim" style="font-size:var(--small-size);color:var(--text-muted);margin-top:clamp(1rem,2vw,2rem);">
+                Ron Z &nbsp;·&nbsp; AI Israel Club
+            </p>
+        </div>
+        <div class="slide-footer" style="position:relative;z-index:1;">
+            <span>Ron Z</span><span>AI Israel Club</span>
+        </div>
+        <aside class="notes">
+            Open with:
+
+            "Five years ago building a startup alone was rare.
+            Today one founder with AI can build what used to require an entire team."
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         02 / 13 — ABOUT ME
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">02 / 13</span>
+            <span class="slide-tag">Background</span>
+        </div>
+        <div class="slide-content">
+            <h2 class="slide-title anim">About Me</h2>
+            <div class="v-timeline mt-2" style="width:min(480px,90%);margin-left:auto;margin-right:auto">
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">🎓 Psagot Program Alumni</div>
+                </div>
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">🏛️ Technion Alumni</div>
+                </div>
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">🎖️ Unit 81</div>
+                </div>
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">🏢 Microsoft Engineer</div>
+                </div>
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">📈 VP R&amp;D at a Startup</div>
+                </div>
+                <div class="v-tl-item anim">
+                    <div class="v-tl-track"><div class="v-tl-dot final"></div><div class="v-tl-line"></div></div>
+                    <div class="v-tl-body">🚀 Founder of dopamine.chat</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Keep this quick (~45 seconds).
+            Purpose: establish credibility.
+
+            Each item is a step in the journey — academia → military → industry → founder.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         03 / 13 — MY FOUNDER JOURNEY
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">03 / 13</span>
+            <span class="slide-tag">My Story</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">My Founder Journey</h2>
+            <div class="timeline anim mt-1">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">💥 Startup shut down</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">🏖️ Honeymoon reset</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">⚡ Back to building</div>
+                    <div class="timeline-sub">AI agents, workflows, frameworks</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-label">🔍 Realized the gap</div>
+                    <div class="timeline-sub">Red ocean for tech tools, zero non-tech adoption</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot teal-dot"></div>
+                    <div class="timeline-label" style="color:var(--teal);">🚀 dopamine.chat</div>
+                    <div class="timeline-sub">Text → agent platform</div>
+                </div>
+            </div>
+            <div class="vision-quote anim mt-2">"Base44 for agents"</div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Failure → experimentation → insight → product.
+
+            The most valuable lessons came from the setback, not the successes.
+            The honeymoon was a deliberate reset — coming back with a fresh perspective is underrated.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         04 / 13 — THE PROBLEM I SAW
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">04 / 13</span>
+            <span class="slide-tag">The Problem</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">The Problem I Saw</h2>
+            <div class="two-col anim mt-1">
+                <div>
+                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">😤 Most AI tools today:</p>
+                    <ul class="bullets">
+                        <li>Built for developers</li>
+                        <li>Complex setup</li>
+                        <li>Heavy frameworks</li>
+                        <li>Long ramp-up</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">✨ But most people want:</p>
+                    <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
+                        Describe what you want<br>→ get an agent
+                    </div>
+                </div>
+            </div>
+            <p class="lead anim mt-2">
+                This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span>.
+            </p>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            The market insight: most AI tools are built for developers, but most potential users aren't developers.
+            This gap — between what exists and what people actually need — became the product opportunity.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         05 / 13 — WHY THE SOLO FOUNDER IS BACK
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">05 / 13</span>
+            <span class="slide-tag">Context</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">Why the Solo Founder is Back</h2>
+            <div class="split-columns anim">
+                <div class="split-col before">
+                    <div class="split-col-label">⏮ Before AI</div>
+                    <ul class="bullets">
+                        <li>Needed a team early</li>
+                        <li>Expensive engineering</li>
+                        <li>Slow iteration</li>
+                    </ul>
+                </div>
+                <div class="split-col after">
+                    <div class="split-col-label">✨ Now</div>
+                    <ul class="bullets">
+                        <li>AI writes large portions of code</li>
+                        <li>Cheap infrastructure</li>
+                        <li>Automation replaces early hires</li>
+                        <li>Global distribution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box anim mt-2">
+                1 person can now build what used to require 5–10 people.
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            The key insight: AI has fundamentally changed the economics of starting a company alone.
+            The cost of building has collapsed. Speed has become the only moat.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         06 / 13 — THE SOLO FOUNDER PLAYBOOK
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">06 / 13</span>
+            <span class="slide-tag">The Playbook</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">The Solo Founder Playbook</h2>
+            <ul class="bullets mt-1">
+                <li class="no-arrow anim">🚢 Ship early - If you proud at your product its too late</li>
+                <li class="no-arrow anim">💬 Talk to users early - Build community</li>
+                <li class="no-arrow anim">⚡ Founder led growth - direct engagement to drive business</li>
+                <li class="no-arrow anim">📡 Think about distribution from day one - Organic (linkedin, twitter, reddit, producthunt), Non organic - paid adds</li>
+                <li class="no-arrow anim">💰 Fundraising - more VCs are looking into solo founers play (For example - StageZero) </li>
+            </ul>
+            <div class="highlight-box anim mt-3">Speed beats planning.</div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            These are principles distilled from real experience — not theory.
+            Each one is something I learned the hard way.
+
+            Shipping constantly keeps you from over-engineering.
+            Talking to users early prevents building the wrong thing.
+            Speed is the only sustainable advantage a solo founder has over a funded team.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         07 / 13 — HOW DOES IT FEEL
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">07 / 13</span>
+            <span class="slide-tag">The Reality</span>
+        </div>
+        <div class="slide-content" style="justify-content:center;align-items:center;gap:var(--content-gap);padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
+            <h2 class="slide-title anim" style="text-align:center;">How does it feel to be a solo founder?</h2>
+            <div class="anim" style="display:flex;justify-content:center;flex:1;min-height:0;padding:clamp(0.5rem,1.5vw,1.5rem) 0;">
+                <img
+                    src="public/Solo-founder-mode.png"
+                    alt="The Solo Shepherd: Startup Edition — a cartoon of a solo founder juggling product, users, cloud, and more"
+                    style="max-height:min(62vh,520px);max-width:min(70vw,680px);width:auto;height:auto;object-fit:contain;border-radius:12px;"
+                >
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Let this land with humour.
+
+            Being a solo founder means you are the shepherd of every part of the startup —
+            product, users, growth, finance, infrastructure.
+
+            If one sheep wanders off, the whole system slows down.
+            You are constantly guiding all of it at once.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         08 / 13 — DON'T BUILD ALONE
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">08 / 13</span>
+            <span class="slide-tag">Community</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">Don't Build Alone</h2>
+            <p class="lead anim">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone.</p>
+            <div class="mt-2 anim">
+                <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin-bottom:0.7em;">
+                    I founded: Solo Founders Hub
+                </p>
+                <ul class="bullets">
+                    <li class="no-arrow">🤝 Share experience</li>
+                    <li class="no-arrow">📚 Learn faster</li>
+                    <li class="no-arrow">🚫 Avoid mistakes</li>
+                    <li class="no-arrow">🔥 Stay motivated</li>
+                </ul>
+            </div>
+            <div class="highlight-box anim mt-3">Surround yourself with people in the same stage as you.</div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Solo founder doesn't mean isolated.
+
+            I started Solo Founders Hub specifically because I wanted to be around people building at the same stage.
+            Community accelerates growth — you learn faster, avoid mistakes others already made,
+            and stay motivated when things are hard.
+
+            Find your people.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         09 / 13 — WHAT I LEARNED
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">09 / 13</span>
+            <span class="slide-tag">Lessons</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">What I Learned</h2>
+            <ul class="bullets mt-1">
+                <li class="no-arrow anim">⚠️ Over-engineering is still the #1 mistake</li>
+                <li class="no-arrow anim">👥 Talk to users earlier than you think</li>
+                <li class="no-arrow anim">⚡ Speed beats strategy early on</li>
+                <li class="no-arrow anim">📡 Distribution is harder than building</li>
+                <li class="no-arrow anim">🤖 AI amplifies founders who move fast</li>
+            </ul>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            These are the lessons I wish someone had told me before I started.
+
+            Over-engineering is the silent killer — it feels productive but delays learning.
+            Users will tell you exactly what to build if you ask them early enough.
+            Speed compounds. Distribution is a strategy, not an afterthought.
+            AI doesn't replace the founder — it amplifies whoever moves fastest.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         10 / 13 — MY SOLO FOUNDER STACK
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">10 / 13</span>
+            <span class="slide-tag">The Stack</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">My Solo Founder Stack</h2>
+            <div class="stack-grid anim mt-2">
+                <div class="stack-card"><div class="stack-cat">🤖 AI Agents</div><div class="stack-tool">Agno</div></div>
+                <div class="stack-card"><div class="stack-cat">📊 Analytics</div><div class="stack-tool">PostHog</div></div>
+                <div class="stack-card"><div class="stack-cat">🔭 Observability</div><div class="stack-tool">Logfire</div></div>
+                <div class="stack-card"><div class="stack-cat">🗄️ Backend</div><div class="stack-tool">Supabase</div></div>
+                <div class="stack-card"><div class="stack-cat">☁️ Cloud</div><div class="stack-tool">AWS / GCP</div></div>
+                <div class="stack-card"><div class="stack-cat">🌐 Data</div><div class="stack-tool">BrightData</div></div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Each of these tools replaces an entire team role:
+
+            Agno → AI agent framework
+            PostHog → replaces a data analyst
+            Logfire → replaces a DevOps engineer
+            Supabase → replaces a backend team
+            AWS/GCP → cloud infrastructure
+            BrightData → replaces a data acquisition team
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         11 / 13 — EXAMPLE: AI BUILDING ANALYTICS
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">11 / 13</span>
+            <span class="slide-tag">Real Example</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">Example: AI Building Analytics</h2>
+            <div class="anim mt-1">
+                <p class="lead" style="margin-bottom:clamp(0.4rem,1vw,0.75rem);">
+                    Connected <span class="accent">PostHog MCP</span> to an agent. Prompt:
+                </p>
+                <div class="terminal">
+                    <div class="term-bar">
+                        <div class="term-btn"></div><div class="term-btn"></div><div class="term-btn"></div>
+                    </div>
+                    <div><span class="term-prompt">agent</span><span class="term-comment"> › </span><span class="term-cmd">"Create dashboards for product usage and retention."</span></div>
+                    <div class="term-comment" style="margin-top:0.4em;">// Calling PostHog MCP tool...</div>
+                    <div class="term-out" style="margin-top:0.4em;">✓ Dashboard: Daily Active Users created</div>
+                    <div class="term-out">✓ Dashboard: Retention Cohorts created</div>
+                    <div class="term-out">✓ Dashboard: Feature Funnel created</div>
+                    <div class="term-comment" style="margin-top:0.4em;">// Done in 47 seconds</div>
+                </div>
+            </div>
+            <div class="highlight-box anim mt-2">⚡ AI is not just coding — it's operational acceleration.</div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            This is a concrete example of AI accelerating operations — not just coding.
+
+            Connected PostHog's MCP server to an AI agent. Described what dashboards I needed.
+            Got them in under a minute. This normally takes hours of manual setup.
+
+            AI is becoming an operational layer, not just a code-writing tool.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         12 / 13 — RESOURCES MOST FOUNDERS FORGET
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">12 / 13</span>
+            <span class="slide-tag">Resources</span>
+        </div>
+        <div class="slide-content" style="gap:var(--content-gap);">
+            <h2 class="slide-title anim">Resources Most Founders Forget</h2>
+            <div class="two-col anim mt-2">
+                <div>
+                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">💳 Startup Credits</p>
+                    <ul class="bullets">
+                        <li class="no-arrow">☁️ AWS</li>
+                        <li class="no-arrow">🔵 Google Cloud</li>
+                        <li class="no-arrow">🍃 MongoDB</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">🌐 Data Platforms</p>
+                    <ul class="bullets">
+                        <li class="no-arrow">🕸️ BrightData</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box anim mt-3">
+                Your biggest constraint today isn't money.<br>It's <span class="accent">focus</span>.
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Many founders don't realize these programs exist or don't apply early enough.
+
+            AWS Activate, Google for Startups, MongoDB for Startups can give you $25k–$100k+ in credits.
+            BrightData has a startup program. Apply early — the money is there if you ask.
+
+            The real constraint is your attention, not money.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         13 / 13 — THE OPPORTUNITY (CLOSING)
+         ══════════════════════════════════ -->
+    <section class="title-slide">
+        <div class="orb orb-cool" style="background:rgba(45,212,191,0.06);"></div>
+        <div class="orb orb-warm" style="background:rgba(104,114,245,0.07);bottom:0;left:auto;right:-4%;top:auto;"></div>
+        <div class="slide-header" style="position:relative;z-index:1;">
+            <span class="slide-num">13 / 13</span>
+            <span class="slide-tag">The Opportunity</span>
+        </div>
+        <div class="slide-content" style="position:relative;z-index:1;gap:var(--content-gap);">
+            <p class="lead anim" style="color:var(--text-muted);">We are entering a new startup era.</p>
+            <p class="anim" style="font-size:clamp(1rem,2.2vw,1.6rem);margin-top:clamp(0.3rem,0.8vw,0.6rem);">
+                AI gives solo founders <span class="accent">superpowers</span>.
+            </p>
+            <ul class="bullets anim mt-1" style="max-width:380px;">
+                <li>Smaller teams</li>
+                <li>Faster iteration</li>
+                <li>More experimentation</li>
+            </ul>
+            <div class="closing-hero anim mt-2">
+                Build fast.<br><span class="teal">Learn faster.</span>
+            </div>
+            <p class="anim mt-2" style="color:var(--accent);font-family:var(--font-display);font-size:clamp(0.9rem,1.5vw,1.2rem);font-weight:700;letter-spacing:0.02em;">
+                dopamine.chat
+            </p>
+        </div>
+        <div class="slide-footer" style="position:relative;z-index:1;">
+            <span>Ron Z</span><span>AI Israel Club</span>
+        </div>
+        <aside class="notes">
+            Thank the audience.
+
+            We are at the beginning of a new era. The tools exist. The infrastructure is cheap.
+            The only question is whether you'll use the opportunity.
+
+            Build fast. Learn faster.
+        </aside>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+
+<script>
+    Reveal.initialize({
+        hash: true,
+        history: true,
+        controls: true,
+        controlsTutorial: false,
+        progress: true,
+        slideNumber: false,
+        width: '100%',
+        height: '100%',
+        margin: 0,
+        minScale: 1,
+        maxScale: 1,
+        center: false,
+        transition: 'fade',
+        transitionSpeed: 'fast',
+        backgroundTransition: 'none',
+        keyboard: true,
+        touch: true,
+        plugins: [ RevealNotes ]
+    });
+
+    /* Trigger .anim entrance animations when a slide becomes active */
+    function markVisible(slide) { if (slide) slide.classList.add('visible'); }
+    Reveal.on('ready',        e => markVisible(e.currentSlide));
+    Reveal.on('slidechanged', e => markVisible(e.currentSlide));
+</script>
+</body>
+</html>
