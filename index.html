@@ -5,38 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Solo Founder Playbook in the AI Era — Ron Z</title>
 
-    <!-- === FONTS === -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- === REVEAL.JS CORE CSS === -->
+    <!-- === REVEAL.JS CORE CSS + MOON THEME === -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/simple.css">
 
     <style>
         /* =====================================================
-           CSS CUSTOM PROPERTIES
+           SPACING & SIZING VARIABLES (theme handles colors/fonts)
            ===================================================== */
         :root {
-            --bg:            #07070d;
-            --bg-2:          #0d0d16;
-            --bg-card:       #11111c;
-            --text:          #e6e3f4;
-            --text-muted:    #56536e;
-            --accent:        #6872f5;
-            --accent-glow:   rgba(104, 114, 245, 0.12);
-            --accent-border: rgba(104, 114, 245, 0.28);
-            --teal:          #2dd4bf;
-            --teal-glow:     rgba(45, 212, 191, 0.1);
-            --teal-border:   rgba(45, 212, 191, 0.28);
-            --border:        rgba(255, 255, 255, 0.055);
+            --accent:        #42affa;   /* Moon theme blue  */
+            --teal:          #2aa198;   /* complementary teal */
+            --border:        rgba(255, 255, 255, 0.12);
+            --ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);
 
-            --font-display: 'Syne', sans-serif;
-            --font-body:    'Figtree', sans-serif;
-            --ease-expo:    cubic-bezier(0.16, 1, 0.3, 1);
-
-            --title-size:    clamp(1.8rem, 5.5vw, 4.5rem);
-            --h2-size:       clamp(1.25rem, 3.2vw, 2.4rem);
+            --title-size:    clamp(1.98rem, 6.075vw, 4.95rem);
+            --h2-size:       clamp(1.37rem, 3.53vw, 2.66rem);
             --body-size:     clamp(0.78rem, 1.4vw, 1.1rem);
             --small-size:    clamp(0.62rem, 0.95vw, 0.82rem);
             --slide-padding: clamp(1.25rem, 4vw, 4.5rem);
@@ -46,24 +30,11 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         /* =====================================================
-           REVEAL.JS OVERRIDES
+           REVEAL.JS STRUCTURAL OVERRIDES
            ===================================================== */
-        html, body { height: 100%; background: var(--bg); }
-
-        .reveal {
-            font-family: var(--font-body);
-            color: var(--text);
-            background: var(--bg);
-        }
         .reveal h1, .reveal h2, .reveal h3,
-        .reveal h4, .reveal h5, .reveal h6 {
-            text-transform: none;
-            font-weight: inherit;
-            letter-spacing: inherit;
-            line-height: inherit;
-            color: inherit;
-            margin: 0;
-        }
+        .reveal h4, .reveal h5, .reveal h6 { text-transform: none; margin: 0; }
+
         .reveal .slides { text-align: left; }
         .reveal .slides section {
             padding: 0;
@@ -71,7 +42,6 @@
             height: 100dvh;
             box-sizing: border-box;
             overflow: hidden;
-            background: var(--bg);
             text-align: left;
             top: 0 !important;
         }
@@ -95,7 +65,7 @@
             position: relative;
             z-index: 1;
         }
-        .slide-num  { font-size: var(--small-size); color: var(--text-muted); letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
+        .slide-num  { font-size: var(--small-size); opacity: 0.45; letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
         .slide-tag  { font-size: var(--small-size); color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
 
         .slide-footer {
@@ -108,7 +78,7 @@
             position: relative;
             z-index: 1;
         }
-        .slide-footer span { font-size: var(--small-size); color: var(--text-muted); }
+        .slide-footer span { font-size: var(--small-size); opacity: 0.45; }
 
         .slide-content {
             flex: 1;
@@ -124,16 +94,10 @@
         /* =====================================================
            TYPOGRAPHY
            ===================================================== */
-        h1 {
-            font-family: var(--font-display);
-            font-size: var(--title-size);
-            font-weight: 700;
-            line-height: 1.06;
-            letter-spacing: -0.02em;
-        }
-        .slide-title {
-            font-family: var(--font-display);
-            font-size: var(--h2-size);
+        .reveal h1 { font-size: var(--title-size) !important; font-weight: 700; line-height: 1.06; letter-spacing: -0.02em; }
+
+        .reveal .slide-title {
+            font-size: var(--h2-size) !important;
             font-weight: 600;
             line-height: 1.14;
             letter-spacing: -0.01em;
@@ -147,52 +111,24 @@
             background: var(--accent);
             margin-top: 0.5em;
             border-radius: 1px;
-            opacity: 0.8;
+            opacity: 0.7;
         }
         .slide-title.center { text-align: center; }
         .slide-title.center::after { margin: 0.5em auto 0; }
 
         .accent { color: var(--accent); }
         .teal   { color: var(--teal); }
+        p.lead  { font-size: clamp(0.88rem, 1.7vw, 1.2rem); opacity: 0.7; line-height: 1.6; }
 
-        p.lead {
-            font-size: clamp(0.88rem, 1.7vw, 1.2rem);
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        @media (max-height: 700px) {
-            :root {
-                --slide-padding: clamp(0.75rem, 3vw, 2rem);
-                --content-gap:   clamp(0.4rem, 1.5vw, 1rem);
-                --title-size:    clamp(1.25rem, 4.5vw, 2.5rem);
-                --h2-size:       clamp(1rem, 3vw, 1.75rem);
-            }
-        }
-        @media (max-height: 600px) {
-            :root {
-                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
-                --content-gap:   clamp(0.3rem, 1vw, 0.75rem);
-                --body-size:     clamp(0.7rem, 1.2vw, 0.95rem);
-            }
-        }
-        @media (max-width: 600px) {
-            :root { --title-size: clamp(1.4rem, 7vw, 2.5rem); }
-            .split-columns, .two-col { grid-template-columns: 1fr !important; }
-            .stack-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
-        }
+        @media (max-height: 700px) { :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem); --title-size: clamp(1.37rem, 4.95vw, 2.75rem); --h2-size: clamp(1.1rem, 3.31vw, 1.94rem); } }
+        @media (max-height: 600px) { :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); } }
+        @media (max-width: 600px)  { :root { --title-size: clamp(1.55rem, 7.72vw, 2.75rem); } .split-columns, .two-col { grid-template-columns: 1fr !important; } .stack-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
 
         /* =====================================================
-           ANIMATIONS (.anim triggered by section.visible)
+           ANIMATIONS
            ===================================================== */
-        .anim {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo);
-        }
+        .anim { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo); }
         section.visible .anim { opacity: 1; transform: translateY(0); }
         section.visible .anim:nth-child(1) { transition-delay: 0.05s; }
         section.visible .anim:nth-child(2) { transition-delay: 0.15s; }
@@ -205,119 +141,83 @@
         /* =====================================================
            TITLE SLIDE
            ===================================================== */
-        .title-slide .slide-content {
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            gap: var(--content-gap);
-        }
+        .title-slide .slide-content { justify-content: center; align-items: center; text-align: center; gap: var(--content-gap); }
         .title-slide h1 { max-width: min(90vw, 900px); }
-
-        .accent-tag {
-            display: inline-block;
-            border: 1px solid var(--accent-border);
-            color: var(--accent);
-            font-size: var(--small-size);
-            padding: 0.3em 0.9em;
-            border-radius: 4px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-        .subtitle { font-size: clamp(0.95rem, 2vw, 1.45rem); color: var(--text-muted); font-weight: 300; }
-
+        .accent-tag { display: inline-block; border: 1px solid rgba(66,175,250,0.4); color: var(--accent); font-size: var(--small-size); padding: 0.3em 0.9em; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+        .subtitle { font-size: clamp(0.95rem, 2vw, 1.45rem); opacity: 0.6; font-weight: 300; }
         .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
-        .orb-warm { width: 40vw; height: 40vw; background: rgba(104,114,245,0.07); top: -10%; right: -8%; }
-        .orb-cool { width: 30vw; height: 30vw; background: rgba(45,212,191,0.05); bottom: 3%; left: 2%; }
+        .orb-warm { width: 40vw; height: 40vw; background: rgba(66,175,250,0.06); top: -10%; right: -8%; }
+        .orb-cool { width: 30vw; height: 30vw; background: rgba(42,161,152,0.05); bottom: 3%; left: 2%; }
 
         /* =====================================================
            BULLETS
            ===================================================== */
         .bullets { list-style: none; display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.9rem); }
-        .bullets li { font-size: var(--body-size); color: var(--text); display: flex; align-items: flex-start; gap: 0.55em; line-height: 1.5; }
+        .bullets li { font-size: var(--body-size); display: flex; align-items: flex-start; gap: 0.55em; line-height: 1.5; }
         .bullets li::before { content: '▸'; color: var(--accent); flex-shrink: 0; margin-top: 0.05em; }
         .bullets li.no-arrow::before { display: none; }
 
         /* =====================================================
            HIGHLIGHT BOX
            ===================================================== */
-        .highlight-box {
-            border-left: 2px solid var(--accent);
-            padding: clamp(0.5rem, 1.2vw, 0.9rem) clamp(0.75rem, 1.8vw, 1.4rem);
-            font-family: var(--font-display);
-            font-size: clamp(0.95rem, 2vw, 1.45rem);
-            font-weight: 600;
-            color: var(--text);
-            line-height: 1.35;
-        }
+        .highlight-box { border-left: 2px solid var(--accent); padding: clamp(0.5rem, 1.2vw, 0.9rem) clamp(0.75rem, 1.8vw, 1.4rem); font-size: clamp(0.95rem, 2vw, 1.45rem); font-weight: 600; line-height: 1.35; }
         .highlight-box.teal { border-color: var(--teal); color: var(--teal); }
 
         /* =====================================================
-           ABOUT ME — VERTICAL TIMELINE
+           VERTICAL TIMELINE
            ===================================================== */
         .v-timeline { display: flex; flex-direction: column; gap: 0; }
         .v-tl-item { display: flex; gap: clamp(0.75rem, 1.5vw, 1.25rem); align-items: stretch; }
         .v-tl-track { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: clamp(10px, 1.2vw, 14px); }
-        .v-tl-dot {
-            width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px);
-            border-radius: 50%; background: var(--bg-card);
-            border: 2px solid var(--accent); flex-shrink: 0; z-index: 1;
-            margin-top: clamp(0.22rem, 0.45vw, 0.38rem);
-        }
+        .v-tl-dot { width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px); border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; z-index: 1; margin-top: clamp(0.22rem, 0.45vw, 0.38rem); }
         .v-tl-dot.final { background: var(--teal); border-color: var(--teal); }
-        .v-tl-line { flex: 1; width: 1px; background: linear-gradient(180deg, rgba(104,114,245,0.35), rgba(104,114,245,0.06)); margin: 3px 0; }
+        .v-tl-line { flex: 1; width: 1px; background: rgba(255,255,255,0.15); margin: 3px 0; }
         .v-tl-item:last-child .v-tl-line { display: none; }
-        .v-tl-body { display: flex; align-items: center; gap: 0.55em; font-size: var(--body-size); color: var(--text); padding: clamp(0.05rem,0.2vw,0.15rem) 0 clamp(0.55rem,1.1vw,0.9rem); line-height: 1.4; }
+        .v-tl-body { display: flex; align-items: center; gap: 0.55em; font-size: var(--body-size); padding: clamp(0.05rem,0.2vw,0.15rem) 0 clamp(0.55rem,1.1vw,0.9rem); line-height: 1.4; }
         .v-tl-item:last-child .v-tl-body { padding-bottom: 0; color: var(--teal); font-weight: 500; }
 
         /* =====================================================
-           BEFORE / AFTER TWO-COLUMN
+           SPLIT COLUMNS
            ===================================================== */
         .split-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 2rem); }
         .split-col { padding: clamp(0.7rem, 1.8vw, 1.4rem); border-radius: 6px; border: 1px solid var(--border); }
-        .split-col.before { background: transparent; }
-        .split-col.after  { background: transparent; border-color: var(--teal-border); }
-        .split-col-label { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-muted); margin-bottom: 0.7em; }
-        .split-col.after .split-col-label { color: var(--teal); }
+        .split-col.after { border-color: rgba(42,161,152,0.4); }
+        .split-col-label { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.14em; opacity: 0.6; margin-bottom: 0.7em; }
+        .split-col.after .split-col-label { color: var(--teal); opacity: 1; }
 
         /* =====================================================
-           HORIZONTAL TIMELINE (journey slide)
+           HORIZONTAL TIMELINE
            ===================================================== */
         .timeline { display: flex; align-items: flex-start; gap: 0; overflow: hidden; }
         .timeline-item { flex: 1; text-align: center; position: relative; padding: 0 clamp(0.2rem, 0.4vw, 0.5rem); }
-        .timeline-item:not(:last-child)::after {
-            content: '→'; position: absolute;
-            right: calc(-1 * clamp(0.5rem, 1vw, 0.8rem));
-            top: clamp(0.25rem, 0.5vw, 0.45rem);
-            color: var(--accent); font-size: clamp(0.65rem, 1.1vw, 0.95rem); opacity: 0.7;
-        }
+        .timeline-item:not(:last-child)::after { content: '→'; position: absolute; right: calc(-1 * clamp(0.5rem, 1vw, 0.8rem)); top: clamp(0.25rem, 0.5vw, 0.45rem); color: var(--accent); font-size: clamp(0.65rem, 1.1vw, 0.95rem); opacity: 0.6; }
         .timeline-dot { width: clamp(7px, 1.3vw, 11px); height: clamp(7px, 1.3vw, 11px); border-radius: 50%; background: var(--accent); margin: 0 auto clamp(0.28rem, 0.6vw, 0.5rem); flex-shrink: 0; opacity: 0.85; }
         .timeline-dot.teal-dot { background: var(--teal); }
-        .timeline-label { font-family: var(--font-display); font-size: clamp(0.6rem, 1.05vw, 0.85rem); font-weight: 700; color: var(--text); margin-bottom: 0.18em; line-height: 1.2; }
-        .timeline-sub { font-size: clamp(0.55rem, 0.9vw, 0.75rem); color: var(--text-muted); line-height: 1.3; }
+        .timeline-label { font-size: clamp(0.6rem, 1.05vw, 0.85rem); font-weight: 700; margin-bottom: 0.18em; line-height: 1.2; }
+        .timeline-sub { font-size: clamp(0.55rem, 0.9vw, 0.75rem); opacity: 0.55; line-height: 1.3; }
 
         /* =====================================================
-           TOOL STACK GRID
+           STACK GRID
            ===================================================== */
         .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1rem); }
-        .stack-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: clamp(0.6rem, 1.4vw, 1.2rem); transition: border-color 0.25s ease; }
-        .stack-card:hover { border-color: var(--accent-border); }
-        .stack-cat { font-size: var(--small-size); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.35em; }
-        .stack-tool { font-family: var(--font-display); font-size: clamp(0.9rem, 1.7vw, 1.35rem); font-weight: 700; color: var(--accent); }
+        .stack-card { border: 1px solid var(--border); border-radius: 6px; padding: clamp(0.6rem, 1.4vw, 1.2rem); transition: border-color 0.25s ease; background: rgba(255,255,255,0.04); }
+        .stack-card:hover { border-color: rgba(66,175,250,0.4); }
+        .stack-cat { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.55; margin-bottom: 0.35em; }
+        .stack-tool { font-size: clamp(0.9rem, 1.7vw, 1.35rem); font-weight: 700; color: var(--accent); }
         @media (max-width: 600px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
 
         /* =====================================================
            TERMINAL BLOCK
            ===================================================== */
-        .terminal { background: #0d1117; border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: clamp(0.7rem, 1.4vw, 1.2rem) clamp(0.9rem, 1.8vw, 1.5rem); font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: clamp(0.65rem, 1.1vw, 0.9rem); line-height: 1.7; }
-        .term-bar { display: flex; gap: 6px; margin-bottom: 0.7em; padding-bottom: 0.7em; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .terminal { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: clamp(0.7rem, 1.4vw, 1.2rem) clamp(0.9rem, 1.8vw, 1.5rem); font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: clamp(0.65rem, 1.1vw, 0.9rem); line-height: 1.7; }
+        .term-bar { display: flex; gap: 6px; margin-bottom: 0.7em; padding-bottom: 0.7em; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .term-btn { width: 10px; height: 10px; border-radius: 50%; }
         .term-btn:nth-child(1) { background: #ff5f57; }
         .term-btn:nth-child(2) { background: #febc2e; }
         .term-btn:nth-child(3) { background: #28c840; }
         .term-prompt  { color: var(--teal); }
-        .term-cmd     { color: #e6e3f4; }
-        .term-comment { color: #4d5566; }
+        .term-cmd     { opacity: 1; }
+        .term-comment { opacity: 0.35; }
         .term-out     { color: var(--teal); }
 
         /* =====================================================
@@ -328,26 +228,17 @@
         .mt-1 { margin-top: clamp(0.4rem, 0.8vw, 0.65rem); }
         .mt-2 { margin-top: clamp(0.65rem, 1.4vw, 1.15rem); }
         .mt-3 { margin-top: clamp(1rem, 2vw, 1.75rem); }
-
-        .vision-quote { border-left: 2px solid var(--teal); padding: clamp(0.4rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem); font-family: var(--font-display); font-size: clamp(0.9rem, 1.7vw, 1.25rem); font-weight: 600; color: var(--teal); opacity: 0.9; }
-        .closing-hero { font-family: var(--font-display); font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; }
+        .vision-quote { border-left: 2px solid var(--teal); padding: clamp(0.4rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1.25rem); font-size: clamp(0.9rem, 1.7vw, 1.25rem); font-weight: 600; color: var(--teal); opacity: 0.9; }
+        .closing-hero { font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; }
 
         /* =====================================================
            PLAYBOOK LIST
            ===================================================== */
         .playbook-list { display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.85rem); }
-        .playbook-item { display: flex; align-items: baseline; gap: clamp(0.6rem, 1.2vw, 1rem); padding: clamp(0.4rem, 0.9vw, 0.75rem) clamp(0.6rem, 1.2vw, 1rem); border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); }
+        .playbook-item { display: flex; align-items: baseline; gap: clamp(0.6rem, 1.2vw, 1rem); padding: clamp(0.4rem, 0.9vw, 0.75rem) clamp(0.6rem, 1.2vw, 1rem); border-radius: 6px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); }
         .playbook-icon { font-size: clamp(0.9rem, 1.6vw, 1.2rem); flex-shrink: 0; }
-        .playbook-title { font-family: var(--font-display); font-size: clamp(0.8rem, 1.4vw, 1.05rem); font-weight: 600; color: var(--text); margin-right: 0.5em; }
-        .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); color: #9896b8; }
-
-        /* =====================================================
-           REVEAL.JS UI OVERRIDES
-           ===================================================== */
-        .reveal .progress { color: var(--accent); height: 2px; }
-        .reveal .controls { color: var(--accent); }
-        .reveal .controls button { opacity: 0.4; }
-        .reveal .controls button.enabled { opacity: 1; }
+        .playbook-title { font-size: clamp(0.8rem, 1.4vw, 1.05rem); font-weight: 600; margin-right: 0.5em; }
+        .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); opacity: 0.6; }
     </style>
 </head>
 <body>
