@@ -333,6 +333,15 @@
         .closing-hero { font-family: var(--font-display); font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; }
 
         /* =====================================================
+           PLAYBOOK LIST
+           ===================================================== */
+        .playbook-list { display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.85rem); }
+        .playbook-item { display: flex; align-items: baseline; gap: clamp(0.6rem, 1.2vw, 1rem); padding: clamp(0.4rem, 0.9vw, 0.75rem) clamp(0.6rem, 1.2vw, 1rem); border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); }
+        .playbook-icon { font-size: clamp(0.9rem, 1.6vw, 1.2rem); flex-shrink: 0; }
+        .playbook-title { font-family: var(--font-display); font-size: clamp(0.8rem, 1.4vw, 1.05rem); font-weight: 600; color: var(--text); margin-right: 0.5em; }
+        .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); color: #9896b8; }
+
+        /* =====================================================
            REVEAL.JS UI OVERRIDES
            ===================================================== */
         .reveal .progress { color: var(--accent); height: 2px; }
@@ -347,13 +356,13 @@
   <div class="slides">
 
     <!-- ══════════════════════════════════
-         01 / 14 — TITLE
+         01 / 13 — TITLE
          ══════════════════════════════════ -->
     <section class="title-slide">
         <div class="orb orb-warm"></div>
         <div class="orb orb-cool"></div>
         <div class="slide-header" style="position:relative;z-index:1;">
-            <span class="slide-num">01 / 14</span>
+            <span class="slide-num">01 / 13</span>
             <span class="slide-tag">AI Israel Club</span>
         </div>
         <div class="slide-content" style="position:relative;z-index:1;">
@@ -379,11 +388,11 @@
 
 
     <!-- ══════════════════════════════════
-         02 / 14 — ABOUT ME
+         02 / 13 — ABOUT ME
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">02 / 14</span>
+            <span class="slide-num">02 / 13</span>
             <span class="slide-tag">Background</span>
         </div>
         <div class="slide-content">
@@ -426,11 +435,11 @@
 
 
     <!-- ══════════════════════════════════
-         03 / 14 — MY FOUNDER JOURNEY
+         03 / 13 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">03 / 14</span>
+            <span class="slide-num">03 / 13</span>
             <span class="slide-tag">My Story</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
@@ -472,11 +481,11 @@
 
 
     <!-- ══════════════════════════════════
-         04 / 14 — THE PROBLEM I SAW
+         04 / 13 — THE PROBLEM I SAW
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">04 / 14</span>
+            <span class="slide-num">04 / 13</span>
             <span class="slide-tag">The Problem</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
@@ -499,9 +508,14 @@
                     </div>
                 </div>
             </div>
-            <p class="lead anim mt-2">
-                This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span>.
-            </p>
+            <div class="anim mt-2" style="display:flex;align-items:center;gap:clamp(0.6rem,1.2vw,1rem);">
+                <p class="lead">This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span>.</p>
+                <img
+                    src="public/dopamine-logo.png"
+                    alt="dopamine.chat logo"
+                    style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
+                >
+            </div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
         <aside class="notes">
@@ -512,11 +526,11 @@
 
 
     <!-- ══════════════════════════════════
-         05 / 14 — WHY THE SOLO FOUNDER IS BACK
+         05 / 13 — WHY THE SOLO FOUNDER IS BACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">05 / 14</span>
+            <span class="slide-num">05 / 13</span>
             <span class="slide-tag">Context</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
@@ -553,22 +567,46 @@
 
 
     <!-- ══════════════════════════════════
-         06 / 14 — THE SOLO FOUNDER PLAYBOOK
+         06 / 13 — THE SOLO FOUNDER PLAYBOOK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">06 / 14</span>
+            <span class="slide-num">06 / 13</span>
             <span class="slide-tag">The Playbook</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
             <h2 class="slide-title anim">The Solo Founder Playbook</h2>
-            <ul class="bullets mt-1">
-                <li class="no-arrow anim">🚢 Ship early - If you proud at your product its too late</li>
-                <li class="no-arrow anim">💬 Talk to users early - Build community</li>
-                <li class="no-arrow anim">⚡ Founder led growth - direct engagement to drive business</li>
-                <li class="no-arrow anim">📡 Think about distribution from day one - Organic (linkedin, twitter, reddit, producthunt), Non organic - paid adds</li>
-                <li class="no-arrow anim">💰 Fundraising - more VCs are looking into solo founers play (For example - StageZero) </li>
-            </ul>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+                <div class="playbook-list anim">
+                    <div class="playbook-item">
+                        <span class="playbook-icon">🚢</span>
+                        <div><span class="playbook-title">Ship early</span><span class="playbook-sub">If you're proud of it, you shipped too late</span></div>
+                    </div>
+                    <div class="playbook-item">
+                        <span class="playbook-icon">💬</span>
+                        <div><span class="playbook-title">Talk to users early</span><span class="playbook-sub">Build community, not just product</span></div>
+                    </div>
+                    <div class="playbook-item">
+                        <span class="playbook-icon">⚡</span>
+                        <div><span class="playbook-title">Founder-led growth</span><span class="playbook-sub">Direct engagement drives early business</span></div>
+                    </div>
+                    <div class="playbook-item">
+                        <span class="playbook-icon">📡</span>
+                        <div><span class="playbook-title">Distribution from day one</span><span class="playbook-sub">Organic: LinkedIn, Twitter, Reddit, ProductHunt &nbsp;·&nbsp; Paid: targeted ads</span></div>
+                    </div>
+                    <div class="playbook-item">
+                        <span class="playbook-icon">💰</span>
+                        <div><span class="playbook-title">Fundraising is an option</span><span class="playbook-sub">More VCs are investing in solo founders — e.g. StageZero</span></div>
+                    </div>
+                </div>
+                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                    <img
+                        src="public/founder-playbook.jpg"
+                        alt="The Solo Founder Playbook: In Action"
+                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                    >
+                </div>
+            </div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
         <aside class="notes">
@@ -583,11 +621,11 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 14 — HOW DOES IT FEEL
+         07 / 13 — HOW DOES IT FEEL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">07 / 14</span>
+            <span class="slide-num">07 / 13</span>
             <span class="slide-tag">The Reality</span>
         </div>
         <div class="slide-content" style="justify-content:center;align-items:center;gap:var(--content-gap);padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -614,24 +652,33 @@
 
 
     <!-- ══════════════════════════════════
-         08 / 14 — DON'T BUILD ALONE
+         08 / 13 — DON'T BUILD ALONE
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">08 / 14</span>
+            <span class="slide-num">08 / 13</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
             <h2 class="slide-title anim">The Main Pitfall of Solo Founding</h2>
-            <div class="mt-2 anim">
-                <ul class="bullets">
-                    <li class="no-arrow">🤝 No one to learn from</li>
-                    <li class="no-arrow">📚 No one to challenge you</li>
-                    <li class="no-arrow">🚫 No external feedbacks</li>
-                    <li class="no-arrow">🔥 No deadlines</li>
-                </ul>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+                <div class="anim" style="display:flex;flex-direction:column;gap:var(--content-gap);">
+                    <ul class="bullets">
+                        <li class="no-arrow">🤝 No one to learn from</li>
+                        <li class="no-arrow">📚 No one to challenge you</li>
+                        <li class="no-arrow">🚫 No external feedbacks</li>
+                        <li class="no-arrow">🔥 No deadlines</li>
+                    </ul>
+                    <div class="highlight-box">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone. Surround yourself with people in the same stage as you.</div>
+                </div>
+                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                    <img
+                        src="public/solo-founder-pitfalls.jpg"
+                        alt="The Solo Founder's Echo Chamber: The Pitfall of Isolation"
+                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                    >
+                </div>
             </div>
-            <div class="highlight-box anim mt-3">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone. Surround yourself with people in the same stage as you.</div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
         <aside class="notes">
@@ -647,11 +694,11 @@
 
 
     <!-- ══════════════════════════════════
-         09 / 14 — SOLO FOUNDERS HUB
+         09 / 13 — SOLO FOUNDERS HUB
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">09 / 14</span>
+            <span class="slide-num">09 / 13</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content" style="justify-content:center;align-items:center;gap:var(--content-gap);padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -677,22 +724,31 @@
 
 
     <!-- ══════════════════════════════════
-         10 / 14 — WHAT I LEARNED
+         10 / 13 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">10 / 14</span>
+            <span class="slide-num">10 / 13</span>
             <span class="slide-tag">Lessons</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
             <h2 class="slide-title anim">What I Learned</h2>
-            <ul class="bullets mt-1">
-                <li class="no-arrow anim">⚠️ Over-engineering is still the #1 mistake</li>
-                <li class="no-arrow anim">👥 Talk to users earlier than you think</li>
-                <li class="no-arrow anim">⚡ Speed beats strategy early on</li>
-                <li class="no-arrow anim">📡 Distribution is harder than building</li>
-                <li class="no-arrow anim">🤖 Better to solve the specific pain than a generic one (unlike base44)</li>
-            </ul>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+                <ul class="bullets mt-1 anim">
+                    <li class="no-arrow anim">⚠️ Over-engineering is still the #1 mistake</li>
+                    <li class="no-arrow anim">👥 Talk to users earlier than you think</li>
+                    <li class="no-arrow anim">⚡ Speed beats strategy early on</li>
+                    <li class="no-arrow anim">📡 Distribution is harder than building</li>
+                    <li class="no-arrow anim">🤖 Better to solve the specific pain than a generic one (unlike base44)</li>
+                </ul>
+                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                    <img
+                        src="public/shepherd-lessons.jpg"
+                        alt="Inspired: A Shepherd's New Path — lessons from solo founding"
+                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                    >
+                </div>
+            </div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
         <aside class="notes">
@@ -707,11 +763,11 @@
 
 
     <!-- ══════════════════════════════════
-         11 / 14 — MY SOLO FOUNDER STACK
+         11 / 13 — MY SOLO FOUNDER STACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">11 / 14</span>
+            <span class="slide-num">11 / 13</span>
             <span class="slide-tag">The Stack</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
@@ -740,11 +796,11 @@
 
 
     <!-- ══════════════════════════════════
-         12 / 14 — EXAMPLE: AI BUILDING ANALYTICS
+         12 / 13 — EXAMPLE: AI BUILDING ANALYTICS
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">12 / 14</span>
+            <span class="slide-num">12 / 13</span>
             <span class="slide-tag">Real Example</span>
         </div>
         <div class="slide-content" style="gap:var(--content-gap);">
@@ -789,71 +845,25 @@
 
 
     <!-- ══════════════════════════════════
-         13 / 14 — RESOURCES MOST FOUNDERS FORGET
-         ══════════════════════════════════ -->
-    <section>
-        <div class="slide-header">
-            <span class="slide-num">13 / 14</span>
-            <span class="slide-tag">Resources</span>
-        </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
-            <h2 class="slide-title anim">Resources Most Founders Forget</h2>
-            <div class="two-col anim mt-2">
-                <div>
-                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">💳 Startup Credits</p>
-                    <ul class="bullets">
-                        <li class="no-arrow">☁️ AWS</li>
-                        <li class="no-arrow">🔵 Google Cloud</li>
-                        <li class="no-arrow">🍃 MongoDB</li>
-                    </ul>
-                </div>
-                <div>
-                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">🌐 Data Platforms</p>
-                    <ul class="bullets">
-                        <li class="no-arrow">🕸️ BrightData</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="highlight-box anim mt-3">
-                Your biggest constraint today isn't money.<br>It's <span class="accent">focus</span>.
-            </div>
-        </div>
-        <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
-        <aside class="notes">
-            Many founders don't realize these programs exist or don't apply early enough.
-
-            AWS Activate, Google for Startups, MongoDB for Startups can give you $25k–$100k+ in credits.
-            BrightData has a startup program. Apply early — the money is there if you ask.
-
-            The real constraint is your attention, not money.
-        </aside>
-    </section>
-
-
-    <!-- ══════════════════════════════════
-         14 / 14 — THE OPPORTUNITY (CLOSING)
+         13 / 13 — THE OPPORTUNITY (CLOSING)
          ══════════════════════════════════ -->
     <section class="title-slide">
         <div class="orb orb-cool" style="background:rgba(45,212,191,0.06);"></div>
         <div class="orb orb-warm" style="background:rgba(104,114,245,0.07);bottom:0;left:auto;right:-4%;top:auto;"></div>
         <div class="slide-header" style="position:relative;z-index:1;">
-            <span class="slide-num">14 / 14</span>
+            <span class="slide-num">13 / 13</span>
             <span class="slide-tag">The Opportunity</span>
         </div>
         <div class="slide-content" style="position:relative;z-index:1;gap:var(--content-gap);">
-            <p class="lead anim" style="color:var(--text-muted);">We are entering a new startup era.</p>
-            <p class="anim" style="font-size:clamp(1rem,2.2vw,1.6rem);margin-top:clamp(0.3rem,0.8vw,0.6rem);">
-                AI gives solo founders <span class="accent">superpowers</span>.
-            </p>
-            <ul class="bullets anim mt-1" style="max-width:380px;">
-                <li>Smaller teams</li>
-                <li>Faster iteration</li>
-                <li>More experimentation</li>
-            </ul>
-            <div class="closing-hero anim mt-2">
+            <div class="closing-hero anim">
                 Build fast.<br><span class="teal">Learn faster.</span>
             </div>
-            <p class="anim mt-2" style="color:var(--accent);font-family:var(--font-display);font-size:clamp(0.9rem,1.5vw,1.2rem);font-weight:700;letter-spacing:0.02em;">
+            <ul class="bullets anim mt-2" style="max-width:440px;">
+                <li>One founder can now do what used to take a team</li>
+                <li>The tools exist — the question is whether you use them</li>
+                <li>Speed and focus are the only moat that matters</li>
+            </ul>
+            <p class="anim mt-3" style="color:var(--accent);font-family:var(--font-display);font-size:clamp(0.9rem,1.5vw,1.2rem);font-weight:700;letter-spacing:0.02em;">
                 dopamine.chat
             </p>
         </div>
