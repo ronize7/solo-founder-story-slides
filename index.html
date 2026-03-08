@@ -164,17 +164,38 @@
         .highlight-box.teal { border-color: var(--teal); color: var(--teal); }
 
         /* =====================================================
-           VERTICAL TIMELINE
+           ZIGZAG TIMELINE (About Me)
            ===================================================== */
-        .v-timeline { display: flex; flex-direction: column; gap: 0; }
-        .v-tl-item { display: flex; gap: clamp(0.75rem, 1.5vw, 1.25rem); align-items: stretch; }
-        .v-tl-track { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: clamp(10px, 1.2vw, 14px); }
-        .v-tl-dot { width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px); border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; z-index: 1; margin-top: clamp(0.22rem, 0.45vw, 0.38rem); }
-        .v-tl-dot.final { background: var(--teal); border-color: var(--teal); }
-        .v-tl-line { flex: 1; width: 1px; background: rgba(255,255,255,0.15); margin: 3px 0; }
-        .v-tl-item:last-child .v-tl-line { display: none; }
-        .v-tl-body { display: flex; align-items: center; gap: 0.55em; font-size: var(--body-size); padding: clamp(0.05rem,0.2vw,0.15rem) 0 clamp(0.55rem,1.1vw,0.9rem); line-height: 1.4; }
-        .v-tl-item:last-child .v-tl-body { padding-bottom: 0; color: var(--teal); font-weight: 500; }
+        .zigzag-timeline {
+            display: grid;
+            grid-template-columns: 1fr clamp(20px, 2.5vw, 28px) 1fr;
+            column-gap: clamp(0.8rem, 1.8vw, 1.5rem);
+        }
+        .ztl-center { display: flex; flex-direction: column; align-items: center; }
+        .ztl-dot {
+            width: clamp(12px, 1.5vw, 18px); height: clamp(12px, 1.5vw, 18px);
+            border-radius: 50%; background: var(--accent);
+            box-shadow: 0 0 0 3px rgba(66,175,250,0.2);
+            flex-shrink: 0; margin-top: clamp(0.3rem, 0.6vw, 0.45rem);
+        }
+        .ztl-dot--final { background: var(--teal); box-shadow: 0 0 0 4px rgba(42,161,152,0.25); width: clamp(14px, 1.8vw, 22px); height: clamp(14px, 1.8vw, 22px); }
+        .ztl-line { flex: 1; width: 2px; background: linear-gradient(180deg, rgba(66,175,250,0.45), rgba(66,175,250,0.1)); margin: 3px 0; min-height: clamp(16px, 2vh, 28px); }
+        .ztl-content {
+            display: flex; flex-direction: column; gap: 0.15em;
+            padding: clamp(0.2rem, 0.4vw, 0.35rem) 0 clamp(0.5rem, 1vw, 0.85rem);
+        }
+        .ztl-left  { text-align: right;  align-items: flex-end; }
+        .ztl-right { text-align: left;   align-items: flex-start; }
+        .rtl-tag  { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.13em; color: var(--accent); opacity: 0.65; }
+        .rtl-label { font-size: var(--body-size); font-weight: 500; line-height: 1.3; }
+        .ztl-final {
+            background: rgba(42,161,152,0.1);
+            border: 1px solid rgba(42,161,152,0.35);
+            border-radius: 8px;
+            padding: clamp(0.35rem, 0.7vw, 0.6rem) clamp(0.6rem, 1.2vw, 1rem) !important;
+        }
+        .ztl-final .rtl-tag  { color: var(--teal); opacity: 1; }
+        .ztl-final .rtl-label { color: var(--teal); font-weight: 600; }
 
         /* =====================================================
            SPLIT COLUMNS
@@ -288,31 +309,56 @@
         </div>
         <div class="slide-content">
             <h2 class="slide-title anim">About Me</h2>
-            <div class="v-timeline mt-2" style="width:min(480px,90%);margin-left:auto;margin-right:auto">
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">🎓 Psagot Program Alumni</div>
+            <div class="zigzag-timeline anim" style="width:min(640px,94%);margin:0 auto;">
+
+                <!-- 1 LEFT -->
+                <div class="ztl-content ztl-left">
+                    <span class="rtl-tag">Education</span>
+                    <span class="rtl-label">🎓 Psagot Program Alumni</span>
                 </div>
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">🏛️ Technion Alumni</div>
+                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                <div></div>
+
+                <!-- 2 RIGHT -->
+                <div></div>
+                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                <div class="ztl-content ztl-right">
+                    <span class="rtl-tag">Education</span>
+                    <span class="rtl-label">🏛️ Technion Alumni</span>
                 </div>
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">🎖️ Unit 81</div>
+
+                <!-- 3 LEFT -->
+                <div class="ztl-content ztl-left">
+                    <span class="rtl-tag">Military</span>
+                    <span class="rtl-label">🎖️ Unit 81</span>
                 </div>
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">🏢 Microsoft Engineer</div>
+                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                <div></div>
+
+                <!-- 4 RIGHT -->
+                <div></div>
+                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                <div class="ztl-content ztl-right">
+                    <span class="rtl-tag">Industry</span>
+                    <span class="rtl-label">🏢 Microsoft Engineer</span>
                 </div>
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">📈 VP R&amp;D at a Startup</div>
+
+                <!-- 5 LEFT -->
+                <div class="ztl-content ztl-left">
+                    <span class="rtl-tag">Leadership</span>
+                    <span class="rtl-label">📈 VP R&amp;D at a Startup</span>
                 </div>
-                <div class="v-tl-item anim">
-                    <div class="v-tl-track"><div class="v-tl-dot final"></div><div class="v-tl-line"></div></div>
-                    <div class="v-tl-body">🚀 Founder of dopamine.chat</div>
+                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                <div></div>
+
+                <!-- 6 RIGHT — FINAL -->
+                <div></div>
+                <div class="ztl-center"><div class="ztl-dot ztl-dot--final"></div><div class="ztl-line"></div></div>
+                <div class="ztl-content ztl-right ztl-final">
+                    <span class="rtl-tag">Now</span>
+                    <span class="rtl-label"><img src="public/dopamine-logo.png" alt="dopamine.chat" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Founder of dopamine.chat</span>
                 </div>
+
             </div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
