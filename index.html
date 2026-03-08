@@ -255,8 +255,8 @@
         /* =====================================================
            PLAYBOOK LIST
            ===================================================== */
-        .playbook-list { display: flex; flex-direction: column; gap: clamp(0.45rem, 1vh, 0.85rem); }
-        .playbook-item { display: flex; align-items: baseline; gap: clamp(0.6rem, 1.2vw, 1rem); padding: clamp(0.4rem, 0.9vw, 0.75rem) clamp(0.6rem, 1.2vw, 1rem); border-radius: 6px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); }
+        .playbook-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .playbook-item { display: flex; align-items: baseline; gap: clamp(0.5rem, 1vw, 0.8rem); }
         .playbook-icon { font-size: clamp(0.9rem, 1.6vw, 1.2rem); flex-shrink: 0; }
         .playbook-title { font-size: clamp(0.8rem, 1.4vw, 1.05rem); font-weight: 600; margin-right: 0.5em; }
         .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); opacity: 0.6; }
@@ -282,7 +282,7 @@
             <h1 class="anim" style="margin-top:clamp(0.5rem,1.5vw,1rem);">
                 The Solo Founder<br><span class="accent">Playbook</span> in the AI Era
             </h1>
-            <p class="subtitle anim">Lessons from building dopamine.chat</p>
+            <p class="subtitle anim">Lessons from building <span class="accent" style="font-weight:500;">dopamine.chat</span></p>
             <p class="anim" style="font-size:var(--small-size);color:var(--text-muted);margin-top:clamp(1rem,2vw,2rem);">
                 Ron Z &nbsp;·&nbsp; AI Israel Club
             </p>
@@ -429,29 +429,31 @@
             <h2 class="slide-title anim">The Problem I Saw</h2>
             <div class="two-col anim mt-1">
                 <div>
-                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">😤 Most AI tools today:</p>
+                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">Most AI tools today:</p>
                     <ul class="bullets">
                         <li>Built for developers</li>
                         <li>Complex setup</li>
                         <li>Heavy frameworks</li>
                         <li>Long ramp-up</li>
-                        <li>As: n8n, Make, OpenClaw etc.</li>
+                        <li>Examples: n8n, Make, OpenClaw etc.</li>
                     </ul>
                 </div>
-                <div>
-                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">✨ The vision:</p>
-                    <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
-                        Base44 For Agents
+                <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.5vw,1.2rem);">
+                    <div style="display:flex;align-items:center;gap:clamp(0.6rem,1.2vw,1rem);">
+                        <p class="lead">This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span></p>
+                        <img
+                            src="public/dopamine-logo.png"
+                            alt="dopamine.chat logo"
+                            style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
+                        >
+                    </div>
+                    <div>
+                        <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">✨ The vision:</p>
+                        <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
+                            Base44 For Agents
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="anim mt-2" style="display:flex;align-items:center;gap:clamp(0.6rem,1.2vw,1rem);">
-                <p class="lead">This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span>.</p>
-                <img
-                    src="public/dopamine-logo.png"
-                    alt="dopamine.chat logo"
-                    style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
-                >
             </div>
         </div>
         <div class="slide-footer"><span>Ron Z</span><span>AI Israel Club</span></div>
@@ -525,28 +527,13 @@
         <div class="slide-content" style="gap:var(--content-gap);">
             <h2 class="slide-title anim">The Solo Founder Playbook</h2>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
-                <div class="playbook-list anim">
-                    <div class="playbook-item">
-                        <span class="playbook-icon">🚢</span>
-                        <div><span class="playbook-title">Ship early</span><span class="playbook-sub">If you're proud of it, you shipped too late</span></div>
-                    </div>
-                    <div class="playbook-item">
-                        <span class="playbook-icon">💬</span>
-                        <div><span class="playbook-title">Talk to users early</span><span class="playbook-sub">Build community, not just product</span></div>
-                    </div>
-                    <div class="playbook-item">
-                        <span class="playbook-icon">⚡</span>
-                        <div><span class="playbook-title">Founder-led growth</span><span class="playbook-sub">Direct engagement drives early business</span></div>
-                    </div>
-                    <div class="playbook-item">
-                        <span class="playbook-icon">📡</span>
-                        <div><span class="playbook-title">Distribution from day one</span><span class="playbook-sub">Organic: LinkedIn, Twitter, Reddit, ProductHunt &nbsp;·&nbsp; Paid: targeted ads</span></div>
-                    </div>
-                    <div class="playbook-item">
-                        <span class="playbook-icon">💰</span>
-                        <div><span class="playbook-title">Fundraising is an option</span><span class="playbook-sub">More VCs are investing in solo founders — e.g. StageZero</span></div>
-                    </div>
-                </div>
+                <ul class="playbook-list anim" style="list-style:none;">
+                    <li><span class="playbook-icon">🚢</span> <span class="playbook-title">Ship early</span> <span class="playbook-sub">— If you're proud of it, you shipped too late</span></li>
+                    <li><span class="playbook-icon">💬</span> <span class="playbook-title">Talk to users early</span> <span class="playbook-sub">— Build community, not just product</span></li>
+                    <li><span class="playbook-icon">⚡</span> <span class="playbook-title">Founder-led growth</span> <span class="playbook-sub">— Direct engagement drives early business</span></li>
+                    <li><span class="playbook-icon">📡</span> <span class="playbook-title">Distribution from day one</span> <span class="playbook-sub">— LinkedIn, Twitter, Reddit, ProductHunt</span></li>
+                    <li><span class="playbook-icon">💰</span> <span class="playbook-title">Fundraising is an option</span> <span class="playbook-sub">— More VCs invest in solo founders (e.g. StageZero)</span></li>
+                </ul>
                 <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
                     <img
                         src="public/founder-playbook.jpg"
