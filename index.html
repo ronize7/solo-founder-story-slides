@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Solo Founder Playbook in the AI Era — Ron Zaidman</title>
 
-    <!-- === REVEAL.JS CORE CSS + MOON THEME === -->
+    <!-- === FONTS === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- === REVEAL.JS CORE CSS + SIMPLE THEME === -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css">
 
@@ -16,7 +21,7 @@
         :root {
             --accent:        #42affa;   /* Moon theme blue  */
             --teal:          #2aa198;   /* complementary teal */
-            --border:        rgba(255, 255, 255, 0.12);
+            --border:        rgba(0, 0, 0, 0.10);
             --ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);
 
             --title-size:    clamp(1.98rem, 6.075vw, 4.95rem);
@@ -25,9 +30,9 @@
             --small-size:    clamp(0.62rem, 0.95vw, 0.82rem);
             --slide-padding: clamp(1.25rem, 4vw, 4.5rem);
             --content-gap:   clamp(0.6rem, 2vw, 2rem);
-            --text:          #e0e0e0;
-            --text-muted:    rgba(255, 255, 255, 0.4);
-            --font-body:     inherit;
+            --text:          #222222;
+            --text-muted:    rgba(0, 0, 0, 0.45);
+            --font-body:     'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,6 +40,8 @@
         /* =====================================================
            REVEAL.JS STRUCTURAL OVERRIDES
            ===================================================== */
+        .reveal { font-family: var(--font-body); }
+
         .reveal h1, .reveal h2, .reveal h3,
         .reveal h4, .reveal h5, .reveal h6 { text-transform: none; margin: 0; }
 
@@ -107,7 +114,7 @@
             letter-spacing: -0.01em;
             margin-bottom: clamp(0.6rem, 1.5vw, 1.4rem);
         }
-        .slide-title::after {
+        .slide-title--ruled::after {
             content: '';
             display: block;
             width: 1.8rem;
@@ -118,7 +125,7 @@
             opacity: 0.7;
         }
         .slide-title.center { text-align: center; }
-        .slide-title.center::after { margin: 0.5em auto 0; }
+        .slide-title.center.slide-title--ruled::after { margin: 0.5em auto 0; }
 
         .accent { color: var(--accent); }
         .teal   { color: var(--teal); }
@@ -147,11 +154,8 @@
            ===================================================== */
         .title-slide .slide-content { justify-content: center; align-items: center; text-align: center; gap: var(--content-gap); }
         .title-slide h1 { max-width: min(90vw, 900px); }
-        .accent-tag { display: inline-block; border: 1px solid rgba(66,175,250,0.4); color: var(--accent); font-size: var(--small-size); padding: 0.3em 0.9em; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+        .accent-tag { display: inline-block; color: var(--accent); font-size: var(--small-size); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
         .subtitle { font-size: clamp(0.95rem, 2vw, 1.45rem); opacity: 0.6; font-weight: 300; }
-        .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; will-change: transform; }
-        .orb-warm { width: 40vw; height: 40vw; background: rgba(66,175,250,0.06); top: -10%; right: -8%; }
-        .orb-cool { width: 30vw; height: 30vw; background: rgba(42,161,152,0.05); bottom: 3%; left: 2%; }
 
         /* =====================================================
            BULLETS
@@ -177,26 +181,26 @@
         }
         .ztl-center { display: flex; flex-direction: column; align-items: center; }
         .ztl-dot {
-            width: clamp(12px, 1.5vw, 18px); height: clamp(12px, 1.5vw, 18px);
+            width: clamp(10px, 1.2vw, 14px); height: clamp(10px, 1.2vw, 14px);
             border-radius: 50%; background: var(--accent);
             box-shadow: 0 0 0 3px rgba(66,175,250,0.2);
-            flex-shrink: 0; margin-top: clamp(0.3rem, 0.6vw, 0.45rem);
+            flex-shrink: 0; margin-top: 0.2rem;
         }
-        .ztl-dot--final { background: var(--teal); box-shadow: 0 0 0 4px rgba(42,161,152,0.25); width: clamp(14px, 1.8vw, 22px); height: clamp(14px, 1.8vw, 22px); }
-        .ztl-line { flex: 1; width: 2px; background: linear-gradient(180deg, rgba(66,175,250,0.45), rgba(66,175,250,0.1)); margin: 3px 0; min-height: clamp(16px, 2vh, 28px); }
+        .ztl-dot--final { background: var(--teal); box-shadow: 0 0 0 4px rgba(42,161,152,0.25); width: clamp(12px, 1.4vw, 16px); height: clamp(12px, 1.4vw, 16px); }
+        .ztl-line { flex: 1; width: 2px; background: linear-gradient(180deg, rgba(66,175,250,0.45), rgba(66,175,250,0.1)); margin: 2px 0; min-height: 4px; }
         .ztl-content {
-            display: flex; flex-direction: column; gap: 0.15em;
-            padding: clamp(0.2rem, 0.4vw, 0.35rem) 0 clamp(0.5rem, 1vw, 0.85rem);
+            display: flex; flex-direction: column; gap: 0.1em;
+            padding: 0.1rem 0 0.2rem;
         }
         .ztl-left  { text-align: right;  align-items: flex-end; }
         .ztl-right { text-align: left;   align-items: flex-start; }
-        .rtl-tag  { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.13em; color: var(--accent); opacity: 0.65; }
+        .rtl-tag  { display: none; }
         .rtl-label { font-size: var(--body-size); font-weight: 500; line-height: 1.3; }
         .ztl-final {
             background: rgba(42,161,152,0.1);
             border: 1px solid rgba(42,161,152,0.35);
             border-radius: 8px;
-            padding: clamp(0.35rem, 0.7vw, 0.6rem) clamp(0.6rem, 1.2vw, 1rem) !important;
+            padding: 0.2rem clamp(0.5rem, 1vw, 0.8rem) !important;
         }
         .ztl-final .rtl-tag  { color: var(--teal); opacity: 1; }
         .ztl-final .rtl-label { color: var(--teal); font-weight: 600; }
@@ -206,9 +210,11 @@
            ===================================================== */
         .split-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 2rem); }
         .split-col { padding: clamp(0.7rem, 1.8vw, 1.4rem); border-radius: 6px; border: 1px solid var(--border); }
-        .split-col.after { border-color: rgba(42,161,152,0.4); }
+        .split-col.after  { border-color: rgba(42,161,152,0.4); }
+        .split-col.before { border-color: rgba(66,175,250,0.3); }
         .split-col-label { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.14em; opacity: 0.6; margin-bottom: 0.7em; }
-        .split-col.after .split-col-label { color: var(--teal); opacity: 1; }
+        .split-col.after  .split-col-label { color: var(--teal); opacity: 1; }
+        .split-col.before .split-col-label { color: var(--accent); opacity: 1; }
 
         /* =====================================================
            HORIZONTAL TIMELINE
@@ -281,10 +287,8 @@
          01 / 13 — TITLE
          ══════════════════════════════════ -->
     <section class="title-slide">
-        <div class="orb orb-warm"></div>
-        <div class="orb orb-cool"></div>
         <div class="slide-header">
-            <span class="slide-num">01 / 14</span>
+            <span class="slide-num">01 / 15</span>
             <span class="slide-tag">AI Israel Club</span>
         </div>
         <div class="slide-content">
@@ -310,11 +314,11 @@
 
 
     <!-- ══════════════════════════════════
-         02 / 14 — AGENDA
+         02 / 15 — AGENDA
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">02 / 14</span>
+            <span class="slide-num">02 / 15</span>
             <span class="slide-tag">Agenda</span>
         </div>
         <div class="slide-content">
@@ -338,6 +342,7 @@
                     <img
                         src="public/what-youll-get.jpg"
                         alt="Three agenda items illustrated: my founder journey, the solo founder playbook, and my technical ramp-up stack"
+                        loading="lazy"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -348,11 +353,11 @@
 
 
     <!-- ══════════════════════════════════
-         03 / 14 — ABOUT ME (was 02)
+         03 / 15 — ABOUT ME (was 02)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">03 / 14</span>
+            <span class="slide-num">03 / 15</span>
             <span class="slide-tag">Background</span>
         </div>
         <div class="slide-content">
@@ -362,7 +367,7 @@
                 <!-- 1 LEFT -->
                 <div class="ztl-content ztl-left">
                     <span class="rtl-tag">Education</span>
-                    <span class="rtl-label">🎓 Psagot Program Alumni</span>
+                    <span class="rtl-label"><img src="public/about-me-logos/לוגו-פסגות.png" alt="Psagot" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Psagot Program Alumni</span>
                 </div>
                 <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
                 <div></div>
@@ -372,13 +377,13 @@
                 <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
                 <div class="ztl-content ztl-right">
                     <span class="rtl-tag">Education</span>
-                    <span class="rtl-label">🏛️ Technion Alumni</span>
+                    <span class="rtl-label"><img src="public/about-me-logos/technion.jpg" alt="Technion" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Technion Alumni</span>
                 </div>
 
                 <!-- 3 LEFT -->
                 <div class="ztl-content ztl-left">
                     <span class="rtl-tag">Military</span>
-                    <span class="rtl-label">🎖️ Unit 81</span>
+                    <span class="rtl-label"><img src="public/about-me-logos/81unit.jpeg" alt="Unit 81" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Unit 81</span>
                 </div>
                 <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
                 <div></div>
@@ -388,13 +393,13 @@
                 <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
                 <div class="ztl-content ztl-right">
                     <span class="rtl-tag">Industry</span>
-                    <span class="rtl-label">🏢 Microsoft Engineer</span>
+                    <span class="rtl-label"><img src="public/about-me-logos/microsoft.png" alt="Microsoft" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Microsoft Engineer</span>
                 </div>
 
                 <!-- 5 LEFT -->
                 <div class="ztl-content ztl-left">
                     <span class="rtl-tag">Leadership</span>
-                    <span class="rtl-label">📈 VP R&amp;D at a Startup</span>
+                    <span class="rtl-label"><img src="public/about-me-logos/stealth-startup.jpeg" alt="Startup" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> VP R&amp;D at a Startup</span>
                 </div>
                 <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
                 <div></div>
@@ -404,7 +409,7 @@
                 <div class="ztl-center"><div class="ztl-dot ztl-dot--final"></div><div class="ztl-line"></div></div>
                 <div class="ztl-content ztl-right ztl-final">
                     <span class="rtl-tag">Now</span>
-                    <span class="rtl-label"><img src="public/dopamine-logo.png" alt="dopamine.chat" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Founder of dopamine.chat</span>
+                    <span class="rtl-label"><img src="public/dopamine-logo.png" alt="dopamine.chat" loading="lazy" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Founder of dopamine.chat</span>
                 </div>
 
             </div>
@@ -420,38 +425,35 @@
 
 
     <!-- ══════════════════════════════════
-         04 / 14 — MY FOUNDER JOURNEY
+         04 / 15 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">04 / 14</span>
+            <span class="slide-num">04 / 15</span>
             <span class="slide-tag">My Story</span>
         </div>
         <div class="slide-content">
             <h2 class="slide-title anim">My Founder Journey</h2>
-            <div class="timeline anim mt-1">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-label">💥 Startup shut down</div>
+            <div class="anim mt-1" style="display:flex;flex-direction:column;">
+                <div style="display:grid;grid-template-columns:clamp(2rem,3.5vw,2.8rem) 1fr;gap:0 clamp(0.8rem,1.8vw,1.4rem);align-items:baseline;padding:clamp(0.3rem,0.7vw,0.5rem) 0;border-bottom:1px solid var(--border);">
+                    <span style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--accent);line-height:1;">01</span>
+                    <div><span style="font-size:clamp(0.8rem,1.4vw,1.05rem);font-weight:600;">💥 Startup shut down</span><br><span style="font-size:var(--small-size);color:var(--text-muted);">Everything we built, gone</span></div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-label">🏖️ Honeymoon reset</div>
+                <div style="display:grid;grid-template-columns:clamp(2rem,3.5vw,2.8rem) 1fr;gap:0 clamp(0.8rem,1.8vw,1.4rem);align-items:baseline;padding:clamp(0.3rem,0.7vw,0.5rem) 0;border-bottom:1px solid var(--border);">
+                    <span style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--accent);line-height:1;">02</span>
+                    <div><span style="font-size:clamp(0.8rem,1.4vw,1.05rem);font-weight:600;">🏖️ Honeymoon reset</span><br><span style="font-size:var(--small-size);color:var(--text-muted);">Deliberate pause — came back with a clearer head</span></div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-label">⚡ Back to building</div>
-                    <div class="timeline-sub">AI agents, workflows, frameworks</div>
+                <div style="display:grid;grid-template-columns:clamp(2rem,3.5vw,2.8rem) 1fr;gap:0 clamp(0.8rem,1.8vw,1.4rem);align-items:baseline;padding:clamp(0.3rem,0.7vw,0.5rem) 0;border-bottom:1px solid var(--border);">
+                    <span style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--accent);line-height:1;">03</span>
+                    <div><span style="font-size:clamp(0.8rem,1.4vw,1.05rem);font-weight:600;">⚡ Back to building</span><br><span style="font-size:var(--small-size);color:var(--text-muted);">AI agents, workflows, frameworks</span></div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-label">🔍 Realized the gap</div>
-                    <div class="timeline-sub">Red ocean for tech tools, zero non-tech adoption</div>
+                <div style="display:grid;grid-template-columns:clamp(2rem,3.5vw,2.8rem) 1fr;gap:0 clamp(0.8rem,1.8vw,1.4rem);align-items:baseline;padding:clamp(0.3rem,0.7vw,0.5rem) 0;border-bottom:1px solid var(--border);">
+                    <span style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--accent);line-height:1;">04</span>
+                    <div><span style="font-size:clamp(0.8rem,1.4vw,1.05rem);font-weight:600;">🔍 Realized the gap</span><br><span style="font-size:var(--small-size);color:var(--text-muted);">Red ocean for tech tools — zero non-tech adoption</span></div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot teal-dot"></div>
-                    <div class="timeline-label" style="color:var(--teal);">🚀 dopamine.chat</div>
-                    <div class="timeline-sub">Text → agent platform</div>
+                <div style="display:grid;grid-template-columns:clamp(2rem,3.5vw,2.8rem) 1fr;gap:0 clamp(0.8rem,1.8vw,1.4rem);align-items:baseline;padding:clamp(0.3rem,0.7vw,0.5rem) 0;">
+                    <span style="font-size:clamp(1.2rem,3vw,2rem);font-weight:700;color:var(--teal);line-height:1;">05</span>
+                    <div><span style="font-size:clamp(0.8rem,1.4vw,1.05rem);font-weight:600;color:var(--teal);">🚀 dopamine.chat</span><br><span style="font-size:var(--small-size);color:var(--text-muted);">Text → agent platform</span></div>
                 </div>
             </div>
         </div>
@@ -466,11 +468,11 @@
 
 
     <!-- ══════════════════════════════════
-         05 / 14 — THE PROBLEM I SAW
+         05 / 15 — THE PROBLEM I SAW
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">05 / 14</span>
+            <span class="slide-num">05 / 15</span>
             <span class="slide-tag">The Problem</span>
         </div>
         <div class="slide-content">
@@ -492,6 +494,7 @@
                         <img
                             src="public/dopamine-logo.png"
                             alt="dopamine.chat logo"
+                            loading="lazy"
                             style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
                         >
                     </div>
@@ -513,11 +516,11 @@
 
 
     <!-- ══════════════════════════════════
-         06 / 14 — WHY THE SOLO FOUNDER IS BACK
+         06 / 15 — WHY THE SOLO FOUNDER IS BACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">06 / 14</span>
+            <span class="slide-num">06 / 15</span>
             <span class="slide-tag">Context</span>
         </div>
         <div class="slide-content">
@@ -551,6 +554,7 @@
                     <img
                         src="public/Solo-Founder-is-Back.jpg"
                         alt="The Shepherd's Journey: The Solo Founder Reborn"
+                        loading="lazy"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -565,15 +569,59 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 14 — THE SOLO FOUNDER PLAYBOOK
+         07 / 15 — SOLO FOUNDERS ARE MAINSTREAM
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">07 / 14</span>
+            <span class="slide-num">07 / 15</span>
+            <span class="slide-tag">Market Shift</span>
+        </div>
+        <div class="slide-content">
+            <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Becoming Mainstream</h2>
+            <div class="slide-2col anim" style="align-items:start;">
+                <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.4rem);">
+                    <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.75rem);line-height:1.22;">
+                        1 in 3 new startups are founded by solo founders
+                    </div>
+                    <p class="lead" style="max-width:26rem;">
+                        What used to feel like the harder path is quickly becoming a normal one.
+                    </p>
+                </div>
+                <div class="anim img-cell" style="justify-content:flex-start;">
+                    <img
+                        src="public/solo-founders-carta.png"
+                        alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
+                        loading="lazy"
+                        style="max-height:min(40vh,360px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                    >
+                </div>
+            </div>
+            <div class="anim vision-quote" style="margin-top:clamp(0.5rem,1.2vw,1rem);border-left:none;border-top:2px solid var(--teal);padding-left:0;padding-top:clamp(0.6rem,1.2vw,1rem);color:var(--text);">
+                <div style="font-size:clamp(0.9rem,1.9vw,1.3rem);font-weight:600;line-height:1.35;">
+                    The question is no longer “Can a solo founder build it?”
+                    <br>
+                    It’s “What can one great founder build now?”
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            The solo founder path is moving from edge case to default.
+            This slide sets up the idea that the constraints have changed, so the strategy should too.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         08 / 15 — THE SOLO FOUNDER PLAYBOOK
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">08 / 15</span>
             <span class="slide-tag">The Playbook</span>
         </div>
         <div class="slide-content">
-            <h2 class="slide-title anim">The Solo Founder Playbook</h2>
+            <h2 class="slide-title slide-title--ruled anim">The Solo Founder Playbook</h2>
             <div class="slide-2col">
                 <ul class="playbook-list anim" style="list-style:none;">
                     <li><span class="playbook-icon">🚢</span> <span class="playbook-title">Ship early</span> <span class="playbook-sub">If you're proud of it, you shipped too late</span></li>
@@ -586,6 +634,7 @@
                     <img
                         src="public/founder-playbook.jpg"
                         alt="The Solo Founder Playbook: In Action"
+                        loading="lazy"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -604,11 +653,11 @@
 
 
     <!-- ══════════════════════════════════
-         08 / 14 — HOW DOES IT FEEL
+         09 / 15 — HOW DOES IT FEEL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">08 / 14</span>
+            <span class="slide-num">09 / 15</span>
             <span class="slide-tag">The Reality</span>
         </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -617,6 +666,7 @@
                 <img
                     src="public/Solo-founder-mode.png"
                     alt="The Solo Shepherd: Startup Edition — a cartoon of a solo founder juggling product, users, cloud, and more"
+                    loading="lazy"
                     style="max-height:min(62vh,520px);max-width:min(70vw,680px);width:auto;height:auto;object-fit:contain;border-radius:12px;"
                 >
             </div>
@@ -635,20 +685,21 @@
 
 
     <!-- ══════════════════════════════════
-         09 / 14 — DON'T BUILD ALONE
+         10 / 15 — DON'T BUILD ALONE
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">09 / 14</span>
+            <span class="slide-num">10 / 15</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content">
-            <h2 class="slide-title anim">The Main Pitfall of Solo Founding</h2>
+            <h2 class="slide-title slide-title--ruled anim">The Main Pitfall of Solo Founding</h2>
             <div class="slide-2col">
                 <div class="anim img-cell">
                     <img
                         src="public/solo-founder-pitfalls.jpg"
                         alt="The Solo Founder's Echo Chamber: The Pitfall of Isolation"
+                        loading="lazy"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -678,11 +729,11 @@
 
 
     <!-- ══════════════════════════════════
-         10 / 14 — SOLO FOUNDERS HUB
+         11 / 15 — SOLO FOUNDERS HUB
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">10 / 14</span>
+            <span class="slide-num">11 / 15</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -691,6 +742,7 @@
                 <img
                     src="public/The Solo Founders Hub - logo.png"
                     alt="The Solo Founders Hub logo"
+                    loading="lazy"
                     style="max-height:min(55vh,460px);max-width:min(60vw,560px);width:auto;height:auto;object-fit:contain;border-radius:16px;"
                 >
             </div>
@@ -708,15 +760,15 @@
 
 
     <!-- ══════════════════════════════════
-         11 / 14 — WHAT I LEARNED
+         12 / 15 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">11 / 14</span>
+            <span class="slide-num">12 / 15</span>
             <span class="slide-tag">Lessons</span>
         </div>
         <div class="slide-content">
-            <h2 class="slide-title anim">What I Learned</h2>
+            <h2 class="slide-title slide-title--ruled anim">What I Learned</h2>
             <div class="slide-2col">
                 <ul class="bullets mt-1 anim">
                     <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚠️ Over-engineering is still the #1 mistake</li>
@@ -729,6 +781,7 @@
                     <img
                         src="public/shepherd-lessons.jpg"
                         alt="Inspired: A Shepherd's New Path — lessons from solo founding"
+                        loading="lazy"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -747,22 +800,44 @@
 
 
     <!-- ══════════════════════════════════
-         12 / 14 — MY SOLO FOUNDER STACK
+         13 / 15 — MY SOLO FOUNDER STACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">12 / 14</span>
+            <span class="slide-num">13 / 15</span>
             <span class="slide-tag">The Stack</span>
         </div>
         <div class="slide-content">
             <h2 class="slide-title anim">My Technical Ramp Up Stack</h2>
-            <div class="stack-grid anim mt-2">
-                <div class="stack-card"><div class="stack-cat">🤖 AI Agents Framework</div><div class="stack-tool">Agno</div><div class="stack-sub">replaces custom orchestration code</div></div>
-                <div class="stack-card"><div class="stack-cat">📊 Product Analytics</div><div class="stack-tool">PostHog</div><div class="stack-sub">replaces a data analyst</div></div>
-                <div class="stack-card"><div class="stack-cat">🔭 Logging & Observability</div><div class="stack-tool">Logfire</div><div class="stack-sub">replaces a DevOps engineer</div></div>
-                <div class="stack-card"><div class="stack-cat">🥸 Authentication</div><div class="stack-tool">Supabase</div><div class="stack-sub">replaces a backend team</div></div>
-                <div class="stack-card"><div class="stack-cat">☁️ Cloud</div><div class="stack-tool">Render</div><div class="stack-sub">replaces infrastructure setup</div></div>
-                <div class="stack-card"><div class="stack-cat">🗄️ DB</div><div class="stack-tool">Mongo</div><div class="stack-sub">replaces a data engineer</div></div>
+            <div class="anim mt-2" style="display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,4vw,3.5rem);">
+                <div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">01</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/agno_logo.jpeg" alt="Agno" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">Agno</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Agent framework</span></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">02</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/posthog.jpeg" alt="PostHog" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">PostHog</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Product analytics + recordings</span></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">03</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/logfire.png" alt="Logfire" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">Logfire</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Logs and errors</span></div>
+                    </div>
+                </div>
+                <div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">04</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/supabase.jpeg" alt="Supabase" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">Supabase</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Authentication</span></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">05</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/render.png" alt="Render" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">Render</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Cloud hosting</span></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.75rem;padding:clamp(0.2rem,0.6vw,0.4rem) 0;">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;">06</span>
+                        <div><div style="display:flex;align-items:center;gap:0.4rem;"><img src="public/technical-stack-logos/mongo.png" alt="Mongo" style="height:1.8em;width:1.8em;object-fit:contain;border-radius:5px;"><span style="font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--accent);line-height:1.1;">Mongo</span></div><span style="font-size:var(--body-size);color:var(--text-muted);">Database</span></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
@@ -780,11 +855,11 @@
 
 
     <!-- ══════════════════════════════════
-         13 / 14 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
+         14 / 15 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">13 / 14</span>
+            <span class="slide-num">14 / 15</span>
             <span class="slide-tag">Real Example</span>
         </div>
         <div class="slide-content">
@@ -805,12 +880,12 @@
                         <div class="term-out">✓ Dashboard: Feature Funnel created</div>
                         <div class="term-comment" style="margin-top:0.4em;">// Done in 47 seconds</div>
                     </div>
-                    <div class="highlight-box" style="margin-top:0;">⚡ AI is not just coding — it's operational acceleration.</div>
                 </div>
                 <div class="anim img-cell">
                     <img
                         src="public/posthog-examples.png"
                         alt="PostHog dashboards created by AI agent"
+                        loading="lazy"
                         style="max-height:min(52vh,420px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -829,11 +904,11 @@
 
 
     <!-- ══════════════════════════════════
-         14 / 14 — THANK YOU
+         15 / 15 — THANK YOU
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">14 / 14</span>
+            <span class="slide-num">15 / 15</span>
             <span class="slide-tag">Thank You</span>
         </div>
         <div class="slide-content slide-content--center">
@@ -841,19 +916,19 @@
             <div class="anim mt-2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;width:min(820px,92%);">
                 <!-- LinkedIn -->
                 <div style="display:flex;flex-direction:column;align-items:center;gap:0.7em;">
-                    <img src="public/linkedin-qr-code.png" alt="LinkedIn QR code"
+                    <img src="public/linkedin-qr-code.png" alt="LinkedIn QR code" loading="lazy"
                         style="width:min(180px,22vw);height:auto;border-radius:8px;border:2px solid rgba(255,255,255,0.12);">
                     <span style="font-size:var(--small-size);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">LinkedIn</span>
                 </div>
                 <!-- Whatsapp community -->
                 <div style="display:flex;flex-direction:column;align-items:center;gap:0.7em;">
-                    <img src="public/dopamine-group-qr.png" alt="dopamine.chat WhatsApp community QR code"
+                    <img src="public/dopamine-group-qr.png" alt="dopamine.chat WhatsApp community QR code" loading="lazy"
                         style="width:min(180px,22vw);height:auto;border-radius:8px;border:2px solid rgba(255,255,255,0.12);">
                     <span style="font-size:var(--small-size);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">dopamine.chat Community</span>
                 </div>
                 <!-- Slideshow -->
                 <div style="display:flex;flex-direction:column;align-items:center;gap:0.7em;">
-                    <img src="public/slideshow-link-qr.png" alt="Slideshow QR code"
+                    <img src="public/slideshow-link-qr.png" alt="Slideshow QR code" loading="lazy"
                         style="width:min(180px,22vw);height:auto;border-radius:8px;border:2px solid rgba(255,255,255,0.12);">
                     <span style="font-size:var(--small-size);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">This Slideshow</span>
                 </div>
