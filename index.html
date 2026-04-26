@@ -62,33 +62,7 @@
             flex-direction: column;
         }
 
-        /* =====================================================
-           SLIDE CHROME
-           ===================================================== */
-        .slide-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: clamp(0.75rem, 1.5vw, 1.2rem) var(--slide-padding);
-            border-bottom: 1px solid var(--border);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-        }
-        .slide-num  { font-size: var(--small-size); opacity: 0.45; letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
-        .slide-tag  { font-size: var(--small-size); color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
 
-        .slide-footer {
-            padding: clamp(0.5rem, 1.2vw, 0.9rem) var(--slide-padding);
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-        }
-        .slide-footer span { font-size: var(--small-size); opacity: 0.45; }
 
         .slide-content {
             flex: 1;
@@ -278,6 +252,12 @@
         .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); opacity: 0.6; }
 
         /* =====================================================
+           SECTION BREAK
+           ===================================================== */
+        .section-break .slide-content { justify-content: center; align-items: center; text-align: center; }
+        .section-break-rule { width: 3rem; height: 2px; background: var(--accent); border-radius: 1px; margin: 0 auto; opacity: 0.45; }
+
+        /* =====================================================
            FAMOUS FOUNDERS SLIDE
            ===================================================== */
         .founders-grid {
@@ -371,6 +351,21 @@
         @media (max-width: 720px) {
             .founder-columns { grid-template-columns: 1fr; }
         }
+
+        /* =====================================================
+           SLIDE NUMBER
+           ===================================================== */
+        .reveal .slide-number {
+            font-family: var(--font-body);
+            font-size: var(--small-size);
+            font-weight: 500;
+            color: var(--text-muted);
+            background: transparent;
+            bottom: clamp(0.6rem, 1.5vw, 1.1rem);
+            right: clamp(0.8rem, 2vw, 1.5rem);
+            padding: 0;
+        }
+        .reveal .slide-number-delimiter { margin: 0 2px; }
     </style>
 </head>
 <body>
@@ -382,9 +377,6 @@
          01 / 17 — TITLE
          ══════════════════════════════════ -->
     <section class="title-slide">
-        <div class="slide-header">
-            <span class="slide-num">01 / 17</span>
-        </div>
         <div class="slide-content">
             <span class="accent-tag anim">Solo Founder Series</span>
             <h1 class="anim" style="margin-top:clamp(0.5rem,1.5vw,1rem);">
@@ -394,9 +386,6 @@
             <p class="anim" style="font-size:var(--small-size);color:var(--text-muted);margin-top:clamp(1rem,2vw,2rem);">
                 Ron Zaidman
             </p>
-        </div>
-        <div class="slide-footer">
-            <span>Ron Zaidman</span>
         </div>
         <aside class="notes">
             Open with:
@@ -411,10 +400,6 @@
          02 / 17 — AGENDA
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">02 / 17</span>
-            <span class="slide-tag">Agenda</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title anim">What We'll Cover</h2>
             <div class="slide-2col">
@@ -442,7 +427,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
     </section>
 
 
@@ -450,10 +435,6 @@
          03 / 17 — ABOUT ME (was 02)
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">03 / 17</span>
-            <span class="slide-tag">Background</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title anim">About Me</h2>
             <div class="zigzag-timeline anim" style="width:min(640px,94%);margin:0 auto;">
@@ -508,7 +489,7 @@
 
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Keep this quick (~45 seconds).
             Purpose: establish credibility.
@@ -522,10 +503,6 @@
          04 / 17 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">04 / 17</span>
-            <span class="slide-tag">My Story</span>
-        </div>
         <div class="slide-content" style="justify-content:flex-start;">
             <h2 class="slide-title anim">My Founder Journey</h2>
             <div class="anim" style="display:flex;flex-direction:column;">
@@ -556,7 +533,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Failure → experimentation → insight → product.
 
@@ -570,10 +547,6 @@
          05 / 17 — THE PROBLEM I SAW
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">05 / 17</span>
-            <span class="slide-tag">The Problem</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title anim">The Problem I Saw</h2>
             <div class="two-col anim mt-1">
@@ -606,7 +579,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             The market insight: most AI tools are built for developers, but most potential users aren't developers.
             This gap — between what exists and what people actually need — became the product opportunity.
@@ -615,13 +588,24 @@
 
 
     <!-- ══════════════════════════════════
-         06 / 17 — WHY THE SOLO FOUNDER IS BACK
+         06 / 18 — SECTION: THE SOLO FOUNDER PLAYBOOK
+         ══════════════════════════════════ -->
+    <section class="section-break">
+        <div class="slide-content slide-content--center">
+            <div class="section-break-rule anim"></div>
+            <h1 class="anim" style="max-width:min(90vw,860px);margin-top:clamp(0.75rem,2vw,1.5rem);">
+                The Solo Founder<br><span class="accent">Playbook</span>
+            </h1>
+            <div class="section-break-rule anim" style="margin-top:clamp(0.75rem,2vw,1.5rem);"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         07 / 17 — WHY THE SOLO FOUNDER IS BACK
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">06 / 17</span>
-            <span class="slide-tag">Context</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title anim">Why the Solo Founder is Back</h2>
             <div class="slide-2col">
@@ -658,7 +642,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             The key insight: AI has fundamentally changed the economics of starting a company alone.
             The cost of building has collapsed. Speed has become the only moat.
@@ -670,10 +654,6 @@
          07 / 17 — SOLO FOUNDERS ARE MAINSTREAM
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">07 / 17</span>
-            <span class="slide-tag">Market Shift</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founding Is Mainstream</h2>
             <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
@@ -695,7 +675,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             The solo founder path is moving from edge case to default.
             This slide sets up the idea that the constraints have changed, so the strategy should too.
@@ -707,10 +687,6 @@
          08 / 17 — CAPITAL
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">08 / 17</span>
-            <span class="slide-tag">Capital</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Raising Real Capital</h2>
             <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
@@ -732,7 +708,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
     </section>
 
 
@@ -740,10 +716,6 @@
          09 / 17 — FAMOUS SOLO FOUNDERS
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">09 / 17</span>
-            <span class="slide-tag">Founders</span>
-        </div>
         <div class="slide-content" style="justify-content:flex-start;">
             <h2 class="slide-title slide-title--ruled anim">Famous Solo Founders</h2>
             <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.1rem,0.3vw,0.2rem);">Founders &amp; Companies</p>
@@ -769,7 +741,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Use this as proof that solo founding is not a fringe pattern.
             The point is not that every company should start alone, but that large outcomes can come from a single founder.
@@ -781,10 +753,6 @@
          10 / 17 — THE SOLO FOUNDER PLAYBOOK
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">10 / 17</span>
-            <span class="slide-tag">The Playbook</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Solo Founder Playbook</h2>
             <div class="slide-2col">
@@ -804,7 +772,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             These are principles distilled from real experience — not theory.
             Each one is something I learned the hard way.
@@ -820,10 +788,6 @@
          11 / 17 — HOW DOES IT FEEL
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">11 / 17</span>
-            <span class="slide-tag">The Reality</span>
-        </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
             <h2 class="slide-title anim" style="text-align:center;">How does it feel to be a solo founder?</h2>
             <div class="anim img-panel">
@@ -835,7 +799,7 @@
                 >
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Let this land with humour.
 
@@ -852,10 +816,6 @@
          12 / 17 — DON'T BUILD ALONE
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">12 / 17</span>
-            <span class="slide-tag">Community</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Main Pitfall of Solo Founding</h2>
             <div class="slide-2col">
@@ -879,7 +839,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Solo founder doesn't mean isolated.
 
@@ -896,10 +856,6 @@
          13 / 17 — SOLO FOUNDERS HUB
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">13 / 17</span>
-            <span class="slide-tag">Community</span>
-        </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
             <h2 class="slide-title anim" style="text-align:center;">That's Why I Founded Solo Founders Hub</h2>
             <div class="anim img-panel">
@@ -911,7 +867,7 @@
                 >
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Solo founding can be isolating — so I built the community I wished existed.
 
@@ -927,10 +883,6 @@
          14 / 17 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">14 / 17</span>
-            <span class="slide-tag">Lessons</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">What I Learned</h2>
             <div class="slide-2col">
@@ -951,7 +903,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             These are the lessons I wish someone had told me before I started.
 
@@ -964,13 +916,24 @@
 
 
     <!-- ══════════════════════════════════
+         16 / 19 — SECTION: MY RAMP UP CHEAT SHEET
+         ══════════════════════════════════ -->
+    <section class="section-break">
+        <div class="slide-content slide-content--center">
+            <div class="section-break-rule anim"></div>
+            <h1 class="anim" style="max-width:min(90vw,860px);margin-top:clamp(0.75rem,2vw,1.5rem);">
+                My Ramp Up<br><span class="accent">Cheat Sheet</span>
+            </h1>
+            <div class="section-break-rule anim" style="margin-top:clamp(0.75rem,2vw,1.5rem);"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════
          15 / 17 — MY SOLO FOUNDER STACK
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">15 / 17</span>
-            <span class="slide-tag">The Stack</span>
-        </div>
         <div class="slide-content" style="justify-content:flex-start;">
             <h2 class="slide-title anim">My Technical Ramp Up Stack</h2>
             <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,4vw,3.5rem);">
@@ -1016,7 +979,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Each of these tools replaces an entire team role:
 
@@ -1034,10 +997,6 @@
          16 / 17 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">16 / 17</span>
-            <span class="slide-tag">Real Example</span>
-        </div>
         <div class="slide-content">
             <h2 class="slide-title anim">Example: Analytics Rampup</h2>
             <div class="slide-2col">
@@ -1067,7 +1026,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             This is a concrete example of AI accelerating operations — not just coding.
 
@@ -1083,10 +1042,6 @@
          17 / 17 — THANK YOU
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-header">
-            <span class="slide-num">17 / 17</span>
-            <span class="slide-tag">Thank You</span>
-        </div>
         <div class="slide-content slide-content--center">
             <h2 class="slide-title anim">Thank You for Listening 🙏</h2>
             <div class="anim mt-2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;width:min(820px,92%);">
@@ -1110,7 +1065,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidman</span></div>
+
         <aside class="notes">
             Thank the audience.
             Invite them to connect on LinkedIn, join the community, and access the slides via QR codes.
@@ -1128,10 +1083,10 @@
     Reveal.initialize({
         hash: true,
         history: true,
-        controls: true,
+        controls: false,
         controlsTutorial: false,
         progress: true,
-        slideNumber: false,
+        slideNumber: 'c/t',
         width: '100%',
         height: '100%',
         margin: 0,
