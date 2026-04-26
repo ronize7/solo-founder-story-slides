@@ -68,7 +68,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             overflow: hidden;
             padding: var(--slide-padding);
             gap: var(--content-gap);
@@ -234,7 +234,7 @@
         .img-cell   { display: flex; align-items: center; justify-content: center; min-height: 0; }
         .img-panel  { display: flex; justify-content: center; flex: 1; min-height: 0; padding: clamp(0.5rem, 1.5vw, 1.5rem) 0; }
         .flex-col   { display: flex; flex-direction: column; gap: var(--content-gap); }
-        .slide-content--center { align-items: center; text-align: center; }
+        .slide-content--center { justify-content: center; align-items: center; text-align: center; }
         @media (max-width: 600px) { .two-col, .slide-2col { grid-template-columns: 1fr; } }
         .mt-1 { margin-top: clamp(0.4rem, 0.8vw, 0.65rem); }
         .mt-2 { margin-top: clamp(0.65rem, 1.4vw, 1.15rem); }
@@ -401,7 +401,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title anim">What We'll Cover</h2>
+            <h2 class="slide-title slide-title--ruled anim">What We'll Cover</h2>
             <div class="slide-2col">
                 <div class="anim" style="display:flex;flex-direction:column;gap:clamp(1rem,3vh,2rem);">
                     <div style="display:flex;align-items:center;gap:1rem;">
@@ -436,7 +436,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title anim">About Me</h2>
+            <h2 class="slide-title slide-title--ruled anim">About Me</h2>
             <div class="zigzag-timeline anim" style="width:min(640px,94%);margin:0 auto;">
 
                 <!-- 1 LEFT -->
@@ -503,8 +503,8 @@
          04 / 17 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-content" style="justify-content:flex-start;">
-            <h2 class="slide-title anim">My Founder Journey</h2>
+        <div class="slide-content">
+            <h2 class="slide-title slide-title--ruled anim">My Founder Journey</h2>
             <div class="anim" style="display:flex;flex-direction:column;">
                 <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
                     <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
@@ -548,7 +548,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title anim">The Problem I Saw</h2>
+            <h2 class="slide-title slide-title--ruled anim">The Problem I Saw</h2>
             <div class="two-col anim mt-1">
                 <div>
                     <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">Most AI tools today:</p>
@@ -607,7 +607,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title anim">Why the Solo Founder is Back</h2>
+            <h2 class="slide-title slide-title--ruled anim">Why the Solo Founder is Back</h2>
             <div class="slide-2col">
                 <div class="anim flex-col">
                     <div class="split-columns" style="grid-template-columns:1fr 1fr;">
@@ -716,7 +716,7 @@
          09 / 17 — FAMOUS SOLO FOUNDERS
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-content" style="justify-content:flex-start;">
+        <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Famous Solo Founders</h2>
             <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.1rem,0.3vw,0.2rem);">Founders &amp; Companies</p>
             <div class="anim founder-columns mt-1">
@@ -789,7 +789,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
-            <h2 class="slide-title anim" style="text-align:center;">How does it feel to be a solo founder?</h2>
+            <h2 class="slide-title slide-title--ruled center anim" style="text-align:center;">How does it feel to be a solo founder?</h2>
             <div class="anim img-panel">
                 <img
                     src="public/Solo-founder-mode.png"
@@ -857,7 +857,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
-            <h2 class="slide-title anim" style="text-align:center;">That's Why I Founded Solo Founders Hub</h2>
+            <h2 class="slide-title slide-title--ruled center anim" style="text-align:center;">That's Why I Founded Solo Founders Hub</h2>
             <div class="anim img-panel">
                 <img
                     src="public/The Solo Founders Hub - logo.png"
@@ -934,8 +934,8 @@
          15 / 17 — MY SOLO FOUNDER STACK
          ══════════════════════════════════ -->
     <section>
-        <div class="slide-content" style="justify-content:flex-start;">
-            <h2 class="slide-title anim">My Technical Ramp Up Stack</h2>
+        <div class="slide-content">
+            <h2 class="slide-title slide-title--ruled anim">My Technical Ramp Up Stack</h2>
             <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,4vw,3.5rem);">
                 <div>
                     <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
@@ -998,7 +998,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title anim">Example: Analytics Rampup</h2>
+            <h2 class="slide-title slide-title--ruled anim">Example: Analytics Rampup</h2>
             <div class="slide-2col">
                 <div class="anim" style="display:flex;flex-direction:column;gap:clamp(0.5rem,1.2vw,1rem);">
                     <p class="lead" style="margin-bottom:clamp(0.2rem,0.6vw,0.5rem);">
@@ -1043,7 +1043,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center">
-            <h2 class="slide-title anim">Thank You for Listening 🙏</h2>
+            <h2 class="slide-title slide-title--ruled center anim">Thank You for Listening 🙏</h2>
             <div class="anim mt-2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;width:min(820px,92%);">
                 <!-- LinkedIn -->
                 <div style="display:flex;flex-direction:column;align-items:center;gap:0.7em;">
