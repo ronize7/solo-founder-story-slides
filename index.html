@@ -289,46 +289,85 @@
         .founder-item {
             display: flex;
             align-items: baseline;
-            gap: 0.7rem;
-            padding-bottom: 0.55rem;
-            border-bottom: 1px solid var(--border);
+            justify-content: space-between;
+            gap: 1rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
         .founder-name {
-            font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-            font-weight: 700;
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-weight: 800;
             color: var(--accent);
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .founder-company {
-            font-size: clamp(0.85rem, 1.4vw, 1.02rem);
+            font-size: clamp(0.78rem, 1.25vw, 0.95rem);
             color: var(--text);
-            opacity: 0.72;
+            opacity: 0.76;
+            text-align: right;
         }
         .founder-columns {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(0.75rem, 1.8vw, 1.4rem);
-            width: min(980px, 100%);
+            gap: clamp(0.9rem, 2vw, 1.6rem);
+            width: min(1060px, 100%);
             align-items: start;
         }
         .founder-column {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: clamp(0.8rem, 1.6vw, 1.25rem);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 10px;
+            padding: clamp(0.95rem, 1.9vw, 1.4rem);
             min-height: 100%;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.04);
+            overflow: hidden;
+        }
+        .founder-column::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto auto 0;
+            width: 100%;
+            height: 3px;
+            background: var(--column-accent, var(--accent));
+            opacity: 0.9;
         }
         .founder-column-title {
-            font-size: var(--small-size);
+            display: flex;
+            align-items: baseline;
+            gap: 0.55rem;
+            font-size: clamp(0.72rem, 1.05vw, 0.9rem);
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            margin-bottom: 0.9rem;
-            opacity: 0.7;
+            margin-bottom: 1rem;
+            padding-top: 0.25rem;
+            opacity: 0.82;
         }
+        .founder-ordinal {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--column-accent, var(--accent));
+        }
+        .founder-column--old { --column-accent: var(--accent); background: rgba(66,175,250,0.05); }
+        .founder-column--modern { --column-accent: var(--teal); background: rgba(42,161,152,0.05); }
+        .founder-column--viral { --column-accent: var(--text); background: rgba(0,0,0,0.02); }
         .founder-column--old .founder-column-title { color: var(--accent); opacity: 1; }
         .founder-column--modern .founder-column-title { color: var(--teal); opacity: 1; }
-        .founder-column--viral .founder-column-title { color: var(--text); opacity: 0.75; }
+        .founder-column--viral .founder-column-title { color: var(--text); opacity: 0.82; }
         .founder-column .founder-item:last-child { border-bottom: 0; padding-bottom: 0; }
+        .founder-proof {
+            max-width: 42ch;
+            font-size: clamp(0.95rem, 1.9vw, 1.25rem);
+            font-weight: 700;
+            line-height: 1.45;
+            color: var(--text);
+            background: rgba(66,175,250,0.08);
+            border: 1px solid rgba(66,175,250,0.22);
+            border-radius: 8px;
+            padding: clamp(0.5rem, 1.1vw, 0.85rem) clamp(0.75rem, 1.6vw, 1.2rem);
+        }
         @media (max-width: 720px) {
             .founder-columns { grid-template-columns: 1fr; }
         }
@@ -638,28 +677,24 @@
             <span class="slide-tag">Market Shift</span>
         </div>
         <div class="slide-content">
-            <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Becoming Mainstream</h2>
-            <div class="slide-2col anim" style="align-items:start;">
-                <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.4rem);">
-                    <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.75rem);line-height:1.22;">
+            <h2 class="slide-title slide-title--ruled anim">Solo Founding Is Mainstream</h2>
+            <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
+                <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.35rem);justify-content:center;min-height:min(44vh,360px);">
+                    <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.7rem);line-height:1.2;">
                         1 in 3 new startups are founded by solo founders
                     </div>
-                    <p class="lead" style="max-width:26rem;">
-                        What used to feel like the harder path is quickly becoming a normal one.
-                    </p>
+                    <div class="vision-quote" style="max-width:20rem;">
+                        The old “you need a co-founder first” rule is fading fast.
+                    </div>
                 </div>
-                <div class="anim img-cell" style="justify-content:flex-start;">
+                <div class="anim img-cell" style="justify-content:flex-start;align-items:flex-start;">
                     <img
                         src="public/solo-founders-carta.png"
                         alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
                         loading="lazy"
-                        style="max-height:min(40vh,360px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                        style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
                     >
                 </div>
-            </div>
-            <div class="anim vision-quote" style="margin-top:clamp(0.5rem,1.2vw,1rem);">
-                The question is no longer “Can a solo founder build it?”<br>
-                It’s “What can one great founder build now?”
             </div>
         </div>
         <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
@@ -678,29 +713,25 @@
             <span class="slide-num">08 / 17</span>
             <span class="slide-tag">Capital</span>
         </div>
-        <div class="slide-content" style="justify-content:flex-start;">
+        <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Raising Real Capital</h2>
-            <div class="slide-2col anim" style="align-items:flex-start;grid-template-columns:0.95fr 1.05fr;">
-                <div class="flex-col" style="gap:clamp(0.75rem,1.8vw,1.2rem);">
-                    <div class="highlight-box" style="font-size:clamp(1rem,2.55vw,1.75rem);line-height:1.18;">
+            <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
+                <div class="flex-col" style="gap:clamp(0.85rem,1.8vw,1.2rem);justify-content:center;min-height:min(44vh,360px);">
+                    <div class="highlight-box" style="font-size:clamp(1.02rem,2.45vw,1.65rem);line-height:1.18;">
                         Solo-founded companies raise billions every year
                     </div>
-                    <p class="lead" style="max-width:28rem;">
-                        While total funding is still lower than companies with co-founders, the gap reflects timing more than capability.
-                    </p>
+                    <div class="vision-quote" style="max-width:20rem;">
+                        The funding gap is shrinking as solo founding becomes normal.
+                    </div>
                 </div>
                 <div class="img-cell anim" style="justify-content:flex-start;align-items:flex-start;">
                     <img
                         src="public/solo-founders-raising-capital.png"
                         alt="Solo founders raising capital over time"
                         loading="lazy"
-                        style="max-height:min(44vh,380px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                        style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
                     >
                 </div>
-            </div>
-            <div class="anim vision-quote" style="margin-top:clamp(0.35rem,1vw,0.8rem);">
-                Capital is already flowing to solo founders.<br>
-                The next wave has not fully matured yet.
             </div>
         </div>
         <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
@@ -717,24 +748,24 @@
         </div>
         <div class="slide-content" style="justify-content:flex-start;">
             <h2 class="slide-title slide-title--ruled anim">Famous Solo Founders</h2>
-            <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.15rem,0.4vw,0.3rem);">Founders &amp; Companies</p>
+            <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.1rem,0.3vw,0.2rem);">Founders &amp; Companies</p>
             <div class="anim founder-columns mt-1">
                 <div class="founder-column founder-column--old">
-                    <div class="founder-column-title">Old school giants</div>
-                    <div class="founder-item"><span class="founder-name">Amazon</span><span class="founder-company">Jeff Bezos</span></div>
+                    <div class="founder-column-title"><span class="founder-ordinal">01</span> Old school giants</div>
                     <div class="founder-item"><span class="founder-name">eBay</span><span class="founder-company">Pierre Omidyar</span></div>
+                    <div class="founder-item"><span class="founder-name">Amazon</span><span class="founder-company">Jeff Bezos</span></div>
                     <div class="founder-item"><span class="founder-name">Craigslist</span><span class="founder-company">Craig Newmark</span></div>
                     <div class="founder-item"><span class="founder-name">Plenty of Fish</span><span class="founder-company">Markus Frind</span></div>
                 </div>
                 <div class="founder-column founder-column--modern">
-                    <div class="founder-column-title">Modern growth</div>
+                    <div class="founder-column-title"><span class="founder-ordinal">02</span> Modern growth</div>
                     <div class="founder-item"><span class="founder-name">Figure</span><span class="founder-company">Brett Adcock</span></div>
                     <div class="founder-item"><span class="founder-name">Browserbase</span><span class="founder-company">Paul Klein IV</span></div>
                     <div class="founder-item"><span class="founder-name">Lindy</span><span class="founder-company">Flo Crivello</span></div>
                     <div class="founder-item"><span class="founder-name">Profound</span><span class="founder-company">Solo-founded</span></div>
                 </div>
                 <div class="founder-column founder-column--viral">
-                    <div class="founder-column-title">Viral</div>
+                    <div class="founder-column-title"><span class="founder-ordinal">03</span> Viral</div>
                     <div class="founder-item"><span class="founder-name">OpenClaw</span><span class="founder-company">Peter Steinberger</span></div>
                     <div class="founder-item"><span class="founder-name">Polsia</span><span class="founder-company">Ben Cera</span></div>
                 </div>
