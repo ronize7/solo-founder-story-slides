@@ -6,8 +6,8 @@
     <title>The Solo Founder Playbook in the AI Era — Ron Zaidman</title>
 
     <!-- === REVEAL.JS CORE CSS + MOON THEME === -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/simple.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css">
 
     <style>
         /* =====================================================
@@ -25,6 +25,9 @@
             --small-size:    clamp(0.62rem, 0.95vw, 0.82rem);
             --slide-padding: clamp(1.25rem, 4vw, 4.5rem);
             --content-gap:   clamp(0.6rem, 2vw, 2rem);
+            --text:          #e0e0e0;
+            --text-muted:    rgba(255, 255, 255, 0.4);
+            --font-body:     inherit;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,6 +90,7 @@
             justify-content: center;
             overflow: hidden;
             padding: var(--slide-padding);
+            gap: var(--content-gap);
             position: relative;
             z-index: 1;
         }
@@ -123,7 +127,7 @@
         @media (max-height: 700px) { :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem); --title-size: clamp(1.37rem, 4.95vw, 2.75rem); --h2-size: clamp(1.1rem, 3.31vw, 1.94rem); } }
         @media (max-height: 600px) { :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); } }
         @media (max-width: 600px)  { :root { --title-size: clamp(1.55rem, 7.72vw, 2.75rem); } .split-columns, .two-col { grid-template-columns: 1fr !important; } .stack-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; } .anim { opacity: 1 !important; transform: none !important; } }
 
         /* =====================================================
            ANIMATIONS
@@ -145,7 +149,7 @@
         .title-slide h1 { max-width: min(90vw, 900px); }
         .accent-tag { display: inline-block; border: 1px solid rgba(66,175,250,0.4); color: var(--accent); font-size: var(--small-size); padding: 0.3em 0.9em; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
         .subtitle { font-size: clamp(0.95rem, 2vw, 1.45rem); opacity: 0.6; font-weight: 300; }
-        .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; will-change: transform; }
         .orb-warm { width: 40vw; height: 40vw; background: rgba(66,175,250,0.06); top: -10%; right: -8%; }
         .orb-cool { width: 30vw; height: 30vw; background: rgba(42,161,152,0.05); bottom: 3%; left: 2%; }
 
@@ -160,8 +164,8 @@
         /* =====================================================
            HIGHLIGHT BOX
            ===================================================== */
-        .highlight-box { border-left: 2px solid var(--accent); padding: clamp(0.5rem, 1.2vw, 0.9rem) clamp(0.75rem, 1.8vw, 1.4rem); font-size: clamp(0.95rem, 2vw, 1.45rem); font-weight: 600; line-height: 1.35; }
-        .highlight-box.teal { border-color: var(--teal); color: var(--teal); }
+        .highlight-box { background: rgba(66,175,250,0.08); border: 1px solid rgba(66,175,250,0.25); border-radius: 6px; padding: clamp(0.5rem, 1.2vw, 0.9rem) clamp(0.75rem, 1.8vw, 1.4rem); font-size: clamp(0.95rem, 2vw, 1.45rem); font-weight: 600; line-height: 1.35; }
+        .highlight-box.teal { background: rgba(42,161,152,0.08); border-color: rgba(42,161,152,0.3); color: var(--teal); }
 
         /* =====================================================
            ZIGZAG TIMELINE (About Me)
@@ -225,6 +229,7 @@
         .stack-card:hover { border-color: rgba(66,175,250,0.4); }
         .stack-cat { font-size: var(--small-size); text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.55; margin-bottom: 0.35em; }
         .stack-tool { font-size: clamp(0.9rem, 1.7vw, 1.35rem); font-weight: 700; color: var(--accent); }
+        .stack-sub  { font-size: var(--small-size); opacity: 0.45; margin-top: 0.3em; font-weight: 400; }
         @media (max-width: 600px) { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
 
         /* =====================================================
@@ -244,8 +249,13 @@
         /* =====================================================
            UTILITIES
            ===================================================== */
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.2rem, 2.5vw, 2.5rem); align-items: start; }
-        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+        .two-col    { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.2rem, 2.5vw, 2.5rem); align-items: start; }
+        .slide-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 2vw, 2rem); flex: 1; min-height: 0; align-items: center; }
+        .img-cell   { display: flex; align-items: center; justify-content: center; min-height: 0; }
+        .img-panel  { display: flex; justify-content: center; flex: 1; min-height: 0; padding: clamp(0.5rem, 1.5vw, 1.5rem) 0; }
+        .flex-col   { display: flex; flex-direction: column; gap: var(--content-gap); }
+        .slide-content--center { align-items: center; text-align: center; }
+        @media (max-width: 600px) { .two-col, .slide-2col { grid-template-columns: 1fr; } }
         .mt-1 { margin-top: clamp(0.4rem, 0.8vw, 0.65rem); }
         .mt-2 { margin-top: clamp(0.65rem, 1.4vw, 1.15rem); }
         .mt-3 { margin-top: clamp(1rem, 2vw, 1.75rem); }
@@ -273,11 +283,11 @@
     <section class="title-slide">
         <div class="orb orb-warm"></div>
         <div class="orb orb-cool"></div>
-        <div class="slide-header" style="position:relative;z-index:1;">
+        <div class="slide-header">
             <span class="slide-num">01 / 14</span>
             <span class="slide-tag">AI Israel Club</span>
         </div>
-        <div class="slide-content" style="position:relative;z-index:1;">
+        <div class="slide-content">
             <span class="accent-tag anim">Solo Founder Series</span>
             <h1 class="anim" style="margin-top:clamp(0.5rem,1.5vw,1rem);">
                 The Solo Founder<br><span class="accent">Playbook</span> in the AI Era
@@ -287,7 +297,7 @@
                 Ron Zaidman &nbsp;·&nbsp; AI Israel Club
             </p>
         </div>
-        <div class="slide-footer" style="position:relative;z-index:1;">
+        <div class="slide-footer">
             <span>Ron Zaidman</span><span>AI Israel Club</span>
         </div>
         <aside class="notes">
@@ -307,9 +317,9 @@
             <span class="slide-num">02 / 14</span>
             <span class="slide-tag">Agenda</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">What We'll Cover</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,3vw,2.5rem);flex:1;min-height:0;align-items:center;">
+            <div class="slide-2col">
                 <div class="anim" style="display:flex;flex-direction:column;gap:clamp(1rem,3vh,2rem);">
                     <div style="display:flex;align-items:center;gap:1rem;">
                         <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">01</span>
@@ -324,10 +334,10 @@
                         <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Technical Ramp-up stack</span>
                     </div>
                 </div>
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                <div class="anim img-cell">
                     <img
                         src="public/what-youll-get.jpg"
-                        alt="What you'll get"
+                        alt="Three agenda items illustrated: my founder journey, the solo founder playbook, and my technical ramp-up stack"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
@@ -417,7 +427,7 @@
             <span class="slide-num">04 / 14</span>
             <span class="slide-tag">My Story</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">My Founder Journey</h2>
             <div class="timeline anim mt-1">
                 <div class="timeline-item">
@@ -463,7 +473,7 @@
             <span class="slide-num">05 / 14</span>
             <span class="slide-tag">The Problem</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">The Problem I Saw</h2>
             <div class="two-col anim mt-1">
                 <div>
@@ -510,10 +520,10 @@
             <span class="slide-num">06 / 14</span>
             <span class="slide-tag">Context</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">Why the Solo Founder is Back</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
-                <div class="anim" style="display:flex;flex-direction:column;gap:var(--content-gap);">
+            <div class="slide-2col">
+                <div class="anim flex-col">
                     <div class="split-columns" style="grid-template-columns:1fr 1fr;">
                         <div class="split-col before">
                             <div class="split-col-label">⏮ Before AI</div>
@@ -537,7 +547,7 @@
                         1 person can now build what used to require 5–10 people.
                     </div>
                 </div>
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                <div class="anim img-cell">
                     <img
                         src="public/Solo-Founder-is-Back.jpg"
                         alt="The Shepherd's Journey: The Solo Founder Reborn"
@@ -562,9 +572,9 @@
             <span class="slide-num">07 / 14</span>
             <span class="slide-tag">The Playbook</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">The Solo Founder Playbook</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+            <div class="slide-2col">
                 <ul class="playbook-list anim" style="list-style:none;">
                     <li><span class="playbook-icon">🚢</span> <span class="playbook-title">Ship early</span> <span class="playbook-sub">If you're proud of it, you shipped too late</span></li>
                     <li><span class="playbook-icon">💬</span> <span class="playbook-title">Talk to users early</span> <span class="playbook-sub">Build community, not just product</span></li>
@@ -572,7 +582,7 @@
                     <li style="flex-direction:column;align-items:flex-start;gap:0.2em;"><div><span class="playbook-icon">📡</span> <span class="playbook-title">Distribution from day one</span></div><span class="playbook-sub" style="padding-left:1.4em;">🌱 Organic: LinkedIn, Twitter, Reddit, ProductHunt &nbsp;·&nbsp; 💸 Non-organic: Paid ads</span></li>
                     <li><span class="playbook-icon">💰</span> <span class="playbook-title">Fundraising is an option</span> <span class="playbook-sub">More VCs invest in solo founders (e.g. StageZero)</span></li>
                 </ul>
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                <div class="anim img-cell">
                     <img
                         src="public/founder-playbook.jpg"
                         alt="The Solo Founder Playbook: In Action"
@@ -601,9 +611,9 @@
             <span class="slide-num">08 / 14</span>
             <span class="slide-tag">The Reality</span>
         </div>
-        <div class="slide-content" style="justify-content:center;align-items:center;gap:var(--content-gap);padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
+        <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
             <h2 class="slide-title anim" style="text-align:center;">How does it feel to be a solo founder?</h2>
-            <div class="anim" style="display:flex;justify-content:center;flex:1;min-height:0;padding:clamp(0.5rem,1.5vw,1.5rem) 0;">
+            <div class="anim img-panel">
                 <img
                     src="public/Solo-founder-mode.png"
                     alt="The Solo Shepherd: Startup Edition — a cartoon of a solo founder juggling product, users, cloud, and more"
@@ -632,17 +642,17 @@
             <span class="slide-num">09 / 14</span>
             <span class="slide-tag">Community</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">The Main Pitfall of Solo Founding</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+            <div class="slide-2col">
+                <div class="anim img-cell">
                     <img
                         src="public/solo-founder-pitfalls.jpg"
                         alt="The Solo Founder's Echo Chamber: The Pitfall of Isolation"
                         style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
                     >
                 </div>
-                <div class="anim" style="display:flex;flex-direction:column;gap:var(--content-gap);">
+                <div class="anim flex-col">
                     <ul class="bullets">
                         <li class="no-arrow">⏸️ Nothing happens in parallel</li>
                         <li class="no-arrow">📖 No one to learn from</li>
@@ -675,9 +685,9 @@
             <span class="slide-num">10 / 14</span>
             <span class="slide-tag">Community</span>
         </div>
-        <div class="slide-content" style="justify-content:center;align-items:center;gap:var(--content-gap);padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
+        <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
             <h2 class="slide-title anim" style="text-align:center;">That's Why I Founded Solo Founders Hub</h2>
-            <div class="anim" style="display:flex;justify-content:center;flex:1;min-height:0;padding:clamp(0.5rem,1.5vw,1.5rem) 0;">
+            <div class="anim img-panel">
                 <img
                     src="public/The Solo Founders Hub - logo.png"
                     alt="The Solo Founders Hub logo"
@@ -705,9 +715,9 @@
             <span class="slide-num">11 / 14</span>
             <span class="slide-tag">Lessons</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">What I Learned</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+            <div class="slide-2col">
                 <ul class="bullets mt-1 anim">
                     <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚠️ Over-engineering is still the #1 mistake</li>
                     <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">👥 Talk to users earlier than you think</li>
@@ -715,7 +725,7 @@
                     <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">📡 Distribution is harder than building</li>
                     <li class="no-arrow anim">🤖 Better to solve the specific pain than a generic one (unlike base44)</li>
                 </ul>
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                <div class="anim img-cell">
                     <img
                         src="public/shepherd-lessons.jpg"
                         alt="Inspired: A Shepherd's New Path — lessons from solo founding"
@@ -744,18 +754,18 @@
             <span class="slide-num">12 / 14</span>
             <span class="slide-tag">The Stack</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">My Technical Ramp Up Stack</h2>
             <div class="stack-grid anim mt-2">
-                <div class="stack-card"><div class="stack-cat">🤖 AI Agents Framework</div><div class="stack-tool">Agno</div></div>
-                <div class="stack-card"><div class="stack-cat">📊 Product Analytics</div><div class="stack-tool">PostHog</div></div>
-                <div class="stack-card"><div class="stack-cat">🔭 Logging & Observability</div><div class="stack-tool">Logfire</div></div>
-                <div class="stack-card"><div class="stack-cat">🥸 Authentication</div><div class="stack-tool">Supabase</div></div>
-                <div class="stack-card"><div class="stack-cat">☁️ Cloud</div><div class="stack-tool">Render</div></div>
-                <div class="stack-card"><div class="stack-cat">🗄️ DB</div><div class="stack-tool">Mongo</div></div>
+                <div class="stack-card"><div class="stack-cat">🤖 AI Agents Framework</div><div class="stack-tool">Agno</div><div class="stack-sub">replaces custom orchestration code</div></div>
+                <div class="stack-card"><div class="stack-cat">📊 Product Analytics</div><div class="stack-tool">PostHog</div><div class="stack-sub">replaces a data analyst</div></div>
+                <div class="stack-card"><div class="stack-cat">🔭 Logging & Observability</div><div class="stack-tool">Logfire</div><div class="stack-sub">replaces a DevOps engineer</div></div>
+                <div class="stack-card"><div class="stack-cat">🥸 Authentication</div><div class="stack-tool">Supabase</div><div class="stack-sub">replaces a backend team</div></div>
+                <div class="stack-card"><div class="stack-cat">☁️ Cloud</div><div class="stack-tool">Render</div><div class="stack-sub">replaces infrastructure setup</div></div>
+                <div class="stack-card"><div class="stack-cat">🗄️ DB</div><div class="stack-tool">Mongo</div><div class="stack-sub">replaces a data engineer</div></div>
             </div>
         </div>
-        <div class="slide-footer"><span>Ron Zaidmanaidman</span><span>AI Israel Club</span></div>
+        <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
         <aside class="notes">
             Each of these tools replaces an entire team role:
 
@@ -777,9 +787,9 @@
             <span class="slide-num">13 / 14</span>
             <span class="slide-tag">Real Example</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);">
+        <div class="slide-content">
             <h2 class="slide-title anim">Example: Analytics Rampup</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.8rem,2vw,2rem);flex:1;min-height:0;align-items:center;">
+            <div class="slide-2col">
                 <div class="anim" style="display:flex;flex-direction:column;gap:clamp(0.5rem,1.2vw,1rem);">
                     <p class="lead" style="margin-bottom:clamp(0.2rem,0.6vw,0.5rem);">
                         Connect <span class="accent">PostHog MCP</span> to an (coding) agent and ask him:
@@ -797,7 +807,7 @@
                     </div>
                     <div class="highlight-box" style="margin-top:0;">⚡ AI is not just coding — it's operational acceleration.</div>
                 </div>
-                <div class="anim" style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                <div class="anim img-cell">
                     <img
                         src="public/posthog-examples.png"
                         alt="PostHog dashboards created by AI agent"
@@ -826,7 +836,7 @@
             <span class="slide-num">14 / 14</span>
             <span class="slide-tag">Thank You</span>
         </div>
-        <div class="slide-content" style="gap:var(--content-gap);align-items:center;text-align:center;">
+        <div class="slide-content slide-content--center">
             <h2 class="slide-title anim">Thank You for Listening 🙏</h2>
             <div class="anim mt-2" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start;width:min(820px,92%);">
                 <!-- LinkedIn -->
@@ -860,8 +870,8 @@
 </div><!-- /.reveal -->
 
 
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
 
 <script>
     Reveal.initialize({
@@ -874,8 +884,8 @@
         width: '100%',
         height: '100%',
         margin: 0,
-        minScale: 1,
-        maxScale: 1,
+        minScale: 0.2,
+        maxScale: 2.0,
         center: false,
         transition: 'fade',
         transitionSpeed: 'fast',
