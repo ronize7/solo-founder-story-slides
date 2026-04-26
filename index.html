@@ -75,6 +75,14 @@
             position: relative;
             z-index: 1;
         }
+        .slide-body {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--content-gap);
+        }
 
         /* =====================================================
            TYPOGRAPHY
@@ -348,6 +356,7 @@
             border-radius: 8px;
             padding: clamp(0.5rem, 1.1vw, 0.85rem) clamp(0.75rem, 1.6vw, 1.2rem);
         }
+        .founder-proof .accent { font-weight: 700; }
         @media (max-width: 720px) {
             .founder-columns { grid-template-columns: 1fr; }
         }
@@ -374,7 +383,7 @@
   <div class="slides">
 
     <!-- ══════════════════════════════════
-         01 / 17 — TITLE
+         01 / 19 — TITLE
          ══════════════════════════════════ -->
     <section class="title-slide">
         <div class="slide-content">
@@ -397,33 +406,35 @@
 
 
     <!-- ══════════════════════════════════
-         02 / 17 — AGENDA
+         02 / 19 — AGENDA
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">What We'll Cover</h2>
-            <div class="slide-2col">
-                <div class="anim" style="display:flex;flex-direction:column;gap:clamp(1rem,3vh,2rem);">
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">01</span>
-                        <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Solo Founder Journey</span>
+            <div class="slide-body">
+                <div class="slide-2col">
+                    <div class="anim" style="display:flex;flex-direction:column;gap:clamp(1rem,3vh,2rem);">
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">01</span>
+                            <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Solo Founder Journey</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">02</span>
+                            <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">The Solo Founder Playbook</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:1rem;">
+                            <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">03</span>
+                            <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Technical Ramp-up stack</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">02</span>
-                        <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">The Solo Founder Playbook</span>
+                    <div class="anim img-cell">
+                        <img
+                            src="public/what-youll-get.jpg"
+                            alt="Three agenda items illustrated: my founder journey, the solo founder playbook, and my technical ramp-up stack"
+                            loading="lazy"
+                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
                     </div>
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">03</span>
-                        <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Technical Ramp-up stack</span>
-                    </div>
-                </div>
-                <div class="anim img-cell">
-                    <img
-                        src="public/what-youll-get.jpg"
-                        alt="Three agenda items illustrated: my founder journey, the solo founder playbook, and my technical ramp-up stack"
-                        loading="lazy"
-                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
                 </div>
             </div>
         </div>
@@ -432,61 +443,63 @@
 
 
     <!-- ══════════════════════════════════
-         03 / 17 — ABOUT ME (was 02)
+         03 / 19 — ABOUT ME (was 02)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">About Me</h2>
-            <div class="zigzag-timeline anim" style="width:min(640px,94%);margin:0 auto;">
+            <div class="slide-body">
+                <div style="display:flex;align-items:center;justify-content:center;min-height:0;">
+                    <div class="zigzag-timeline anim" style="width:min(640px,94%);margin:0 auto;">
+                        <!-- 1 LEFT -->
+                        <div class="ztl-content ztl-left">
+                            <span class="rtl-tag">Education</span>
+                            <span class="rtl-label"><img src="public/about-me-logos/לוגו-פסגות.png" alt="Psagot" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Psagot Program Alumni</span>
+                        </div>
+                        <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                        <div></div>
 
-                <!-- 1 LEFT -->
-                <div class="ztl-content ztl-left">
-                    <span class="rtl-tag">Education</span>
-                    <span class="rtl-label"><img src="public/about-me-logos/לוגו-פסגות.png" alt="Psagot" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Psagot Program Alumni</span>
+                        <!-- 2 RIGHT -->
+                        <div></div>
+                        <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                        <div class="ztl-content ztl-right">
+                            <span class="rtl-tag">Education</span>
+                            <span class="rtl-label"><img src="public/about-me-logos/technion.jpg" alt="Technion" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Technion Alumni</span>
+                        </div>
+
+                        <!-- 3 LEFT -->
+                        <div class="ztl-content ztl-left">
+                            <span class="rtl-tag">Military</span>
+                            <span class="rtl-label"><img src="public/about-me-logos/81unit.jpeg" alt="Unit 81" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Unit 81</span>
+                        </div>
+                        <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                        <div></div>
+
+                        <!-- 4 RIGHT -->
+                        <div></div>
+                        <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                        <div class="ztl-content ztl-right">
+                            <span class="rtl-tag">Industry</span>
+                            <span class="rtl-label"><img src="public/about-me-logos/microsoft.png" alt="Microsoft" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Microsoft Engineer</span>
+                        </div>
+
+                        <!-- 5 LEFT -->
+                        <div class="ztl-content ztl-left">
+                            <span class="rtl-tag">Leadership</span>
+                            <span class="rtl-label"><img src="public/about-me-logos/stealth-startup.jpeg" alt="Startup" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> VP R&amp;D at a Startup</span>
+                        </div>
+                        <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
+                        <div></div>
+
+                        <!-- 6 RIGHT — FINAL -->
+                        <div></div>
+                        <div class="ztl-center"><div class="ztl-dot ztl-dot--final"></div><div class="ztl-line"></div></div>
+                        <div class="ztl-content ztl-right ztl-final">
+                            <span class="rtl-tag">Now</span>
+                            <span class="rtl-label"><img src="public/dopamine-logo.png" alt="dopamine.chat" loading="lazy" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Founder of dopamine.chat</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
-                <div></div>
-
-                <!-- 2 RIGHT -->
-                <div></div>
-                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
-                <div class="ztl-content ztl-right">
-                    <span class="rtl-tag">Education</span>
-                    <span class="rtl-label"><img src="public/about-me-logos/technion.jpg" alt="Technion" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Technion Alumni</span>
-                </div>
-
-                <!-- 3 LEFT -->
-                <div class="ztl-content ztl-left">
-                    <span class="rtl-tag">Military</span>
-                    <span class="rtl-label"><img src="public/about-me-logos/81unit.jpeg" alt="Unit 81" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> Unit 81</span>
-                </div>
-                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
-                <div></div>
-
-                <!-- 4 RIGHT -->
-                <div></div>
-                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
-                <div class="ztl-content ztl-right">
-                    <span class="rtl-tag">Industry</span>
-                    <span class="rtl-label"><img src="public/about-me-logos/microsoft.png" alt="Microsoft" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Microsoft Engineer</span>
-                </div>
-
-                <!-- 5 LEFT -->
-                <div class="ztl-content ztl-left">
-                    <span class="rtl-tag">Leadership</span>
-                    <span class="rtl-label"><img src="public/about-me-logos/stealth-startup.jpeg" alt="Startup" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.3em;"> VP R&amp;D at a Startup</span>
-                </div>
-                <div class="ztl-center"><div class="ztl-dot"></div><div class="ztl-line"></div></div>
-                <div></div>
-
-                <!-- 6 RIGHT — FINAL -->
-                <div></div>
-                <div class="ztl-center"><div class="ztl-dot ztl-dot--final"></div><div class="ztl-line"></div></div>
-                <div class="ztl-content ztl-right ztl-final">
-                    <span class="rtl-tag">Now</span>
-                    <span class="rtl-label"><img src="public/dopamine-logo.png" alt="dopamine.chat" loading="lazy" style="height:1.2em;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.3em;"> Founder of dopamine.chat</span>
-                </div>
-
             </div>
         </div>
 
@@ -500,36 +513,38 @@
 
 
     <!-- ══════════════════════════════════
-         04 / 17 — MY FOUNDER JOURNEY
+         04 / 19 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">My Founder Journey</h2>
-            <div class="anim" style="display:flex;flex-direction:column;">
-                <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                    <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
-                    <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">💥 Startup shut down</span>
-                    <span style="font-size:var(--small-size);color:var(--text-muted);">— Everything we built, gone</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                    <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">02</span>
-                    <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🏖️ Honeymoon reset</span>
-                    <span style="font-size:var(--small-size);color:var(--text-muted);">— Deliberate pause, came back with a clearer head</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                    <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">03</span>
-                    <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">⚡ Back to building</span>
-                    <span style="font-size:var(--small-size);color:var(--text-muted);">— AI agents, workflows, frameworks</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                    <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">04</span>
-                    <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🔍 Realized the gap</span>
-                    <span style="font-size:var(--small-size);color:var(--text-muted);">— Red ocean for tech tools, zero non-tech adoption</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
-                    <span style="font-size:var(--small-size);color:var(--teal);font-weight:700;min-width:1.4em;flex-shrink:0;">05</span>
-                    <span style="font-weight:700;color:var(--teal);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🚀 dopamine.chat</span>
-                    <span style="font-size:var(--small-size);color:var(--text-muted);">— Text → agent platform</span>
+            <div class="slide-body">
+                <div class="anim" style="display:flex;flex-direction:column;">
+                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
+                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">💥 Startup shut down</span>
+                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Everything we built, gone</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">02</span>
+                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🏖️ Honeymoon reset</span>
+                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Deliberate pause, came back with a clearer head</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">03</span>
+                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">⚡ Back to building</span>
+                        <span style="font-size:var(--small-size);color:var(--text-muted);">— AI agents, workflows, frameworks</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">04</span>
+                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🔍 Realized the gap</span>
+                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Red ocean for tech tools, zero non-tech adoption</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
+                        <span style="font-size:var(--small-size);color:var(--teal);font-weight:700;min-width:1.4em;flex-shrink:0;">05</span>
+                        <span style="font-weight:700;color:var(--teal);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🚀 dopamine.chat</span>
+                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Text → agent platform</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -544,36 +559,38 @@
 
 
     <!-- ══════════════════════════════════
-         05 / 17 — THE PROBLEM I SAW
+         05 / 19 — THE PROBLEM I SAW
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Problem I Saw</h2>
-            <div class="two-col anim mt-1">
-                <div>
-                    <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">Most AI tools today:</p>
-                    <ul class="bullets">
-                        <li>Built for developers</li>
-                        <li>Complex setup</li>
-                        <li>Heavy frameworks</li>
-                        <li>Long ramp-up</li>
-                        <li>Examples: n8n, Make, OpenClaw etc.</li>
-                    </ul>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.5vw,1.2rem);">
-                    <div style="display:flex;align-items:center;gap:clamp(0.6rem,1.2vw,1rem);">
-                        <p class="lead">This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span></p>
-                        <img
-                            src="public/dopamine-logo.png"
-                            alt="dopamine.chat logo"
-                            loading="lazy"
-                            style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
-                        >
-                    </div>
+            <div class="slide-body">
+                <div class="two-col anim mt-1">
                     <div>
-                        <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">✨ The vision:</p>
-                        <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
-                            Base44 For Agents
+                        <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">Most AI tools today:</p>
+                        <ul class="bullets">
+                            <li>Built for developers</li>
+                            <li>Complex setup</li>
+                            <li>Heavy frameworks</li>
+                            <li>Long ramp-up</li>
+                            <li>Examples: n8n, Make, OpenClaw etc.</li>
+                        </ul>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.5vw,1.2rem);">
+                        <div style="display:flex;align-items:center;gap:clamp(0.6rem,1.2vw,1rem);">
+                            <p class="lead">This became the idea behind <span class="accent" style="font-weight:500;">dopamine.chat</span></p>
+                            <img
+                                src="public/dopamine-logo.png"
+                                alt="dopamine.chat logo"
+                                loading="lazy"
+                                style="height:min(6vh,48px);width:auto;object-fit:contain;flex-shrink:0;"
+                            >
+                        </div>
+                        <div>
+                            <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">✨ The vision:</p>
+                            <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
+                                Base44 For Agents
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -588,7 +605,7 @@
 
 
     <!-- ══════════════════════════════════
-         06 / 18 — SECTION: THE SOLO FOUNDER PLAYBOOK
+         06 / 19 — SECTION: THE SOLO FOUNDER PLAYBOOK
          ══════════════════════════════════ -->
     <section class="section-break">
         <div class="slide-content slide-content--center">
@@ -603,42 +620,44 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 17 — WHY THE SOLO FOUNDER IS BACK
+         07 / 19 — WHY THE SOLO FOUNDER IS BACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Why the Solo Founder is Back</h2>
-            <div class="slide-2col">
-                <div class="anim flex-col">
-                    <div class="split-columns" style="grid-template-columns:1fr 1fr;">
-                        <div class="split-col before">
-                            <div class="split-col-label">⏮ Before AI</div>
-                            <ul class="bullets">
-                                <li>Needed a team early</li>
-                                <li>Expensive engineering</li>
-                                <li>Slow iteration</li>
-                            </ul>
+            <div class="slide-body">
+                <div class="slide-2col">
+                    <div class="anim flex-col">
+                        <div class="split-columns" style="grid-template-columns:1fr 1fr;">
+                            <div class="split-col before">
+                                <div class="split-col-label">⏮ Before AI</div>
+                                <ul class="bullets">
+                                    <li>Needed a team early</li>
+                                    <li>Expensive engineering</li>
+                                    <li>Slow iteration</li>
+                                </ul>
+                            </div>
+                            <div class="split-col after">
+                                <div class="split-col-label">✨ Now</div>
+                                <ul class="bullets">
+                                    <li>AI writes large portions of code</li>
+                                    <li>Cheap infrastructure</li>
+                                    <li>Automation replaces early hires</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="split-col after">
-                            <div class="split-col-label">✨ Now</div>
-                            <ul class="bullets">
-                                <li>AI writes large portions of code</li>
-                                <li>Cheap infrastructure</li>
-                                <li>Automation replaces early hires</li>
-                            </ul>
+                        <div class="highlight-box">
+                            1 person can now build what used to require 5–10 people.
                         </div>
                     </div>
-                    <div class="highlight-box">
-                        1 person can now build what used to require 5–10 people.
+                    <div class="anim img-cell">
+                        <img
+                            src="public/Solo-Founder-is-Back.jpg"
+                            alt="The Shepherd's Journey: The Solo Founder Reborn"
+                            loading="lazy"
+                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
                     </div>
-                </div>
-                <div class="anim img-cell">
-                    <img
-                        src="public/Solo-Founder-is-Back.jpg"
-                        alt="The Shepherd's Journey: The Solo Founder Reborn"
-                        loading="lazy"
-                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
                 </div>
             </div>
         </div>
@@ -651,27 +670,29 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 17 — SOLO FOUNDERS ARE MAINSTREAM
+         08 / 19 — SOLO FOUNDERS ARE MAINSTREAM
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founding Is Mainstream</h2>
-            <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
-                <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.35rem);justify-content:center;min-height:min(44vh,360px);">
-                    <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.7rem);line-height:1.2;">
-                        1 in 3 new startups are founded by solo founders
+            <div class="slide-body" style="padding-top:clamp(0.6rem,1.5vw,1.1rem);">
+                <div class="slide-2col anim" style="align-items:center;grid-template-columns:0.9fr 1.1fr;">
+                    <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.35rem);justify-content:center;min-height:min(40vh,340px);">
+                        <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.7rem);line-height:1.2;">
+                            1 in 3 new startups are founded by solo founders
+                        </div>
+                        <div class="vision-quote" style="max-width:20rem;">
+                            The old “you need a co-founder first” rule is fading fast.
+                        </div>
                     </div>
-                    <div class="vision-quote" style="max-width:20rem;">
-                        The old “you need a co-founder first” rule is fading fast.
+                    <div class="anim img-cell" style="justify-content:center;align-items:center;">
+                        <img
+                            src="public/solo-founders-carta.png"
+                            alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
+                            loading="lazy"
+                            style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                        >
                     </div>
-                </div>
-                <div class="anim img-cell" style="justify-content:flex-start;align-items:flex-start;">
-                    <img
-                        src="public/solo-founders-carta.png"
-                        alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
-                        loading="lazy"
-                        style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
-                    >
                 </div>
             </div>
         </div>
@@ -684,27 +705,29 @@
 
 
     <!-- ══════════════════════════════════
-         08 / 17 — CAPITAL
+         09 / 19 — CAPITAL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Raising Real Capital</h2>
-            <div class="slide-2col anim" style="align-items:start;grid-template-columns:0.9fr 1.1fr;">
-                <div class="flex-col" style="gap:clamp(0.85rem,1.8vw,1.2rem);justify-content:center;min-height:min(44vh,360px);">
-                    <div class="highlight-box" style="font-size:clamp(1.02rem,2.45vw,1.65rem);line-height:1.18;">
-                        Solo-founded companies raise billions every year
+            <div class="slide-body" style="padding-top:clamp(0.6rem,1.5vw,1.1rem);">
+                <div class="slide-2col anim" style="align-items:center;grid-template-columns:0.9fr 1.1fr;">
+                    <div class="flex-col" style="gap:clamp(0.85rem,1.8vw,1.2rem);justify-content:center;min-height:min(40vh,340px);">
+                        <div class="highlight-box" style="font-size:clamp(1.02rem,2.45vw,1.65rem);line-height:1.18;">
+                            Solo-founded companies raise billions every year
+                        </div>
+                        <div class="vision-quote" style="max-width:20rem;">
+                            The funding gap is shrinking as solo founding becomes normal.
+                        </div>
                     </div>
-                    <div class="vision-quote" style="max-width:20rem;">
-                        The funding gap is shrinking as solo founding becomes normal.
+                    <div class="img-cell anim" style="justify-content:center;align-items:center;">
+                        <img
+                            src="public/solo-founders-raising-capital.png"
+                            alt="Solo founders raising capital over time"
+                            loading="lazy"
+                            style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                        >
                     </div>
-                </div>
-                <div class="img-cell anim" style="justify-content:flex-start;align-items:flex-start;">
-                    <img
-                        src="public/solo-founders-raising-capital.png"
-                        alt="Solo founders raising capital over time"
-                        loading="lazy"
-                        style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
-                    >
                 </div>
             </div>
         </div>
@@ -713,31 +736,33 @@
 
 
     <!-- ══════════════════════════════════
-         09 / 17 — FAMOUS SOLO FOUNDERS
+         10 / 19 — FAMOUS SOLO FOUNDERS
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Famous Solo Founders</h2>
-            <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.1rem,0.3vw,0.2rem);">Founders &amp; Companies</p>
-            <div class="anim founder-columns mt-1">
-                <div class="founder-column founder-column--old">
-                    <div class="founder-column-title"><span class="founder-ordinal">01</span> Old school giants</div>
-                    <div class="founder-item"><span class="founder-name">eBay</span><span class="founder-company">Pierre Omidyar</span></div>
-                    <div class="founder-item"><span class="founder-name">Amazon</span><span class="founder-company">Jeff Bezos</span></div>
-                    <div class="founder-item"><span class="founder-name">Craigslist</span><span class="founder-company">Craig Newmark</span></div>
-                    <div class="founder-item"><span class="founder-name">Plenty of Fish</span><span class="founder-company">Markus Frind</span></div>
-                </div>
-                <div class="founder-column founder-column--modern">
-                    <div class="founder-column-title"><span class="founder-ordinal">02</span> Modern growth</div>
-                    <div class="founder-item"><span class="founder-name">Figure</span><span class="founder-company">Brett Adcock</span></div>
-                    <div class="founder-item"><span class="founder-name">Browserbase</span><span class="founder-company">Paul Klein IV</span></div>
-                    <div class="founder-item"><span class="founder-name">Lindy</span><span class="founder-company">Flo Crivello</span></div>
-                    <div class="founder-item"><span class="founder-name">Profound</span><span class="founder-company">Solo-founded</span></div>
-                </div>
-                <div class="founder-column founder-column--viral">
-                    <div class="founder-column-title"><span class="founder-ordinal">03</span> Viral</div>
-                    <div class="founder-item"><span class="founder-name">OpenClaw</span><span class="founder-company">Peter Steinberger</span></div>
-                    <div class="founder-item"><span class="founder-name">Polsia</span><span class="founder-company">Ben Cera</span></div>
+            <div class="slide-body" style="align-items:center;padding-top:clamp(0.6rem,1.5vw,1.1rem);">
+                <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:0;">Founders &amp; Companies</p>
+                <div class="anim founder-columns mt-1" style="width:min(960px,100%);margin:0 auto;">
+                    <div class="founder-column founder-column--old">
+                        <div class="founder-column-title"><span class="founder-ordinal">01</span> Old school giants</div>
+                        <div class="founder-item"><span class="founder-name">eBay</span><span class="founder-company">Pierre Omidyar</span></div>
+                        <div class="founder-item"><span class="founder-name">Amazon</span><span class="founder-company">Jeff Bezos</span></div>
+                        <div class="founder-item"><span class="founder-name">Craigslist</span><span class="founder-company">Craig Newmark</span></div>
+                        <div class="founder-item"><span class="founder-name">Plenty of Fish</span><span class="founder-company">Markus Frind</span></div>
+                    </div>
+                    <div class="founder-column founder-column--modern">
+                        <div class="founder-column-title"><span class="founder-ordinal">02</span> Modern growth</div>
+                        <div class="founder-item"><span class="founder-name">Figure</span><span class="founder-company">Brett Adcock</span></div>
+                        <div class="founder-item"><span class="founder-name">Browserbase</span><span class="founder-company">Paul Klein IV</span></div>
+                        <div class="founder-item"><span class="founder-name">Lindy</span><span class="founder-company">Flo Crivello</span></div>
+                        <div class="founder-item"><span class="founder-name">Profound</span><span class="founder-company">Solo-founded</span></div>
+                    </div>
+                    <div class="founder-column founder-column--viral">
+                        <div class="founder-column-title"><span class="founder-ordinal">03</span> Viral</div>
+                        <div class="founder-item"><span class="founder-name">OpenClaw</span><span class="founder-company">Peter Steinberger</span></div>
+                        <div class="founder-item"><span class="founder-name">Polsia</span><span class="founder-company">Ben Cera</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -750,25 +775,27 @@
 
 
     <!-- ══════════════════════════════════
-         10 / 17 — THE SOLO FOUNDER PLAYBOOK
+         11 / 19 — THE SOLO FOUNDER PLAYBOOK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Solo Founder Playbook</h2>
-            <div class="slide-2col">
-                <ul class="playbook-list anim" style="list-style:none;">
-                    <li><span class="playbook-icon">🚢</span> <span class="playbook-title">Ship early</span> <span class="playbook-sub">If you're proud of it, you shipped too late</span></li>
-                    <li><span class="playbook-icon">🤝</span> <span class="playbook-title">Build a community</span> <span class="playbook-sub">Early adapters eager to give you feedback</span></li>
-                    <li><span class="playbook-icon">⚡</span> <span class="playbook-title">Founder-led growth</span> <span class="playbook-sub">Direct engagement drives early business</span></li>
-                    <li style="flex-direction:column;align-items:flex-start;gap:0.2em;"><div><span class="playbook-icon">📡</span> <span class="playbook-title">Distribution from day one</span></div><span class="playbook-sub" style="padding-left:1.4em;">🌱 Organic: LinkedIn, Twitter, Reddit, ProductHunt &nbsp;·&nbsp; 💸 Non-organic: Paid ads</span></li>
-                </ul>
-                <div class="anim img-cell">
-                    <img
-                        src="public/founder-playbook.jpg"
-                        alt="The Solo Founder Playbook: In Action"
-                        loading="lazy"
-                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
+            <div class="slide-body" style="align-items:center;">
+                <div class="slide-2col" style="width:min(920px,100%);margin:0 auto;grid-template-columns:minmax(0,1.08fr) minmax(0,0.92fr);">
+                    <ul class="playbook-list anim" style="list-style:none;">
+                        <li><span class="playbook-icon">🚢</span> <span class="playbook-title">Ship early</span> <span class="playbook-sub">If you're proud of it, you shipped too late</span></li>
+                        <li><span class="playbook-icon">🤝</span> <span class="playbook-title">Build a community</span> <span class="playbook-sub">Early adapters eager to give you feedback</span></li>
+                        <li><span class="playbook-icon">⚡</span> <span class="playbook-title">Founder-led growth</span> <span class="playbook-sub">Direct engagement drives early business</span></li>
+                        <li style="flex-direction:column;align-items:flex-start;gap:0.2em;"><div><span class="playbook-icon">📡</span> <span class="playbook-title">Distribution from day one</span></div><span class="playbook-sub" style="padding-left:1.4em;">🌱 Organic: LinkedIn, Twitter, Reddit, ProductHunt &nbsp;·&nbsp; 💸 Non-organic: Paid ads</span></li>
+                    </ul>
+                    <div class="anim img-cell">
+                        <img
+                            src="public/founder-playbook.jpg"
+                            alt="The Solo Founder Playbook: In Action"
+                            loading="lazy"
+                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
@@ -785,7 +812,7 @@
 
 
     <!-- ══════════════════════════════════
-         11 / 17 — HOW DOES IT FEEL
+         12 / 19 — HOW DOES IT FEEL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -813,29 +840,31 @@
 
 
     <!-- ══════════════════════════════════
-         12 / 17 — DON'T BUILD ALONE
+         13 / 19 — DON'T BUILD ALONE
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Main Pitfall of Solo Founding</h2>
-            <div class="slide-2col">
-                <div class="anim img-cell">
-                    <img
-                        src="public/solo-founder-pitfalls.jpg"
-                        alt="The Solo Founder's Echo Chamber: The Pitfall of Isolation"
-                        loading="lazy"
-                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
-                </div>
-                <div class="anim flex-col">
-                    <ul class="bullets">
-                        <li class="no-arrow">⏸️ Nothing happens in parallel</li>
-                        <li class="no-arrow">📖 No one to learn from</li>
-                        <li class="no-arrow">🥊 No one to challenge you</li>
-                        <li class="no-arrow">🔇 No external feedback</li>
-                        <li class="no-arrow">⏰ No deadlines</li>
-                    </ul>
-                    <div class="highlight-box">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone. Surround yourself with people in the same stage as you.</div>
+            <div class="slide-body">
+                <div class="slide-2col">
+                    <div class="anim img-cell">
+                        <img
+                            src="public/solo-founder-pitfalls.jpg"
+                            alt="The Solo Founder's Echo Chamber: The Pitfall of Isolation"
+                            loading="lazy"
+                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
+                    </div>
+                    <div class="anim flex-col">
+                        <ul class="bullets">
+                            <li class="no-arrow">⏸️ Nothing happens in parallel</li>
+                            <li class="no-arrow">📖 No one to learn from</li>
+                            <li class="no-arrow">🥊 No one to challenge you</li>
+                            <li class="no-arrow">🔇 No external feedback</li>
+                            <li class="no-arrow">⏰ No deadlines</li>
+                        </ul>
+                        <div class="highlight-box">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone. Surround yourself with people in the same stage as you.</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -853,7 +882,7 @@
 
 
     <!-- ══════════════════════════════════
-         13 / 17 — SOLO FOUNDERS HUB
+         14 / 19 — SOLO FOUNDERS HUB
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -880,26 +909,28 @@
 
 
     <!-- ══════════════════════════════════
-         14 / 17 — WHAT I LEARNED
+         15 / 19 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">What I Learned</h2>
-            <div class="slide-2col">
-                <ul class="bullets mt-1 anim">
-                    <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚠️ Over-engineering is still the #1 mistake</li>
-                    <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">👥 Talk to users earlier than you think</li>
-                    <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚡ Speed beats strategy early on</li>
-                    <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">📡 Distribution is harder than building</li>
-                    <li class="no-arrow anim">🤖 Better to solve the specific pain than a generic one (unlike base44)</li>
-                </ul>
-                <div class="anim img-cell">
-                    <img
-                        src="public/shepherd-lessons.jpg"
-                        alt="Inspired: A Shepherd's New Path — lessons from solo founding"
-                        loading="lazy"
-                        style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
+            <div class="slide-body">
+                <div class="slide-2col">
+                    <ul class="bullets mt-1 anim">
+                        <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚠️ Over-engineering is still the #1 mistake</li>
+                        <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">👥 Talk to users earlier than you think</li>
+                        <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">⚡ Speed beats strategy early on</li>
+                        <li class="no-arrow anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">📡 Distribution is harder than building</li>
+                        <li class="no-arrow anim">🤖 Better to solve the specific pain than a generic one (unlike base44)</li>
+                    </ul>
+                    <div class="anim img-cell">
+                        <img
+                            src="public/shepherd-lessons.jpg"
+                            alt="Inspired: A Shepherd's New Path — lessons from solo founding"
+                            loading="lazy"
+                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
@@ -931,50 +962,52 @@
 
 
     <!-- ══════════════════════════════════
-         15 / 17 — MY SOLO FOUNDER STACK
+         17 / 19 — MY TECHNICAL RAMP UP STACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">My Technical Ramp Up Stack</h2>
-            <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,4vw,3.5rem);">
-                <div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
-                        <img src="public/technical-stack-logos/agno_logo.jpeg" alt="Agno" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Agno</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Agent framework</span>
+            <div class="slide-body">
+                <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,4vw,3.5rem);">
+                    <div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
+                            <img src="public/technical-stack-logos/agno_logo.jpeg" alt="Agno" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Agno</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Agent framework</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">02</span>
+                            <img src="public/technical-stack-logos/posthog.jpeg" alt="PostHog" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">PostHog</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Product analytics + recordings</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">03</span>
+                            <img src="public/technical-stack-logos/logfire.png" alt="Logfire" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Logfire</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Logs and errors</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">02</span>
-                        <img src="public/technical-stack-logos/posthog.jpeg" alt="PostHog" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">PostHog</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Product analytics + recordings</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">03</span>
-                        <img src="public/technical-stack-logos/logfire.png" alt="Logfire" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Logfire</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Logs and errors</span>
-                    </div>
-                </div>
-                <div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">04</span>
-                        <img src="public/technical-stack-logos/supabase.jpeg" alt="Supabase" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Supabase</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Authentication</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">05</span>
-                        <img src="public/technical-stack-logos/render.png" alt="Render" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Render</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Cloud hosting</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">06</span>
-                        <img src="public/technical-stack-logos/mongo.png" alt="Mongo" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Mongo</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Database</span>
+                    <div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">04</span>
+                            <img src="public/technical-stack-logos/supabase.jpeg" alt="Supabase" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Supabase</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Authentication</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">05</span>
+                            <img src="public/technical-stack-logos/render.png" alt="Render" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Render</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Cloud hosting</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
+                            <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">06</span>
+                            <img src="public/technical-stack-logos/mongo.png" alt="Mongo" style="height:1.6em;width:1.6em;object-fit:contain;border-radius:4px;flex-shrink:0;">
+                            <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);">Mongo</span>
+                            <span style="font-size:var(--small-size);color:var(--text-muted);">— Database</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -994,35 +1027,37 @@
 
 
     <!-- ══════════════════════════════════
-         16 / 17 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
+         18 / 19 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Example: Analytics Rampup</h2>
-            <div class="slide-2col">
-                <div class="anim" style="display:flex;flex-direction:column;gap:clamp(0.5rem,1.2vw,1rem);">
-                    <p class="lead" style="margin-bottom:clamp(0.2rem,0.6vw,0.5rem);">
-                        Connect <span class="accent">PostHog MCP</span> to an (coding) agent and ask him:
-                    </p>
-                    <div class="terminal">
-                        <div class="term-bar">
-                            <div class="term-btn"></div><div class="term-btn"></div><div class="term-btn"></div>
+            <div class="slide-body">
+                <div class="slide-2col">
+                    <div class="anim" style="display:flex;flex-direction:column;gap:clamp(0.5rem,1.2vw,1rem);">
+                        <p class="lead" style="margin-bottom:clamp(0.2rem,0.6vw,0.5rem);">
+                            Connect <span class="accent">PostHog MCP</span> to an (coding) agent and ask him:
+                        </p>
+                        <div class="terminal">
+                            <div class="term-bar">
+                                <div class="term-btn"></div><div class="term-btn"></div><div class="term-btn"></div>
+                            </div>
+                            <div><span class="term-prompt">agent</span><span class="term-comment"> › </span><span class="term-cmd">"Create dashboards for product usage and retention."</span></div>
+                            <div class="term-comment" style="margin-top:0.4em;">// Calling PostHog MCP tool...</div>
+                            <div class="term-out" style="margin-top:0.4em;">✓ Dashboard: Daily Active Users created</div>
+                            <div class="term-out">✓ Dashboard: Retention Cohorts created</div>
+                            <div class="term-out">✓ Dashboard: Feature Funnel created</div>
+                            <div class="term-comment" style="margin-top:0.4em;">// Done in 47 seconds</div>
                         </div>
-                        <div><span class="term-prompt">agent</span><span class="term-comment"> › </span><span class="term-cmd">"Create dashboards for product usage and retention."</span></div>
-                        <div class="term-comment" style="margin-top:0.4em;">// Calling PostHog MCP tool...</div>
-                        <div class="term-out" style="margin-top:0.4em;">✓ Dashboard: Daily Active Users created</div>
-                        <div class="term-out">✓ Dashboard: Retention Cohorts created</div>
-                        <div class="term-out">✓ Dashboard: Feature Funnel created</div>
-                        <div class="term-comment" style="margin-top:0.4em;">// Done in 47 seconds</div>
                     </div>
-                </div>
-                <div class="anim img-cell">
-                    <img
-                        src="public/posthog-examples.png"
-                        alt="PostHog dashboards created by AI agent"
-                        loading="lazy"
-                        style="max-height:min(52vh,420px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                    >
+                    <div class="anim img-cell">
+                        <img
+                            src="public/posthog-examples.png"
+                            alt="PostHog dashboards created by AI agent"
+                            loading="lazy"
+                            style="max-height:min(52vh,420px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
@@ -1039,7 +1074,7 @@
 
 
     <!-- ══════════════════════════════════
-         17 / 17 — THANK YOU
+         19 / 19 — THANK YOU
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center">
