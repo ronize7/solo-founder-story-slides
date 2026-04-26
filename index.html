@@ -276,6 +276,62 @@
         .playbook-icon { font-size: clamp(0.9rem, 1.6vw, 1.2rem); flex-shrink: 0; }
         .playbook-title { font-size: clamp(0.8rem, 1.4vw, 1.05rem); font-weight: 600; margin-right: 0.5em; }
         .playbook-sub { font-size: clamp(0.68rem, 1.05vw, 0.85rem); opacity: 0.6; }
+
+        /* =====================================================
+           FAMOUS FOUNDERS SLIDE
+           ===================================================== */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(0.5rem, 1.2vw, 1rem) clamp(1rem, 2.5vw, 2rem);
+            width: min(860px, 100%);
+        }
+        .founder-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .founder-name {
+            font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+        .founder-company {
+            font-size: clamp(0.85rem, 1.4vw, 1.02rem);
+            color: var(--text);
+            opacity: 0.72;
+        }
+        .founder-columns {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(0.75rem, 1.8vw, 1.4rem);
+            width: min(980px, 100%);
+            align-items: start;
+        }
+        .founder-column {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: clamp(0.8rem, 1.6vw, 1.25rem);
+            min-height: 100%;
+            background: rgba(255,255,255,0.02);
+        }
+        .founder-column-title {
+            font-size: var(--small-size);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-bottom: 0.9rem;
+            opacity: 0.7;
+        }
+        .founder-column--old .founder-column-title { color: var(--accent); opacity: 1; }
+        .founder-column--modern .founder-column-title { color: var(--teal); opacity: 1; }
+        .founder-column--viral .founder-column-title { color: var(--text); opacity: 0.75; }
+        .founder-column .founder-item:last-child { border-bottom: 0; padding-bottom: 0; }
+        @media (max-width: 720px) {
+            .founder-columns { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -284,11 +340,11 @@
   <div class="slides">
 
     <!-- ══════════════════════════════════
-         01 / 13 — TITLE
+         01 / 17 — TITLE
          ══════════════════════════════════ -->
     <section class="title-slide">
         <div class="slide-header">
-            <span class="slide-num">01 / 15</span>
+            <span class="slide-num">01 / 17</span>
             <span class="slide-tag">AI Israel Club</span>
         </div>
         <div class="slide-content">
@@ -314,11 +370,11 @@
 
 
     <!-- ══════════════════════════════════
-         02 / 15 — AGENDA
+         02 / 17 — AGENDA
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">02 / 15</span>
+            <span class="slide-num">02 / 17</span>
             <span class="slide-tag">Agenda</span>
         </div>
         <div class="slide-content">
@@ -353,11 +409,11 @@
 
 
     <!-- ══════════════════════════════════
-         03 / 15 — ABOUT ME (was 02)
+         03 / 17 — ABOUT ME (was 02)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">03 / 15</span>
+            <span class="slide-num">03 / 17</span>
             <span class="slide-tag">Background</span>
         </div>
         <div class="slide-content">
@@ -425,11 +481,11 @@
 
 
     <!-- ══════════════════════════════════
-         04 / 15 — MY FOUNDER JOURNEY
+         04 / 17 — MY FOUNDER JOURNEY
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">04 / 15</span>
+            <span class="slide-num">04 / 17</span>
             <span class="slide-tag">My Story</span>
         </div>
         <div class="slide-content">
@@ -468,11 +524,11 @@
 
 
     <!-- ══════════════════════════════════
-         05 / 15 — THE PROBLEM I SAW
+         05 / 17 — THE PROBLEM I SAW
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">05 / 15</span>
+            <span class="slide-num">05 / 17</span>
             <span class="slide-tag">The Problem</span>
         </div>
         <div class="slide-content">
@@ -516,11 +572,11 @@
 
 
     <!-- ══════════════════════════════════
-         06 / 15 — WHY THE SOLO FOUNDER IS BACK
+         06 / 17 — WHY THE SOLO FOUNDER IS BACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">06 / 15</span>
+            <span class="slide-num">06 / 17</span>
             <span class="slide-tag">Context</span>
         </div>
         <div class="slide-content">
@@ -569,11 +625,11 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 15 — SOLO FOUNDERS ARE MAINSTREAM
+         07 / 17 — SOLO FOUNDERS ARE MAINSTREAM
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">07 / 15</span>
+            <span class="slide-num">07 / 17</span>
             <span class="slide-tag">Market Shift</span>
         </div>
         <div class="slide-content">
@@ -596,12 +652,9 @@
                     >
                 </div>
             </div>
-            <div class="anim vision-quote" style="margin-top:clamp(0.5rem,1.2vw,1rem);border-left:none;border-top:2px solid var(--teal);padding-left:0;padding-top:clamp(0.6rem,1.2vw,1rem);color:var(--text);">
-                <div style="font-size:clamp(0.9rem,1.9vw,1.3rem);font-weight:600;line-height:1.35;">
-                    The question is no longer “Can a solo founder build it?”
-                    <br>
-                    It’s “What can one great founder build now?”
-                </div>
+            <div class="anim vision-quote" style="margin-top:clamp(0.5rem,1.2vw,1rem);">
+                The question is no longer “Can a solo founder build it?”<br>
+                It’s “What can one great founder build now?”
             </div>
         </div>
         <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
@@ -613,11 +666,89 @@
 
 
     <!-- ══════════════════════════════════
-         08 / 15 — THE SOLO FOUNDER PLAYBOOK
+         08 / 17 — CAPITAL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">08 / 15</span>
+            <span class="slide-num">08 / 17</span>
+            <span class="slide-tag">Capital</span>
+        </div>
+        <div class="slide-content" style="justify-content:flex-start;">
+            <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Raising Real Capital</h2>
+            <div class="slide-2col anim" style="align-items:flex-start;grid-template-columns:0.95fr 1.05fr;">
+                <div class="flex-col" style="gap:clamp(0.75rem,1.8vw,1.2rem);">
+                    <div class="highlight-box" style="font-size:clamp(1rem,2.55vw,1.75rem);line-height:1.18;">
+                        Solo-founded companies raise billions every year
+                    </div>
+                    <p class="lead" style="max-width:28rem;">
+                        While total funding is still lower than companies with co-founders, the gap reflects timing more than capability.
+                    </p>
+                </div>
+                <div class="img-cell anim" style="justify-content:flex-start;align-items:flex-start;">
+                    <img
+                        src="public/solo-founders-raising-capital.png"
+                        alt="Solo founders raising capital over time"
+                        loading="lazy"
+                        style="max-height:min(44vh,380px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                    >
+                </div>
+            </div>
+            <div class="anim vision-quote" style="margin-top:clamp(0.35rem,1vw,0.8rem);">
+                Capital is already flowing to solo founders.<br>
+                The next wave has not fully matured yet.
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         09 / 17 — FAMOUS SOLO FOUNDERS
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">09 / 17</span>
+            <span class="slide-tag">Founders</span>
+        </div>
+        <div class="slide-content" style="justify-content:flex-start;">
+            <h2 class="slide-title slide-title--ruled anim">Famous Solo Founders</h2>
+            <p class="anim" style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:clamp(0.15rem,0.4vw,0.3rem);">Founders &amp; Companies</p>
+            <div class="anim founder-columns mt-1">
+                <div class="founder-column founder-column--old">
+                    <div class="founder-column-title">Old school giants</div>
+                    <div class="founder-item"><span class="founder-name">Amazon</span><span class="founder-company">Jeff Bezos</span></div>
+                    <div class="founder-item"><span class="founder-name">eBay</span><span class="founder-company">Pierre Omidyar</span></div>
+                    <div class="founder-item"><span class="founder-name">Craigslist</span><span class="founder-company">Craig Newmark</span></div>
+                    <div class="founder-item"><span class="founder-name">Plenty of Fish</span><span class="founder-company">Markus Frind</span></div>
+                </div>
+                <div class="founder-column founder-column--modern">
+                    <div class="founder-column-title">Modern growth</div>
+                    <div class="founder-item"><span class="founder-name">Figure</span><span class="founder-company">Brett Adcock</span></div>
+                    <div class="founder-item"><span class="founder-name">Browserbase</span><span class="founder-company">Paul Klein IV</span></div>
+                    <div class="founder-item"><span class="founder-name">Lindy</span><span class="founder-company">Flo Crivello</span></div>
+                    <div class="founder-item"><span class="founder-name">Profound</span><span class="founder-company">Solo-founded</span></div>
+                </div>
+                <div class="founder-column founder-column--viral">
+                    <div class="founder-column-title">Viral</div>
+                    <div class="founder-item"><span class="founder-name">OpenClaw</span><span class="founder-company">Peter Steinberger</span></div>
+                    <div class="founder-item"><span class="founder-name">Polsia</span><span class="founder-company">Ben Cera</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Ron Zaidman</span><span>AI Israel Club</span></div>
+        <aside class="notes">
+            Use this as proof that solo founding is not a fringe pattern.
+            The point is not that every company should start alone, but that large outcomes can come from a single founder.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         10 / 17 — THE SOLO FOUNDER PLAYBOOK
+         ══════════════════════════════════ -->
+    <section>
+        <div class="slide-header">
+            <span class="slide-num">10 / 17</span>
             <span class="slide-tag">The Playbook</span>
         </div>
         <div class="slide-content">
@@ -653,11 +784,11 @@
 
 
     <!-- ══════════════════════════════════
-         09 / 15 — HOW DOES IT FEEL
+         11 / 17 — HOW DOES IT FEEL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">09 / 15</span>
+            <span class="slide-num">11 / 17</span>
             <span class="slide-tag">The Reality</span>
         </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -685,11 +816,11 @@
 
 
     <!-- ══════════════════════════════════
-         10 / 15 — DON'T BUILD ALONE
+         12 / 17 — DON'T BUILD ALONE
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">10 / 15</span>
+            <span class="slide-num">12 / 17</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content">
@@ -729,11 +860,11 @@
 
 
     <!-- ══════════════════════════════════
-         11 / 15 — SOLO FOUNDERS HUB
+         13 / 17 — SOLO FOUNDERS HUB
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">11 / 15</span>
+            <span class="slide-num">13 / 17</span>
             <span class="slide-tag">Community</span>
         </div>
         <div class="slide-content slide-content--center" style="padding:clamp(0.75rem,2vw,2rem) var(--slide-padding);">
@@ -760,11 +891,11 @@
 
 
     <!-- ══════════════════════════════════
-         12 / 15 — WHAT I LEARNED
+         14 / 17 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">12 / 15</span>
+            <span class="slide-num">14 / 17</span>
             <span class="slide-tag">Lessons</span>
         </div>
         <div class="slide-content">
@@ -800,11 +931,11 @@
 
 
     <!-- ══════════════════════════════════
-         13 / 15 — MY SOLO FOUNDER STACK
+         15 / 17 — MY SOLO FOUNDER STACK
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">13 / 15</span>
+            <span class="slide-num">15 / 17</span>
             <span class="slide-tag">The Stack</span>
         </div>
         <div class="slide-content">
@@ -855,11 +986,11 @@
 
 
     <!-- ══════════════════════════════════
-         14 / 15 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
+         16 / 17 — EXAMPLE: AI BUILDING ANALYTICS (analytics)
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">14 / 15</span>
+            <span class="slide-num">16 / 17</span>
             <span class="slide-tag">Real Example</span>
         </div>
         <div class="slide-content">
@@ -904,11 +1035,11 @@
 
 
     <!-- ══════════════════════════════════
-         15 / 15 — THANK YOU
+         17 / 17 — THANK YOU
          ══════════════════════════════════ -->
     <section>
         <div class="slide-header">
-            <span class="slide-num">15 / 15</span>
+            <span class="slide-num">17 / 17</span>
             <span class="slide-tag">Thank You</span>
         </div>
         <div class="slide-content slide-content--center">
