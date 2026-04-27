@@ -386,21 +386,21 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            gap: 1rem;
-            padding-bottom: 0.7rem;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            gap: 0.75rem;
+            padding: clamp(0.42rem, 0.8vw, 0.62rem) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
         .founder-name {
             font-size: clamp(1rem, 1.8vw, 1.25rem);
-            font-weight: 800;
-            color: var(--accent);
+            font-weight: 700;
+            color: var(--column-accent, var(--accent));
             white-space: nowrap;
             flex-shrink: 0;
         }
         .founder-company {
-            font-size: clamp(0.78rem, 1.25vw, 0.95rem);
+            font-size: clamp(0.7rem, 1.1vw, 0.88rem);
             color: var(--text);
-            opacity: 0.76;
+            opacity: 0.48;
             text-align: right;
         }
         .founder-columns {
@@ -412,46 +412,31 @@
         }
         .founder-column {
             position: relative;
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 10px;
-            padding: clamp(0.95rem, 1.9vw, 1.4rem);
-            min-height: 100%;
-            background: rgba(255,255,255,0.04);
-            overflow: hidden;
-        }
-        .founder-column::before {
-            content: '';
-            position: absolute;
-            inset: 0 auto auto 0;
-            width: 100%;
-            height: 3px;
-            background: var(--column-accent, var(--accent));
-            opacity: 0.9;
         }
         .founder-column-title {
             display: flex;
             align-items: baseline;
-            gap: 0.55rem;
-            font-size: clamp(0.72rem, 1.05vw, 0.9rem);
-            font-weight: 700;
+            gap: 0.5rem;
+            font-size: clamp(0.62rem, 0.95vw, 0.82rem);
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            margin-bottom: 1rem;
-            padding-top: 0.25rem;
-            opacity: 0.82;
+            color: var(--column-accent, var(--accent));
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1.5px solid var(--column-accent, var(--accent));
         }
         .founder-ordinal {
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.85rem, 1.4vw, 1.05rem);
             line-height: 1;
-            letter-spacing: -0.04em;
-            color: var(--column-accent, var(--accent));
+            letter-spacing: -0.03em;
+            opacity: 0.45;
+            color: inherit;
         }
-        .founder-column--old { --column-accent: var(--accent); background: rgba(66,175,250,0.05); }
-        .founder-column--modern { --column-accent: var(--teal); background: rgba(42,161,152,0.05); }
-        .founder-column--viral { --column-accent: var(--text); background: rgba(0,0,0,0.02); }
-        .founder-column--old .founder-column-title { color: var(--accent); opacity: 1; }
-        .founder-column--modern .founder-column-title { color: var(--teal); opacity: 1; }
-        .founder-column--viral .founder-column-title { color: var(--text); opacity: 0.82; }
+        .founder-column--old { --column-accent: var(--accent); }
+        .founder-column--modern { --column-accent: var(--teal); }
+        .founder-column--viral { --column-accent: var(--text); }
+        .founder-column--viral .founder-column-title { opacity: 0.65; }
         .founder-column .founder-item:last-child { border-bottom: 0; padding-bottom: 0; }
         .founder-proof {
             max-width: 42ch;
@@ -718,22 +703,34 @@
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">The Problem I Saw</h2>
             <div class="slide-body">
-                <div class="two-col anim mt-1">
-                    <div>
-                        <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.65em;">Most AI tools today:</p>
+                <div class="split-columns anim mt-1">
+                    <div class="split-col before">
+                        <p class="split-col-label">Most AI tools today</p>
                         <ul class="bullets">
                             <li>Built for developers</li>
                             <li>Complex setup</li>
                             <li>Heavy frameworks</li>
                             <li>Long ramp-up</li>
-                            <li>Examples: n8n, Make, OpenClaw etc.</li>
                         </ul>
+                        <p style="font-size:var(--small-size);color:var(--text-muted);margin-top:clamp(0.7rem,1.4vw,1.1rem);line-height:1.5;">n8n, Make, Zapier — powerful, but only if you can already code.</p>
                     </div>
-                    <div style="display:flex;flex-direction:column;gap:clamp(0.6rem,1.5vw,1.2rem);">
-                        <div>
-                            <p style="font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;color:var(--teal);margin-bottom:0.65em;">The vision:</p>
-                            <div class="highlight-box teal" style="font-size:clamp(0.85rem,1.7vw,1.2rem);font-family:var(--font-body);font-weight:400;">
-                                Base44 For Agents
+                    <div class="split-col after">
+                        <p class="split-col-label">The vision</p>
+                        <p style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:700;color:var(--teal);margin-bottom:clamp(0.75rem,1.5vw,1.2rem);line-height:1.2;">
+                            Base44 For Agents
+                        </p>
+                        <div style="display:flex;flex-direction:column;gap:clamp(0.45rem,1vh,0.9rem);">
+                            <div style="display:flex;align-items:flex-start;gap:0.55em;font-size:var(--body-size);line-height:1.5;">
+                                <span style="color:var(--teal);flex-shrink:0;margin-top:0.05em;">▸</span>
+                                <span>Natural language, not code</span>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:0.55em;font-size:var(--body-size);line-height:1.5;">
+                                <span style="color:var(--teal);flex-shrink:0;margin-top:0.05em;">▸</span>
+                                <span>Any non-tech user can build workflows</span>
+                            </div>
+                            <div style="display:flex;align-items:flex-start;gap:0.55em;font-size:var(--body-size);line-height:1.5;">
+                                <span style="color:var(--teal);flex-shrink:0;margin-top:0.05em;">▸</span>
+                                <span>Agents as a product, not infrastructure</span>
                             </div>
                         </div>
                     </div>
@@ -753,7 +750,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title slide-title--ruled anim"><span style="display:inline-flex;align-items:center;gap:0.35em;">This became the idea behind <span class="accent">dopamine.chat</span><img src="public/dopamine-logo.png" alt="dopamine.chat logo" loading="lazy" style="height:1em;width:auto;object-fit:contain;flex-shrink:0;"></span></h2>
+            <h2 class="slide-title slide-title--ruled anim">This became the idea behind <span class="accent">dopamine.chat</span><img src="public/dopamine-logo.png" alt="dopamine.chat logo" loading="lazy" style="height:0.85em;width:auto;object-fit:contain;vertical-align:middle;margin-left:0.35em;"></h2>
             <div class="slide-body">
                 <div class="anim img-panel">
                     <img
@@ -999,8 +996,8 @@
                     style="max-height:min(55vh,460px);max-width:min(60vw,560px);width:auto;height:auto;object-fit:contain;border-radius:16px;"
                 >
             </div>
+            <div class="highlight-box anim" style="max-width:min(90vw,820px);">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone.</div>
         </div>
-        <div class="highlight-box anim" style="max-width:min(90vw,820px);">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone.</div>
 
         <aside class="notes">
             Solo founding can be isolating — so I built the community I wished existed.
@@ -1183,7 +1180,7 @@
          ══════════════════════════════════ -->
     <section class="gtm-slide">
         <div class="slide-content">
-            <h2 class="slide-title slide-title--ruled anim">GTM Ramp Up</h2>
+            <h2 class="slide-title slide-title--ruled anim">GTM Ramp Up Lessons</h2>
             <div class="slide-body">
                 <div class="gtm-layout">
                     <div class="gtm-copy anim">
