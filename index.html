@@ -113,7 +113,21 @@
         @media (max-height: 700px) { :root { --slide-padding: clamp(0.75rem, 3vw, 2rem); --content-gap: clamp(0.4rem, 1.5vw, 1rem); --title-size: clamp(1.37rem, 4.95vw, 2.75rem); --h2-size: clamp(1.1rem, 3.31vw, 1.94rem); } }
         @media (max-height: 600px) { :root { --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem); --content-gap: clamp(0.3rem, 1vw, 0.75rem); --body-size: clamp(0.7rem, 1.2vw, 0.95rem); } }
         @media (max-width: 600px)  { :root { --title-size: clamp(1.55rem, 7.72vw, 2.75rem); } .split-columns, .two-col { grid-template-columns: 1fr !important; } }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition: none !important; } .anim { opacity: 1 !important; transform: none !important; } }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .anim,
+            .motion-item {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .slide-title--ruled::after {
+                transform: none !important;
+            }
+        }
 
         :focus-visible {
             outline: 3px solid var(--accent-text);
@@ -124,15 +138,83 @@
         /* =====================================================
            ANIMATIONS
            ===================================================== */
-        .anim { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo); }
-        section.visible .anim { opacity: 1; transform: translateY(0); }
-        section.visible .anim:nth-child(1) { transition-delay: 0.05s; }
-        section.visible .anim:nth-child(2) { transition-delay: 0.15s; }
-        section.visible .anim:nth-child(3) { transition-delay: 0.25s; }
-        section.visible .anim:nth-child(4) { transition-delay: 0.35s; }
-        section.visible .anim:nth-child(5) { transition-delay: 0.45s; }
-        section.visible .anim:nth-child(6) { transition-delay: 0.55s; }
-        section.visible .anim:nth-child(7) { transition-delay: 0.65s; }
+        .anim {
+            --anim-x: 0px;
+            --anim-y: 18px;
+            --anim-scale: 1;
+            opacity: 0;
+            transform: translate3d(var(--anim-x), var(--anim-y), 0) scale(var(--anim-scale));
+            transition:
+                opacity 0.62s var(--ease-expo),
+                transform 0.62s var(--ease-expo);
+            transition-delay: 0s;
+            will-change: opacity, transform;
+        }
+        section.visible .anim {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            transition-delay: calc(45ms + (var(--anim-index, 0) * 90ms));
+        }
+        .slide-title.anim { --anim-y: 12px; }
+        .slide-title--ruled::after {
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.72s var(--ease-expo);
+        }
+        .slide-title.center.slide-title--ruled::after { transform-origin: center; }
+        section.visible .slide-title--ruled::after {
+            transform: scaleX(1);
+            transition-delay: calc(220ms + (var(--anim-index, 0) * 90ms));
+        }
+        .img-cell.anim,
+        .img-panel.anim,
+        .gtm-proof.anim {
+            --anim-y: 14px;
+            --anim-scale: 0.985;
+        }
+        .section-break .anim {
+            --anim-y: 10px;
+            --anim-scale: 0.992;
+        }
+        .motion-item {
+            opacity: 0;
+            transform: translate3d(0, 10px, 0);
+            transition:
+                opacity 0.48s var(--ease-expo),
+                transform 0.48s var(--ease-expo);
+            transition-delay: 0s;
+            will-change: opacity, transform;
+        }
+        section.visible .motion-item {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition-delay: calc(120ms + (var(--motion-base, 0) * 90ms) + (var(--motion-index, 0) * 58ms));
+        }
+        .ztl-dot.motion-item,
+        .term-btn.motion-item,
+        .gtm-step-number.motion-item {
+            transform: scale(0.72);
+        }
+        section.visible .ztl-dot.motion-item,
+        section.visible .term-btn.motion-item,
+        section.visible .gtm-step-number.motion-item {
+            transform: scale(1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .anim,
+            .motion-item,
+            section.visible .anim,
+            section.visible .motion-item {
+                opacity: 1 !important;
+                transform: none !important;
+                will-change: auto !important;
+            }
+            .slide-title--ruled::after,
+            section.visible .slide-title--ruled::after {
+                transform: none !important;
+            }
+        }
 
         /* =====================================================
            TITLE SLIDE
@@ -1329,8 +1411,52 @@
         plugins: [ RevealNotes ]
     });
 
-    /* Trigger .anim entrance animations when a slide becomes active */
-    function markVisible(slide) { if (slide) slide.classList.add('visible'); }
+    const nestedMotionSelectors = [
+        '.anim .bullets > li:not(.anim)',
+        '.anim .gtm-step',
+        '.anim .gtm-step-number',
+        '.anim .stack-row',
+        '.anim .founder-column',
+        '.anim .ztl-content',
+        '.anim .ztl-dot',
+        '.anim .term-bar',
+        '.anim .term-btn',
+        '.anim .terminal > div:not(.term-bar)'
+    ];
+
+    function prepareMotion(slide) {
+        if (!slide) return;
+
+        slide.querySelectorAll('.anim').forEach((element, index) => {
+            element.style.setProperty('--anim-index', index);
+        });
+
+        slide.querySelectorAll(nestedMotionSelectors.join(',')).forEach((element, index) => {
+            const parent = element.closest('.anim');
+            const baseIndex = parent ? parent.style.getPropertyValue('--anim-index') || 0 : 0;
+
+            element.classList.add('motion-item');
+            element.style.setProperty('--motion-base', baseIndex);
+            element.style.setProperty('--motion-index', index);
+        });
+    }
+
+    /* Rehearse the active slide each time it appears. */
+    function markVisible(slide) {
+        if (!slide) return;
+
+        document.querySelectorAll('.reveal .slides section.visible').forEach(visibleSlide => {
+            if (visibleSlide !== slide) visibleSlide.classList.remove('visible');
+        });
+
+        prepareMotion(slide);
+        slide.classList.remove('visible');
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => slide.classList.add('visible'));
+        });
+    }
+
     Reveal.on('ready',        e => markVisible(e.currentSlide));
     Reveal.on('slidechanged', e => markVisible(e.currentSlide));
 </script>
