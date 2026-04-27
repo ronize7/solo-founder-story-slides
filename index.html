@@ -251,6 +251,114 @@
         .closing-hero { font-size: clamp(2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.025em; }
 
         /* =====================================================
+           GTM RAMP UP
+           ===================================================== */
+        .gtm-slide .slide-body { justify-content: center; }
+        .gtm-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.98fr);
+            gap: clamp(1.1rem, 3.2vw, 3rem);
+            align-items: center;
+            flex: 1;
+            min-height: 0;
+        }
+        .gtm-copy {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.65rem, 1.4vw, 1rem);
+        }
+        .gtm-thesis {
+            max-width: 48ch;
+            font-size: clamp(0.98rem, 1.8vw, 1.28rem);
+            line-height: 1.42;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .gtm-steps {
+            display: grid;
+            gap: clamp(0.46rem, 1vw, 0.72rem);
+        }
+        .gtm-step {
+            display: grid;
+            grid-template-columns: clamp(2rem, 3.6vw, 2.7rem) minmax(0, 1fr);
+            gap: clamp(0.55rem, 1.2vw, 0.85rem);
+            align-items: start;
+            padding: clamp(0.55rem, 1.15vw, 0.86rem) 0;
+            border-top: 1px solid rgba(0,0,0,0.09);
+        }
+        .gtm-step:last-child { border-bottom: 1px solid rgba(0,0,0,0.09); }
+        .gtm-step-number {
+            width: clamp(2rem, 3.6vw, 2.7rem);
+            height: clamp(2rem, 3.6vw, 2.7rem);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(66,175,250,0.08);
+            border: 1px solid rgba(66,175,250,0.28);
+            color: var(--accent);
+            font-size: var(--small-size);
+            font-weight: 800;
+            letter-spacing: 0;
+            line-height: 1;
+        }
+        .gtm-step--verified .gtm-step-number {
+            background: rgba(42,161,152,0.08);
+            border-color: rgba(42,161,152,0.34);
+            color: var(--teal);
+        }
+        .gtm-step-title {
+            font-size: clamp(0.95rem, 1.75vw, 1.26rem);
+            line-height: 1.2;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .gtm-step-route {
+            margin-top: 0.18em;
+            font-size: clamp(0.78rem, 1.28vw, 0.98rem);
+            line-height: 1.35;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .gtm-step--verified .gtm-step-route { color: var(--teal); }
+        .gtm-step-note {
+            margin-top: 0.32em;
+            max-width: 48ch;
+            font-size: clamp(0.68rem, 1.05vw, 0.84rem);
+            line-height: 1.45;
+            color: var(--text-muted);
+        }
+        .gtm-proof {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.45rem, 0.9vw, 0.7rem);
+            min-height: 0;
+        }
+        .gtm-proof img {
+            max-height: min(58vh, 500px);
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        }
+        .gtm-caption {
+            max-width: 42ch;
+            font-size: var(--small-size);
+            line-height: 1.35;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        @media (max-width: 760px) {
+            .gtm-layout { grid-template-columns: 1fr; }
+            .gtm-proof img { max-height: min(38vh, 360px); }
+        }
+
+        /* =====================================================
            PLAYBOOK LIST
            ===================================================== */
         .playbook-list { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -416,7 +524,7 @@
                     <div class="anim" style="display:flex;flex-direction:column;gap:clamp(1rem,3vh,2rem);">
                         <div style="display:flex;align-items:center;gap:1rem;">
                             <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">01</span>
-                            <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Solo Founder Journey</span>
+                            <span style="font-size:clamp(1rem,2.2vw,1.5rem);font-weight:500;">My Founder Journey</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:1rem;">
                             <span style="color:var(--accent);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);line-height:1;">02</span>
@@ -841,7 +949,7 @@
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
-            <h2 class="slide-title slide-title--ruled anim">The Main Pitfall of Solo Founding</h2>
+            <h2 class="slide-title slide-title--ruled anim">The Main Pitfalls of Solo Founding</h2>
             <div class="slide-body">
                 <div class="slide-2col">
                     <div class="flex-col">
@@ -852,7 +960,6 @@
                             <li class="anim" style="margin-bottom:clamp(0.8rem,2.5vh,1.8rem);">No external feedback</li>
                             <li class="anim">No deadlines</li>
                         </ul>
-                        <div class="highlight-box anim">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone. Surround yourself with people in the same stage as you.</div>
                     </div>
                     <div class="anim img-cell">
                         <img
@@ -893,6 +1000,7 @@
                 >
             </div>
         </div>
+        <div class="highlight-box anim" style="max-width:min(90vw,820px);">Being a solo founder does <strong style="color:var(--text);">NOT</strong> mean being alone.</div>
 
         <aside class="notes">
             Solo founding can be isolating — so I built the community I wished existed.
@@ -906,7 +1014,22 @@
 
 
     <!-- ══════════════════════════════════
-         15 / 19 — WHAT I LEARNED
+         15 / 19 — SECTION: MY RAMP UP CHEAT SHEET
+         ══════════════════════════════════ -->
+    <section class="section-break">
+        <div class="slide-content slide-content--center">
+            <div class="section-break-rule anim"></div>
+            <h1 class="anim" style="max-width:min(90vw,860px);margin-top:clamp(0.75rem,2vw,1.5rem);">
+                My Ramp Up<br><span class="accent">Cheat Sheet</span>
+            </h1>
+            <div class="section-break-rule anim" style="margin-top:clamp(0.75rem,2vw,1.5rem);"></div>
+        </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         16 / 19 — WHAT I LEARNED
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
@@ -940,21 +1063,6 @@
             Speed compounds. Distribution is a strategy, not an afterthought.
             AI doesn't replace the founder — it amplifies whoever moves fastest.
         </aside>
-    </section>
-
-
-    <!-- ══════════════════════════════════
-         16 / 19 — SECTION: MY RAMP UP CHEAT SHEET
-         ══════════════════════════════════ -->
-    <section class="section-break">
-        <div class="slide-content slide-content--center">
-            <div class="section-break-rule anim"></div>
-            <h1 class="anim" style="max-width:min(90vw,860px);margin-top:clamp(0.75rem,2vw,1.5rem);">
-                My Ramp Up<br><span class="accent">Cheat Sheet</span>
-            </h1>
-            <div class="section-break-rule anim" style="margin-top:clamp(0.75rem,2vw,1.5rem);"></div>
-        </div>
-
     </section>
 
 
@@ -1071,7 +1179,62 @@
 
 
     <!-- ══════════════════════════════════
-         19 / 19 — THANK YOU
+         19 / 20 — GTM
+         ══════════════════════════════════ -->
+    <section class="gtm-slide">
+        <div class="slide-content">
+            <h2 class="slide-title slide-title--ruled anim">GTM Ramp Up</h2>
+            <div class="slide-body">
+                <div class="gtm-layout">
+                    <div class="gtm-copy anim">
+                        <p class="gtm-thesis">
+                            Distribution compounds only if you start before launch.
+                        </p>
+                        <div class="gtm-steps">
+                            <div class="gtm-step">
+                                <span class="gtm-step-number">01</span>
+                                <div>
+                                    <div class="gtm-step-title">Build your community from day 1</div>
+                                    <div class="gtm-step-route">LinkedIn / Facebook groups &rarr; WhatsApp / Discord</div>
+                                </div>
+                            </div>
+                            <div class="gtm-step">
+                                <span class="gtm-step-number">02</span>
+                                <div>
+                                    <div class="gtm-step-title">Gather reputation from ommunity creates feedback, reputation creates trust, lau 0</div>
+                                    <div class="gtm-step-route">Reddit and X</div>
+                                </div>
+                            </div>
+                            <div class="gtm-step gtm-step--verified">
+                                <span class="gtm-step-number">03</span>
+                                <div>
+                                    <div class="gtm-step-title">Use launchpads when you are ready</div>
+                                    <div class="gtm-step-route">Product Hunt, Peerpush, Uneed, TinyLaunch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gtm-proof anim">
+                        <img
+                            src="public/GTM-rampup.png"
+                            alt="GTM ramp up diagram"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="notes">
+            The GTM path is community, reputation, then launch.
+            Start locally to get core users. Build reputation in public places like Reddit and X.
+            Launchpads can amplify the work, but only if you show up prepared with a community and advice from founders who have already launched.
+        </aside>
+    </section>
+
+
+    <!-- ══════════════════════════════════
+         20 / 20 — THANK YOU
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content slide-content--center">
