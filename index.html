@@ -519,32 +519,77 @@
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">My Founder Journey</h2>
             <div class="slide-body">
-                <div class="anim" style="display:flex;flex-direction:column;">
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">01</span>
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">💥 Startup shut down</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Everything we built, gone</span>
+                <div style="display:flex;flex-direction:column;gap:0;max-width:min(660px,100%);">
+
+                    <!-- 01 -->
+                    <div class="anim" style="display:grid;grid-template-columns:clamp(1.8rem,2.6vw,2.4rem) clamp(14px,1.6vw,20px) 1fr;gap:0 clamp(0.55rem,1.1vw,0.9rem);align-items:stretch;">
+                        <span style="font-size:var(--small-size);font-weight:700;color:var(--accent);letter-spacing:0.08em;text-align:right;padding-top:clamp(0.45rem,1vw,0.75rem);">01</span>
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:clamp(8px,1vw,11px);height:clamp(8px,1vw,11px);border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:clamp(0.5rem,1.1vw,0.8rem);box-shadow:0 0 0 3px rgba(66,175,250,0.2);"></div>
+                            <div style="width:2px;flex:1;min-height:clamp(0.9rem,2.2vw,1.6rem);background:linear-gradient(to bottom,rgba(66,175,250,0.35),rgba(66,175,250,0.04));margin-top:4px;"></div>
+                        </div>
+                        <div style="padding:clamp(0.3rem,0.7vw,0.55rem) 0 clamp(0.5rem,1.1vw,0.85rem);">
+                            <span style="display:block;font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--accent);opacity:0.65;margin-bottom:0.2em;">Setback</span>
+                            <span style="display:block;font-weight:700;font-size:clamp(0.85rem,1.65vw,1.1rem);color:var(--text);line-height:1.25;">Startup shut down</span>
+                            <span style="display:block;font-size:var(--small-size);color:var(--text-muted);line-height:1.45;margin-top:0.2em;">Everything we built, gone. The assumptions we'd built on crumbled overnight.</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">02</span>
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🏖️ Honeymoon reset</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Deliberate pause, came back with a clearer head</span>
+
+                    <!-- 02 -->
+                    <div class="anim" style="display:grid;grid-template-columns:clamp(1.8rem,2.6vw,2.4rem) clamp(14px,1.6vw,20px) 1fr;gap:0 clamp(0.55rem,1.1vw,0.9rem);align-items:stretch;">
+                        <span style="font-size:var(--small-size);font-weight:700;color:var(--accent);letter-spacing:0.08em;text-align:right;padding-top:clamp(0.45rem,1vw,0.75rem);">02</span>
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:clamp(8px,1vw,11px);height:clamp(8px,1vw,11px);border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:clamp(0.5rem,1.1vw,0.8rem);box-shadow:0 0 0 3px rgba(66,175,250,0.2);"></div>
+                            <div style="width:2px;flex:1;min-height:clamp(0.9rem,2.2vw,1.6rem);background:linear-gradient(to bottom,rgba(66,175,250,0.35),rgba(66,175,250,0.04));margin-top:4px;"></div>
+                        </div>
+                        <div style="padding:clamp(0.3rem,0.7vw,0.55rem) 0 clamp(0.5rem,1.1vw,0.85rem);">
+                            <span style="display:block;font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--accent);opacity:0.65;margin-bottom:0.2em;">Reset</span>
+                            <span style="display:block;font-weight:700;font-size:clamp(0.85rem,1.65vw,1.1rem);color:var(--text);line-height:1.25;">Honeymoon reset</span>
+                            <span style="display:block;font-size:var(--small-size);color:var(--text-muted);line-height:1.45;margin-top:0.2em;">Deliberate pause. Came back with a cleaner perspective on what to build next.</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">03</span>
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">⚡ Back to building</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— AI agents, workflows, frameworks</span>
+
+                    <!-- 03 -->
+                    <div class="anim" style="display:grid;grid-template-columns:clamp(1.8rem,2.6vw,2.4rem) clamp(14px,1.6vw,20px) 1fr;gap:0 clamp(0.55rem,1.1vw,0.9rem);align-items:stretch;">
+                        <span style="font-size:var(--small-size);font-weight:700;color:var(--accent);letter-spacing:0.08em;text-align:right;padding-top:clamp(0.45rem,1vw,0.75rem);">03</span>
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:clamp(8px,1vw,11px);height:clamp(8px,1vw,11px);border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:clamp(0.5rem,1.1vw,0.8rem);box-shadow:0 0 0 3px rgba(66,175,250,0.2);"></div>
+                            <div style="width:2px;flex:1;min-height:clamp(0.9rem,2.2vw,1.6rem);background:linear-gradient(to bottom,rgba(66,175,250,0.35),rgba(66,175,250,0.04));margin-top:4px;"></div>
+                        </div>
+                        <div style="padding:clamp(0.3rem,0.7vw,0.55rem) 0 clamp(0.5rem,1.1vw,0.85rem);">
+                            <span style="display:block;font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--accent);opacity:0.65;margin-bottom:0.2em;">Explore</span>
+                            <span style="display:block;font-weight:700;font-size:clamp(0.85rem,1.65vw,1.1rem);color:var(--text);line-height:1.25;">Back to building</span>
+                            <span style="display:block;font-size:var(--small-size);color:var(--text-muted);line-height:1.45;margin-top:0.2em;">Deep dive into AI agents, workflows, and automation frameworks.</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;border-bottom:1px solid var(--border);">
-                        <span style="font-size:var(--small-size);color:var(--accent);font-weight:700;min-width:1.4em;flex-shrink:0;">04</span>
-                        <span style="font-weight:700;color:var(--accent);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🔍 Realized the gap</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Red ocean for tech tools, zero non-tech adoption</span>
+
+                    <!-- 04 -->
+                    <div class="anim" style="display:grid;grid-template-columns:clamp(1.8rem,2.6vw,2.4rem) clamp(14px,1.6vw,20px) 1fr;gap:0 clamp(0.55rem,1.1vw,0.9rem);align-items:stretch;">
+                        <span style="font-size:var(--small-size);font-weight:700;color:var(--accent);letter-spacing:0.08em;text-align:right;padding-top:clamp(0.45rem,1vw,0.75rem);">04</span>
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="width:clamp(8px,1vw,11px);height:clamp(8px,1vw,11px);border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:clamp(0.5rem,1.1vw,0.8rem);box-shadow:0 0 0 3px rgba(66,175,250,0.2);"></div>
+                            <div style="width:2px;flex:1;min-height:clamp(0.9rem,2.2vw,1.6rem);background:linear-gradient(to bottom,rgba(66,175,250,0.35),rgba(42,161,152,0.15));margin-top:4px;"></div>
+                        </div>
+                        <div style="padding:clamp(0.3rem,0.7vw,0.55rem) 0 clamp(0.5rem,1.1vw,0.85rem);">
+                            <span style="display:block;font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--accent);opacity:0.65;margin-bottom:0.2em;">Insight</span>
+                            <span style="display:block;font-weight:700;font-size:clamp(0.85rem,1.65vw,1.1rem);color:var(--text);line-height:1.25;">Realized the gap</span>
+                            <span style="display:block;font-size:var(--small-size);color:var(--text-muted);line-height:1.45;margin-top:0.2em;">Red ocean for tech tools — zero non-tech adoption of AI. The real opportunity was elsewhere.</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:center;gap:0.6rem;padding:clamp(0.45rem,1.1vw,0.8rem) 0;">
-                        <span style="font-size:var(--small-size);color:var(--teal);font-weight:700;min-width:1.4em;flex-shrink:0;">05</span>
-                        <span style="font-weight:700;color:var(--teal);font-size:clamp(1rem,2.2vw,1.4rem);flex-shrink:0;">🚀 dopamine.chat</span>
-                        <span style="font-size:var(--small-size);color:var(--text-muted);">— Text → agent platform</span>
+
+                    <!-- 05 — NOW / DESTINATION -->
+                    <div class="anim" style="display:grid;grid-template-columns:clamp(1.8rem,2.6vw,2.4rem) clamp(14px,1.6vw,20px) 1fr;gap:0 clamp(0.55rem,1.1vw,0.9rem);align-items:center;">
+                        <span style="font-size:var(--small-size);font-weight:700;color:var(--teal);letter-spacing:0.08em;text-align:right;">05</span>
+                        <div style="display:flex;justify-content:center;">
+                            <div style="width:clamp(10px,1.2vw,14px);height:clamp(10px,1.2vw,14px);border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 4px rgba(42,161,152,0.25);"></div>
+                        </div>
+                        <div style="background:rgba(42,161,152,0.08);border:1px solid rgba(42,161,152,0.3);border-radius:6px;padding:clamp(0.4rem,0.9vw,0.7rem) clamp(0.65rem,1.3vw,1rem);">
+                            <span style="display:block;font-size:var(--small-size);text-transform:uppercase;letter-spacing:0.12em;font-weight:500;color:var(--teal);margin-bottom:0.2em;">Now</span>
+                            <span style="display:block;font-weight:700;font-size:clamp(0.85rem,1.65vw,1.1rem);color:var(--teal);line-height:1.25;">dopamine.chat</span>
+                            <span style="display:block;font-size:var(--small-size);color:var(--teal);opacity:0.75;line-height:1.45;margin-top:0.2em;">Text → agent platform. AI workflows for non-technical users.</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -620,79 +665,19 @@
 
 
     <!-- ══════════════════════════════════
-         07 / 19 — WHY THE SOLO FOUNDER IS BACK
-         ══════════════════════════════════ -->
-    <section>
-        <div class="slide-content">
-            <h2 class="slide-title slide-title--ruled anim">Why the Solo Founder is Back</h2>
-            <div class="slide-body">
-                <div class="slide-2col">
-                    <div class="anim flex-col">
-                        <div class="split-columns" style="grid-template-columns:1fr 1fr;">
-                            <div class="split-col before">
-                                <div class="split-col-label">⏮ Before AI</div>
-                                <ul class="bullets">
-                                    <li>Needed a team early</li>
-                                    <li>Expensive engineering</li>
-                                    <li>Slow iteration</li>
-                                </ul>
-                            </div>
-                            <div class="split-col after">
-                                <div class="split-col-label">✨ Now</div>
-                                <ul class="bullets">
-                                    <li>AI writes large portions of code</li>
-                                    <li>Cheap infrastructure</li>
-                                    <li>Automation replaces early hires</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="highlight-box">
-                            1 person can now build what used to require 5–10 people.
-                        </div>
-                    </div>
-                    <div class="anim img-cell">
-                        <img
-                            src="public/Solo-Founder-is-Back.jpg"
-                            alt="The Shepherd's Journey: The Solo Founder Reborn"
-                            loading="lazy"
-                            style="max-height:min(55vh,450px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.4);"
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <aside class="notes">
-            The key insight: AI has fundamentally changed the economics of starting a company alone.
-            The cost of building has collapsed. Speed has become the only moat.
-        </aside>
-    </section>
-
-
-    <!-- ══════════════════════════════════
-         08 / 19 — SOLO FOUNDERS ARE MAINSTREAM
+         07 / 19 — SOLO FOUNDERS ARE MAINSTREAM
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founding Is Mainstream</h2>
-            <div class="slide-body" style="padding-top:clamp(0.6rem,1.5vw,1.1rem);">
-                <div class="slide-2col anim" style="align-items:center;grid-template-columns:0.9fr 1.1fr;">
-                    <div class="flex-col" style="gap:clamp(0.9rem,2vw,1.35rem);justify-content:center;min-height:min(40vh,340px);">
-                        <div class="highlight-box" style="font-size:clamp(1.05rem,2.6vw,1.7rem);line-height:1.2;">
-                            1 in 3 new startups are founded by solo founders
-                        </div>
-                        <div class="vision-quote" style="max-width:20rem;">
-                            The old “you need a co-founder first” rule is fading fast.
-                        </div>
-                    </div>
-                    <div class="anim img-cell" style="justify-content:center;align-items:center;">
-                        <img
-                            src="public/solo-founders-carta.png"
-                            alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
-                            loading="lazy"
-                            style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
-                        >
-                    </div>
+            <div class="slide-body" style="align-items:center;">
+                <div class="anim img-panel" style="align-items:center;">
+                    <img
+                        src="public/solo-founders-carta.png"
+                        alt="Carta chart showing solo-founded companies rising from 2019 to H1 2025"
+                        loading="lazy"
+                        style="max-height:min(66vh,620px);max-width:min(90vw,900px);width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                    >
                 </div>
             </div>
         </div>
@@ -705,29 +690,19 @@
 
 
     <!-- ══════════════════════════════════
-         09 / 19 — CAPITAL
+         08 / 19 — CAPITAL
          ══════════════════════════════════ -->
     <section>
         <div class="slide-content">
             <h2 class="slide-title slide-title--ruled anim">Solo Founders Are Raising Real Capital</h2>
-            <div class="slide-body" style="padding-top:clamp(0.6rem,1.5vw,1.1rem);">
-                <div class="slide-2col anim" style="align-items:center;grid-template-columns:0.9fr 1.1fr;">
-                    <div class="flex-col" style="gap:clamp(0.85rem,1.8vw,1.2rem);justify-content:center;min-height:min(40vh,340px);">
-                        <div class="highlight-box" style="font-size:clamp(1.02rem,2.45vw,1.65rem);line-height:1.18;">
-                            Solo-founded companies raise billions every year
-                        </div>
-                        <div class="vision-quote" style="max-width:20rem;">
-                            The funding gap is shrinking as solo founding becomes normal.
-                        </div>
-                    </div>
-                    <div class="img-cell anim" style="justify-content:center;align-items:center;">
-                        <img
-                            src="public/solo-founders-raising-capital.png"
-                            alt="Solo founders raising capital over time"
-                            loading="lazy"
-                            style="max-height:min(48vh,400px);max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
-                        >
-                    </div>
+            <div class="slide-body" style="align-items:center;">
+                <div class="anim img-panel" style="align-items:center;">
+                    <img
+                        src="public/solo-founders-raising-capital.png"
+                        alt="Solo founders raising capital over time"
+                        loading="lazy"
+                        style="max-height:min(66vh,620px);max-width:min(90vw,900px);width:auto;height:auto;object-fit:contain;border-radius:10px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.18);background:#f8f4e9;"
+                    >
                 </div>
             </div>
         </div>
