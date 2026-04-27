@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-26T00:00:00Z",
+  "title": "Design System: The Solo Founder Playbook in the AI Era",
+  "extensions": {
+    "colorMeta": {
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "oklch(68% 0.17 225)",
+        "tonalRamp": ["#0d1a26", "#12263a", "#16344f", "#1a4568", "#205a87", "#2a7ab0", "#42affa", "#85ccf8", "#c5e8fc"]
+      },
+      "pipeline-teal": {
+        "role": "secondary",
+        "displayName": "Pipeline Teal",
+        "canonical": "oklch(60% 0.13 196)",
+        "tonalRamp": ["#071817", "#0c2422", "#12312e", "#193f3c", "#215250", "#2a6764", "#2aa198", "#52b9b5", "#9ad5d2"]
+      },
+      "slide-bg": {
+        "role": "neutral",
+        "displayName": "Slide Background",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": ["#d0d0d0", "#dadada", "#e4e4e4", "#ebebeb", "#f2f2f2", "#f6f6f6", "#f9f9f9", "#fcfcfc", "#ffffff"]
+      },
+      "body-text": {
+        "role": "neutral",
+        "displayName": "Body Text",
+        "canonical": "oklch(18% 0.002 0)",
+        "tonalRamp": ["#111111", "#222222", "#333333", "#4a4a4a", "#666666", "#888888", "#aaaaaa", "#cccccc", "#eeeeee"]
+      },
+      "terminal-surface": {
+        "role": "neutral",
+        "displayName": "Terminal Surface",
+        "canonical": "oklch(14% 0.002 0)",
+        "tonalRamp": ["#0a0a0a", "#0f0f0f", "#141414", "#1a1a1a", "#1e1e1e", "#222222", "#272727", "#2c2c2c", "#333333"]
+      }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Title slide hero heading only. Max impact at projection scale." },
+      "headline": { "displayName": "Headline", "purpose": "Per-slide section title (.slide-title). Followed by a 2px Signal Blue rule." },
+      "body":     { "displayName": "Body",     "purpose": "Bullet list items, card copy, general reading content." },
+      "label":    { "displayName": "Label",    "purpose": "Slide numbers, category tags, card category labels. Always uppercase." },
+      "mono":     { "displayName": "Mono",     "purpose": "Terminal block only. Semantic, not stylistic." }
+    },
+    "shadows": [
+      {
+        "name": "image-lift",
+        "value": "0 4px 24px rgba(0,0,0,0.4)",
+        "purpose": "Applied to all photographic images. Lifts them off the dark substrate. The only shadow in the system — do not apply to UI components."
+      },
+      {
+        "name": "timeline-glow",
+        "value": "0 0 0 3px rgba(66,175,250,0.2)",
+        "purpose": "Inset glow ring on zigzag timeline dots. Accent aura, not elevation."
+      },
+      {
+        "name": "timeline-glow-teal",
+        "value": "0 0 0 4px rgba(42,161,152,0.25)",
+        "purpose": "Larger glow ring on the final/destination timeline dot (teal variant)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for all entrance animations. Exponential out — fast initial movement, long tail settle. No bounce, no elastic."
+      },
+      {
+        "name": "stagger-base",
+        "value": "0.1s",
+        "purpose": "Base stagger delay between .anim children on slide entrance. Applied as nth-child increments (0.05s, 0.15s, 0.25s...)."
+      },
+      {
+        "name": "duration-entrance",
+        "value": "0.6s",
+        "purpose": "Duration for opacity + translateY entrance transitions."
+      },
+      {
+        "name": "duration-hover",
+        "value": "0.25s",
+        "purpose": "Duration for hover state transitions (border-color changes on stack cards)."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile",      "value": "600px",  "behavior": "Split columns stack to single column; stack grid becomes 2 columns" },
+      { "name": "short-tall",  "value": "700px",  "behavior": "Vertical: reduced --slide-padding, --content-gap, and display font size" },
+      { "name": "very-short",  "value": "600px",  "behavior": "Vertical: further reduced padding and body font size" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Highlight Box — Blue",
+      "kind": "card",
+      "refersTo": "highlight-box",
+      "description": "Primary callout for key insights. Signal Blue tint. One per slide maximum.",
+      "html": "<div class=\"ds-highlight-box\">1 person can now build what used to require 5&ndash;10 people.</div>",
+      "css": ".ds-highlight-box { background: rgba(66,175,250,0.08); border: 1px solid rgba(66,175,250,0.25); border-radius: 6px; padding: 0.75rem 1.25rem; font-size: 1rem; font-weight: 600; line-height: 1.35; color: #e0e0e0; font-family: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif; }"
+    },
+    {
+      "name": "Highlight Box — Teal",
+      "kind": "card",
+      "refersTo": "highlight-box-teal",
+      "description": "Callout for verified/complete states. Pipeline Teal tint and text.",
+      "html": "<div class=\"ds-highlight-box-teal\">Base44 For Agents</div>",
+      "css": ".ds-highlight-box-teal { background: rgba(42,161,152,0.08); border: 1px solid rgba(42,161,152,0.30); border-radius: 6px; padding: 0.75rem 1.25rem; font-size: 1rem; font-weight: 600; line-height: 1.35; color: #2aa198; font-family: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif; }"
+    },
+    {
+      "name": "Stack Card",
+      "kind": "card",
+      "refersTo": "stack-card",
+      "description": "Tool/tech grid card. Barely-there tint, hover brightens border to Signal Blue.",
+      "html": "<div class=\"ds-stack-card\"><div class=\"ds-stack-cat\">Product Analytics</div><div class=\"ds-stack-tool\">PostHog</div><div class=\"ds-stack-sub\">replaces a data analyst</div></div>",
+      "css": ".ds-stack-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 1rem; transition: border-color 0.25s ease; cursor: default; font-family: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif; } .ds-stack-card:hover { border-color: rgba(66,175,250,0.40); } .ds-stack-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.55; margin-bottom: 0.35em; color: #e0e0e0; } .ds-stack-tool { font-size: 1.1rem; font-weight: 700; color: #42affa; } .ds-stack-sub { font-size: 0.7rem; opacity: 0.45; margin-top: 0.3em; color: #e0e0e0; }"
+    },
+    {
+      "name": "Accent Tag",
+      "kind": "chip",
+      "refersTo": "accent-tag",
+      "description": "Inline event/series badge. Title slide only. Transparent background, Signal Blue border.",
+      "html": "<span class=\"ds-accent-tag\">Solo Founder Series</span>",
+      "css": ".ds-accent-tag { display: inline-block; border: 1px solid rgba(66,175,250,0.4); color: #42affa; font-size: 0.7rem; padding: 0.3em 0.9em; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; font-family: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif; }"
+    },
+    {
+      "name": "Terminal Block",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Agent/CLI output block. Dark surface (#1e1e1e), monospace, macOS window chrome. Represents real output — not decorative.",
+      "html": "<div class=\"ds-terminal\"><div class=\"ds-term-bar\"><div class=\"ds-term-btn\" style=\"background:#ff5f57\"></div><div class=\"ds-term-btn\" style=\"background:#febc2e\"></div><div class=\"ds-term-btn\" style=\"background:#28c840\"></div></div><div><span class=\"ds-term-prompt\">agent</span><span class=\"ds-term-sep\"> › </span><span class=\"ds-term-cmd\">&ldquo;Create dashboards for product usage.&rdquo;</span></div><div class=\"ds-term-comment\">// Calling PostHog MCP tool...</div><div class=\"ds-term-out\">&check; Dashboard: Daily Active Users created</div><div class=\"ds-term-comment\">// Done in 47 seconds</div></div>",
+      "css": ".ds-terminal { background: #1e1e1e; border: 1px solid rgba(255,255,255,0.10); border-radius: 10px; padding: 1rem 1.25rem; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 0.85rem; line-height: 1.7; color: #e0e0e0; } .ds-term-bar { display: flex; gap: 6px; margin-bottom: 0.7em; padding-bottom: 0.7em; border-bottom: 1px solid rgba(255,255,255,0.08); } .ds-term-btn { width: 10px; height: 10px; border-radius: 50%; } .ds-term-prompt { color: #2aa198; } .ds-term-sep { color: rgba(255,255,255,0.4); } .ds-term-cmd { color: #e0e0e0; } .ds-term-comment { color: #6a737d; } .ds-term-out { color: #4ec9b0; }"
+    },
+    {
+      "name": "Slide Chrome",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "The structural header/footer bars framing every slide. Deliberately quiet — never competes with slide content.",
+      "html": "<div class=\"ds-slide-chrome\"><div class=\"ds-slide-header\"><span class=\"ds-slide-num\">07 / 14</span><span class=\"ds-slide-tag\">The Playbook</span></div><div class=\"ds-slide-content\"><!-- slide content --></div><div class=\"ds-slide-footer\"><span class=\"ds-footer-text\">Ron Zaidman</span><span class=\"ds-footer-text\">AI Israel Club</span></div></div>",
+      "css": ".ds-slide-chrome { display: flex; flex-direction: column; height: 100vh; background: #111111; font-family: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif; } .ds-slide-header, .ds-slide-footer { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 2.5rem; flex-shrink: 0; } .ds-slide-header { border-bottom: 1px solid rgba(255,255,255,0.12); } .ds-slide-footer { border-top: 1px solid rgba(255,255,255,0.12); } .ds-slide-content { flex: 1; padding: 2.5rem; } .ds-slide-num { font-size: 0.7rem; opacity: 0.45; letter-spacing: 0.14em; color: #e0e0e0; } .ds-slide-tag { font-size: 0.7rem; color: #42affa; letter-spacing: 0.12em; text-transform: uppercase; } .ds-footer-text { font-size: 0.7rem; opacity: 0.45; color: #e0e0e0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Builder's Stage",
+    "overview": "This is a stage built by someone who builds things, for an audience of people who build things. The design earns trust through precision and restraint — not decoration. Every typographic decision, every color application, every spacing choice is functional. There is no scaffolding to hide behind. The slides hold up under a developer's gaze because they were made with a developer's eye.\n\nThe clean white canvas is a neutral container that refuses to compete with the content. The two accent colors carry all the expressive work: Signal Blue is active and forward-moving (connections, data, the new thing), Pipeline Teal is confirmed and complete (the validated state, the lesson learned, the destination reached). Neither is used casually. The one place the system goes dark is the terminal block — a deliberate surface shift that signals 'this is real output from a real agent.'\n\nThis system explicitly rejects the aesthetic of its own anti-reference: generic AI-generated slide decks. No gradient text. No hero-metric number cards with glowing accents. No glassmorphism panels. No identical icon-heading-text card grids. No flat gradient backgrounds. The test is simple: if someone could guess the template from the category name alone, it has failed.",
+    "keyCharacteristics": [
+      "White canvas, two purposeful accent colors, dark body text",
+      "Flat by default; borders and tints define surfaces, not shadows",
+      "Fluid type scale via clamp() — legible from 1080p to a phone without breakpoint hacks",
+      "Staggered entrance animations on slide load, expo-out easing only",
+      "Content-first layout: slide chrome is deliberately quiet so content dominates",
+      "Monospace code blocks as a visual affordance — the terminal is a first-class component"
+    ],
+    "rules": [
+      { "name": "The Two Voices Rule", "body": "Signal Blue and Pipeline Teal are never used interchangeably. Blue is active, forward. Teal is verified, complete. A before/after split always puts blue on the before side and teal on the after side.", "section": "colors" },
+      { "name": "The Opacity Doctrine", "body": "Surface tints use opacity — never a pre-mixed flat color. rgba(66,175,250,0.08) reads differently across dark substrates; that variation is intentional and alive.", "section": "colors" },
+      { "name": "The One Typeface Rule", "body": "The entire presentation uses one typeface family (Source Sans Pro). Visual hierarchy is achieved through weight and size contrast alone. The monospace exception is semantic, not decorative.", "section": "typography" },
+      { "name": "The No-Gradient-Text Rule", "body": "Type is rendered in solid colors only. background-clip: text with a gradient is prohibited. Emphasis via weight, color, or size — never gradient overlays.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "UI elements are flat at rest. Depth is communicated through border opacity and background tints. Shadows belong on images only.", "section": "elevation" },
+      { "name": "The Image Exception", "body": "box-shadow: 0 4px 24px rgba(0,0,0,0.4) is reserved for photographic images only. It is structural, not decorative.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the slide background white (Reveal.js simple theme default). The white canvas is a neutral container — not a design choice to revisit per slide.",
+      "Do use Signal Blue (#42affa) for active/forward-moving elements and Pipeline Teal (#2aa198) for verified/complete states.",
+      "Do use clamp() for every font size and spacing value.",
+      "Do animate with opacity + transform: translateY() only, eased with cubic-bezier(0.16, 1, 0.3, 1).",
+      "Do apply box-shadow: 0 4px 24px rgba(0,0,0,0.4) to all photographic images — the only shadow in the system.",
+      "Do keep prefers-reduced-motion overrides in any new CSS.",
+      "Do cap text content at one primary idea per slide."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text with a gradient). Absolute ban.",
+      "Don't use glassmorphism panels — backdrop-filter: blur() on card-like surfaces.",
+      "Don't create identical icon-heading-text card grids.",
+      "Don't use hero-metric number cards (big number, small label, gradient accent).",
+      "Don't add box-shadow to UI components. Shadows belong on images only.",
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe on cards or list items.",
+      "Don't mix the two accent colors randomly. Blue is active; teal is complete.",
+      "Don't animate CSS layout properties (width, height, padding, grid-template-columns).",
+      "Don't produce any slide that looks like it was assembled from a Canva template."
+    ]
+  }
+}
